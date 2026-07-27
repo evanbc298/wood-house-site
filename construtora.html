@@ -562,6 +562,14 @@
       box-shadow: 0 4px 20px rgba(92,26,0,0.08);
       border-color: var(--gold);
     }
+    .step-img {
+      width: 68px; height: 68px; border-radius: 50%;
+      background-size: cover; background-position: center;
+      border: 2px solid var(--gold);
+      margin-bottom: 18px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-img svg { width: 28px; height: 28px; stroke: var(--gold2); }
     .step-num {
       font-family: 'Poppins', sans-serif;
       font-size: 11px; font-weight: 700;
@@ -1462,26 +1470,33 @@
     </div>
     <div class="steps">
       <div class="step">
+        <div class="step-img" style="background:rgba(205,169,108,0.12);">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>
+        </div>
         <div class="step-num">01</div>
         <h3>Seu terreno,<br>seu projeto</h3>
         <p>Visitamos o terreno e desenvolvemos um projeto autoral pensado para o local, a família e o estilo de vida.</p>
       </div>
       <div class="step">
+        <div class="step-img" style="background-image:url('assets/obra-equipe.jpg');" role="img" aria-label="Madeira nobre selecionada chegando na obra"></div>
         <div class="step-num">02</div>
         <h3>Madeira nobre<br>selecionada</h3>
         <p>Selecionamos e entregamos em obra a madeira nobre. Sem terceiros, sem commodity — material de qualidade comprovada.</p>
       </div>
       <div class="step">
+        <div class="step-img" style="background-image:url('assets/equipe-obra.jpg');" role="img" aria-label="Equipe Wood House montando estrutura e fechamento em madeira nobre"></div>
         <div class="step-num">03</div>
         <h3>Estrutura e<br>fechamento</h3>
         <p>Nossa equipe executa fundação, estrutura e revestimento. Controlamos cada fase da obra do início ao fim.</p>
       </div>
       <div class="step">
+        <div class="step-img" style="background-image:url('assets/obra-interior.jpg');" role="img" aria-label="Acabamento artesanal em andamento, interior em madeira nobre"></div>
         <div class="step-num">04</div>
         <h3>Acabamento<br>artesanal</h3>
         <p>Lareira, teto em madeira aparente, esquadrias, deck. Os detalhes que fazem a diferença entre uma obra e uma casa.</p>
       </div>
       <div class="step">
+        <div class="step-img" style="background-image:url('assets/vaticano-1.jpg');" role="img" aria-label="Modelo Vaticano entregue — casa de madeira nobre pronta"></div>
         <div class="step-num">05</div>
         <h3>Chave<br>na mão</h3>
         <p>Entrega completa. Você recebe a casa pronta para morar — do projeto à última demão de acabamento.</p>
