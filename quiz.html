@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wood House — Encontre seu projeto</title>
+<style>
+:root {
+  --bg:      #F7F5F2;
+  --surface: #FFFFFF;
+  --t1:      #1A1714;
+  --t2:      #6B6360;
+  --accent:  #B8874A;
+  --border:  #E4E0DA;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--t1); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; }
+
+/* ── Progress ── */
+#prog {
+  position:fixed; top:0; left:0; height:2px;
+  background:var(--accent); width:0%;
+  transition:width .55s cubic-bezier(.4,0,.2,1); z-index:200;
+}
+
+/* ── Logo bar ── */
+.logo-bar {
+  position:fixed; top:0; left:0; right:0; height:60px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--bg); border-bottom:1px solid var(--border);
+  z-index:100;
+}
+.logo-bar img { height:26px; }
+
+/* ── Steps ── */
+.step {
+  position:fixed; inset:0;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:80px 28px 100px;
+  opacity:0; pointer-events:none;
+  transform:translateY(20px);
+  transition:opacity .4s ease, transform .4s ease;
+  z-index:10; text-align:center;
+}
+.step.active   { opacity:1; transform:translateY(0); pointer-events:all; }
+.step.out      { opacity:0; transform:translateY(-12px); pointer-events:none; transition:opacity .3s ease, transform .3s ease; }
+
+/* ── Typography ── */
+.eyebrow {
+  font-size:10px; letter-spacing:5px; text-transform:uppercase;
+  color:var(--accent); margin-bottom:20px;
+}
+.heading {
+  font-family:Georgia,'Times New Roman',serif; font-weight:normal;
+  font-size:clamp(26px,5vw,50px); line-height:1.15;
+  color:var(--t1); text-wrap:balance; margin-bottom:40px; max-width:560px;
+}
+.sub {
+  font-size:15px; line-height:1.75; color:var(--t2);
+  max-width:380px; margin-bottom:44px;
+}
+
+/* ── Divider ── */
+.rule { width:28px; height:1px; background:var(--accent); margin:0 auto 28px; }
+
+/* ── Buttons ── */
+.btn-ghost {
+  background:transparent; border:1px solid var(--t1); color:var(--t1);
+  padding:15px 48px; font-size:11px; font-weight:600;
+  letter-spacing:4px; text-transform:uppercase; cursor:pointer;
+  transition:all .22s;
+}
+.btn-ghost:hover { background:var(--t1); color:var(--bg); }
+
+.btn-dark {
+  background:var(--t1); border:none; color:var(--bg);
+  padding:15px 36px; font-size:11px; font-weight:600;
+  letter-spacing:3px; text-transform:uppercase; cursor:pointer;
+  transition:background .22s; white-space:nowrap;
+}
+.btn-dark:hover { background:var(--accent); }
+
+/* ── Choice chips ── */
+.choices { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+
+.chip {
+  background:var(--surface); border:1px solid var(--border);
+  color:var(--t1); padding:15px 36px;
+  font-family:Georgia,serif; font-size:17px;
+  cursor:pointer; transition:all .2s; position:relative; overflow:hidden;
+}
+.chip::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+  background:var(--accent); transform:scaleX(0); transition:transform .2s;
+}
+.chip:hover, .chip.on { border-color:var(--accent); color:var(--accent); }
+.chip:hover::after, .chip.on::after { transform:scaleX(1); }
+
+.chip.row {
+  width:260px; text-align:left; display:flex;
+  justify-content:space-between; align-items:center;
+  padding:17px 22px; font-size:16px;
+}
+.chip.row .arr { font-size:13px; opacity:0; transform:translateX(-4px); transition:all .2s; }
+.chip.row:hover .arr { opacity:1; transform:translateX(0); }
+
+/* ── Gallery strip — slideshow ── */
+#gallery {
+  position:fixed; bottom:0; left:0; right:0;
+  height:clamp(190px,30vh,260px);
+  background:var(--t1); overflow:hidden;
+  z-index:50; transform:translateY(100%);
+  transition:transform .48s cubic-bezier(.4,0,.2,1);
+}
+#gallery.show { transform:translateY(0); }
+
+.gal-slide {
+  position:absolute; inset:0;
+  background-size:cover; background-position:center;
+  opacity:0; transition:opacity 1s ease;
+}
+.gal-slide.on { opacity:1; }
+
+.gal-overlay {
+  position:absolute; inset:0; z-index:2;
+  background:linear-gradient(to top, rgba(10,8,6,.65) 0%, rgba(10,8,6,.1) 55%, transparent 100%);
+  display:flex; align-items:flex-end; justify-content:space-between;
+  padding:18px 22px;
+}
+.gal-info { }
+.gal-proj-name { font-size:13px; font-weight:600; color:#fff; margin-bottom:3px; }
+.gal-proj-tag  { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,.55); }
+
+.gal-dots {
+  display:flex; gap:5px; position:absolute; top:12px; left:50%;
+  transform:translateX(-50%);
+}
+.gal-dot {
+  width:16px; height:2px; background:rgba(255,255,255,.3); transition:background .3s;
+}
+.gal-dot.on { background:rgba(255,255,255,.9); }
+
+/* ── Form ── */
+.form-wrap { display:flex; flex-direction:column; gap:22px; width:100%; max-width:340px; }
+.f-label { display:block; font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--t2); margin-bottom:8px; }
+.f-input {
+  width:100%; background:transparent; border:none;
+  border-bottom:1px solid var(--border); color:var(--t1);
+  padding:12px 0; font-size:16px; font-family:inherit;
+  outline:none; border-radius:0; -webkit-appearance:none;
+  transition:border-color .2s;
+}
+.f-input:focus { border-bottom-color:var(--accent); }
+.f-input::placeholder { color:var(--border); }
+
+/* ── Final ── */
+.final-box { display:flex; flex-direction:column; align-items:center; max-width:360px; width:100%; }
+.final-img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; margin-bottom:18px; }
+.final-name { font-family:Georgia,serif; font-size:22px; font-weight:normal; margin-bottom:5px; }
+.final-tag  { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); margin-bottom:28px; }
+
+.btn-wpp {
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  background:#25D366; color:#fff; text-decoration:none;
+  padding:17px 32px; font-size:11px; font-weight:700;
+  letter-spacing:3px; text-transform:uppercase;
+  transition:background .22s; width:100%;
+}
+.btn-wpp:hover { background:#1db954; }
+
+/* ── Mobile ── */
+@media(max-width:520px){
+  .chip { padding:13px 24px; font-size:16px; }
+  .chip.row { width:calc(100vw - 56px); max-width:300px; }
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<div class="logo-bar">
+  <img src="assets/logo-horizontal.png" alt="Wood House Construtora">
+</div>
+
+<!-- ── Step 0: Intro ── -->
+<div class="step active" id="s0">
+  <p class="eyebrow">Wood House · Construtora</p>
+  <h1 class="heading" style="font-size:clamp(30px,6vw,58px);">
+    Encontre o projeto<br>feito para você.
+  </h1>
+  <div class="rule"></div>
+  <p class="sub">Responda 4 perguntas rápidas e veja os projetos que combinam com o que você imagina.</p>
+  <button class="btn-ghost" onclick="go(1)">Começar</button>
+</div>
+
+<!-- ── Step 1: Dormitórios ── -->
+<div class="step" id="s1">
+  <p class="eyebrow">1 de 4</p>
+  <h2 class="heading">Quantos dormitórios<br>você imagina?</h2>
+  <div class="choices">
+    <button class="chip" id="d2" onclick="pickDorm(2)">2 dormitórios</button>
+    <button class="chip" id="d3" onclick="pickDorm(3)">3 dormitórios</button>
+    <button class="chip" id="d4" onclick="pickDorm(4)">4 ou mais</button>
+  </div>
+</div>
+
+<!-- ── Gallery strip ── -->
+<div id="gallery">
+  <div id="gal-slides"></div>
+  <div class="gal-dots" id="gal-dots"></div>
+  <div class="gal-overlay">
+    <div class="gal-info">
+      <div class="gal-proj-name" id="gal-pname"></div>
+      <div class="gal-proj-tag"  id="gal-ptag"></div>
+    </div>
+    <button class="btn-dark" onclick="go(2)">Continuar →</button>
+  </div>
+</div>
+
+<!-- ── Step 2: Terreno ── -->
+<div class="step" id="s2">
+  <p class="eyebrow">2 de 4</p>
+  <h2 class="heading">Você já tem<br>um terreno?</h2>
+  <div class="choices">
+    <button class="chip" onclick="sel('terreno','Sim, já tenho terreno');go(3)">Sim, já tenho</button>
+    <button class="chip" onclick="sel('terreno','Ainda não tenho terreno');go(3)">Ainda não tenho</button>
+  </div>
+</div>
+
+<!-- ── Step 3: Região ── -->
+<div class="step" id="s3">
+  <p class="eyebrow">3 de 4</p>
+  <h2 class="heading">Qual é a sua região?</h2>
+  <div class="choices">
+    <button class="chip" onclick="sel('regiao','Santa Catarina (SC)');go(4)">Santa Catarina</button>
+    <button class="chip" onclick="sel('regiao','Paraná (PR)');go(4)">Paraná</button>
+    <button class="chip" onclick="sel('regiao','Outra região');go(4)">Outra</button>
+  </div>
+</div>
+
+<!-- ── Step 4: Prazo ── -->
+<div class="step" id="s4">
+  <p class="eyebrow">4 de 4</p>
+  <h2 class="heading">Qual é o seu prazo<br>para construir?</h2>
+  <div class="choices" style="flex-direction:column;align-items:center;">
+    <button class="chip row" onclick="sel('prazo','Quero construir em breve');go(5)">
+      Quero construir em breve <span class="arr">→</span>
+    </button>
+    <button class="chip row" onclick="sel('prazo','Em aproximadamente 6 meses');go(5)">
+      Em aproximadamente 6 meses <span class="arr">→</span>
+    </button>
+    <button class="chip row" onclick="sel('prazo','Ainda estou pesquisando');go(5)">
+      Ainda estou pesquisando <span class="arr">→</span>
+    </button>
+  </div>
+</div>
+
+<!-- ── Step 5: Contato ── -->
+<div class="step" id="s5">
+  <p class="eyebrow">Quase lá</p>
+  <h2 class="heading" style="font-size:clamp(22px,4vw,38px);margin-bottom:28px;">
+    Para onde enviamos<br>seu portfólio?
+  </h2>
+  <div class="form-wrap">
+    <div>
+      <label class="f-label">Seu nome</label>
+      <input class="f-input" id="nome" type="text" placeholder="Nome completo" autocomplete="name">
+    </div>
+    <div>
+      <label class="f-label">WhatsApp</label>
+      <input class="f-input" id="fone" type="tel" placeholder="(47) 99999-9999" autocomplete="tel">
+    </div>
+    <button class="btn-dark" style="margin-top:6px;padding:17px 32px;width:100%;" onclick="finalizar()">
+      Ver meu projeto →
+    </button>
+  </div>
+</div>
+
+<!-- ── Step 6: Final ── -->
+<div class="step" id="s6">
+  <div class="final-box">
+    <p class="eyebrow">Selecionamos para você</p>
+    <img id="f-img" class="final-img" src="" alt="">
+    <p class="final-name" id="f-nome"></p>
+    <p class="final-tag"  id="f-tag"></p>
+    <a id="f-wpp" class="btn-wpp" href="#" target="_blank">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.529 5.843L.057 23.571a.5.5 0 0 0 .61.633l5.898-1.547A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.524-5.183-1.436l-.372-.22-3.862 1.013 1.03-3.752-.242-.387A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+      </svg>
+      Falar com especialista
+    </a>
+  </div>
+</div>
+
+<script>
+const WPP = '554797194337';
+const PROG = [0,20,40,60,80,95,100];
+
+const BEST = [
+  {nome:'Chalé A-Frame',   tag:'2 Dormitórios · Obra Entregue', img:'assets/hero-chale-noite.jpg'},
+  {nome:'Projeto Bruno',   tag:'3 Dormitórios · Obra Entregue', img:'assets/bruno-fachada.jpg'},
+  {nome:'Modelo Marrocos', tag:'4 Dormitórios · 136 m²',        img:'assets/proj-marrocos.png'},
+  {nome:'Modelo Viena',    tag:'2 Dormitórios · Obra Entregue', img:'assets/proj-viena.jpg'},
+  {nome:'Modelo Croácia',  tag:'4 Dormitórios',                 img:'assets/proj-croacia.png'},
+  {nome:'Modelo Santiago', tag:'3 Dormitórios',                 img:'assets/proj-santiago.jpg'},
+];
+
+const FINAL = {
+  2:{nome:'Chalé A-Frame',  tag:'2 Dormitórios · Obra Entregue', img:'assets/hero-chale-noite.jpg'},
+  3:{nome:'Projeto Bruno',  tag:'3 Dormitórios · Obra Entregue', img:'assets/bruno-fachada.jpg'},
+  4:{nome:'Modelo Marrocos',tag:'4 Dormitórios · 136 m²',       img:'assets/proj-marrocos.png'},
+};
+
+let state={dorm:null,terreno:null,regiao:null,prazo:null}, cur=0, galOn=false;
+let slideIdx=0, slideTimer=null;
+
+function go(n){
+  if(galOn && n>1) closeGal();
+  const p=document.getElementById('s'+cur);
+  p.classList.remove('active'); p.classList.add('out');
+  setTimeout(()=>p.classList.remove('out'),400);
+  setTimeout(()=>document.getElementById('s'+n).classList.add('active'),60);
+  cur=n;
+  document.getElementById('prog').style.width=PROG[n]+'%';
+}
+
+function sel(k,v){ state[k]=v; }
+
+function pickDorm(n){
+  state.dorm=n;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  document.getElementById('d'+n).classList.add('on');
+  openGal();
+}
+
+function openGal(){
+  const container=document.getElementById('gal-slides');
+  const dotsEl=document.getElementById('gal-dots');
+  container.innerHTML=''; dotsEl.innerHTML='';
+  BEST.forEach((p,i)=>{
+    const s=document.createElement('div');
+    s.className='gal-slide'+(i===0?' on':'');
+    s.style.backgroundImage=`url(${p.img})`;
+    container.appendChild(s);
+    const dot=document.createElement('div');
+    dot.className='gal-dot'+(i===0?' on':'');
+    dotsEl.appendChild(dot);
+  });
+  setSlideInfo(0);
+  document.getElementById('gallery').classList.add('show');
+  document.getElementById('s1').style.paddingBottom='clamp(200px,32vh,270px)';
+  galOn=true;
+  clearInterval(slideTimer);
+  slideIdx=0;
+  slideTimer=setInterval(advance,3800);
+}
+
+function advance(){
+  const slides=document.querySelectorAll('.gal-slide');
+  const dots=document.querySelectorAll('.gal-dot');
+  slides[slideIdx].classList.remove('on'); dots[slideIdx].classList.remove('on');
+  slideIdx=(slideIdx+1)%BEST.length;
+  slides[slideIdx].classList.add('on'); dots[slideIdx].classList.add('on');
+  setSlideInfo(slideIdx);
+}
+
+function setSlideInfo(i){
+  document.getElementById('gal-pname').textContent=BEST[i].nome;
+  document.getElementById('gal-ptag').textContent=BEST[i].tag;
+}
+
+function closeGal(){
+  clearInterval(slideTimer);
+  document.getElementById('gallery').classList.remove('show');
+  document.getElementById('s1').style.paddingBottom='';
+  galOn=false;
+}
+
+function finalizar(){
+  const nome=document.getElementById('nome').value.trim();
+  const fone=document.getElementById('fone').value.trim();
+  if(!nome||!fone){alert('Preencha seu nome e WhatsApp para continuar.');return;}
+  const p=FINAL[state.dorm]||FINAL[3];
+  document.getElementById('f-img').src=p.img;
+  document.getElementById('f-nome').textContent=p.nome;
+  document.getElementById('f-tag').textContent=p.tag;
+  const msg=`Olá! Me chamo ${nome} e vim pelo site da Wood House.\n\n`+
+    `Interesse: ${state.dorm}+ dormitórios\nRegião: ${state.regiao}\n`+
+    `Terreno: ${state.terreno}\nPrazo: ${state.prazo}\n\n`+
+    `Quero conhecer os projetos disponíveis!`;
+  document.getElementById('f-wpp').href=`https://wa.me/${WPP}?text=${encodeURIComponent(msg)}`;
+  go(6);
+}
+</script>
+</body>
+</html>
