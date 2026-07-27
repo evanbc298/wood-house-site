@@ -680,6 +680,13 @@
     .par-btn svg { transition: transform .25s; }
     .par-panel:hover .par-btn { gap: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.20); }
     .par-panel:hover .par-btn svg { transform: translateX(3px); }
+    .par-btn-outline {
+      background: transparent; color: #FFF5E3;
+      border: 1px solid rgba(255,245,227,0.55);
+      box-shadow: none;
+      text-decoration: none;
+    }
+    .par-btn-outline:hover { background: rgba(255,245,227,0.12); }
 
     @media (max-width: 768px) {
       #parceiros { grid-template-columns: 1fr; padding: 48px 20px; gap: 16px; }
@@ -1521,23 +1528,25 @@
     </a>
 
     <!-- Painel: Plano Direto -->
-    <a class="par-panel" href="https://wa.me/554797194337?text=Ol%C3%A1%2C+quero+conhecer+o+Plano+Direto+Wood+House+e+saber+como+funciona+o+parcelamento." target="_blank" rel="noopener" onclick="window.open('plano-direto-wh.pdf','_blank')">
+    <div class="par-panel" style="cursor:pointer" onclick="window.open('https://wa.me/554797194337?text=Ol%C3%A1%2C+quero+conhecer+o+Plano+Direto+Wood+House+e+saber+como+funciona+o+parcelamento.','_blank')">
       <img src="assets/plano-direto-bg.png" alt="Plano Direto WH">
       <div class="par-ov"></div>
       <div class="par-txt">
         <div class="par-tag">Financiamento próprio</div>
         <div class="par-h">Parcelar sua casa<br>direto com a gente.</div>
-        <div class="par-btn">
-          Conhecer o Plano Direto
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <div class="par-btn">
+            Conhecer o Plano Direto
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </div>
+          <a class="par-btn par-btn-outline" href="plano-direto-wh.pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+            Baixar PDF do Plano Direto
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v9M4.5 8L8 11.5 11.5 8M3 14h10"/></svg>
+          </a>
         </div>
       </div>
-    </a>
+    </div>
 
-  </div>
-
-  <div style="text-align:center; margin-top:16px;">
-    <a href="plano-direto-wh.pdf" target="_blank" rel="noopener" style="font-size:13px; color:var(--gold2); text-decoration:underline;">Ver o PDF completo do Plano Direto</a>
   </div>
 
   <!-- ═══ CTA FINAL ═══ -->
