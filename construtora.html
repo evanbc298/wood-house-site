@@ -755,6 +755,16 @@
     footer ul li { font-size: 14px; color: rgba(255,245,227,0.55); margin-bottom: 8px; }
     footer ul a { color: rgba(255,245,227,0.55); text-decoration: none; transition: color 0.2s; }
     footer ul a:hover { color: var(--gold); }
+    .footer-social { display: flex; gap: 10px; margin-top: 16px; }
+    .footer-social a {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,245,227,0.08);
+      color: rgba(255,245,227,0.75);
+      transition: background 0.2s, color 0.2s;
+    }
+    .footer-social a:hover { background: var(--gold); color: #1A0A02; }
+    .footer-social svg { width: 18px; height: 18px; }
     .footer-bottom {
       background: #2A1006;
       padding: 18px 80px;
@@ -1744,10 +1754,17 @@
       <h4>Contato</h4>
       <ul>
         <li><a href="https://wa.me/554797194337" target="_blank">(47) 99780-3188</a></li>
-        <li><a href="https://www.instagram.com/woodhouseconstrutora" target="_blank">@woodhouseconstrutora</a></li>
         <li>R. 902, 187 · Centro<br>Balneário Camboriú · SC<br>CEP 88330-594</li>
         <li style="margin-top:8px;">Seg–Sex · 8h às 19h</li>
       </ul>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/woodhouseconstrutora" target="_blank" rel="noopener" aria-label="Instagram Wood House">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61572517387209" target="_blank" rel="noopener" aria-label="Facebook Wood House">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.87v-6.99H7.9v-2.88h2.6V9.84c0-2.56 1.52-3.98 3.86-3.98 1.12 0 2.3.2 2.3.2v2.53h-1.3c-1.28 0-1.68.8-1.68 1.62v1.95h2.86l-.46 2.88h-2.4v6.99A10 10 0 0 0 22 12z"/></svg>
+        </a>
+      </div>
     </div>
   </footer>
   <div class="footer-bottom">© 2026 Wood House Construtora e Incorporadora. Todos os direitos reservados. &nbsp;·&nbsp; CNPJ 43.717.199/0001-86</div>
