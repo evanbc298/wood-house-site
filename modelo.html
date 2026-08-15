@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Modelos Wood House</title>
+<meta name="description" content="Conheça os modelos de casa em madeira nobre da Wood House Construtora e Incorporadora.">
+<style>
+:root{--bg:#FFF5E3;--s:#FFFDF8;--t1:#5C1A00;--t2:#9A7A5C;--t3:#7A4020;--ac:#CDA96C;--bd:#E7D6B8;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t1);}
+img{max-width:100%;display:block;}
+
+header{display:flex;align-items:center;justify-content:center;padding:18px 20px;background:var(--s);border-bottom:1px solid var(--bd);}
+header img{height:30px;}
+
+.hero{position:relative;background:#1A0800;}
+.hero-img{width:100%;height:56vw;max-height:520px;min-height:260px;object-fit:cover;opacity:.92;}
+.hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,5,0,.05) 30%,rgba(15,5,0,.85) 100%);}
+.hero-txt{position:absolute;left:0;right:0;bottom:0;padding:24px 20px;color:#FBF6EE;}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ac);margin-bottom:6px;}
+.hero-ttl{font-size:32px;font-weight:800;letter-spacing:-.01em;}
+.hero-meta{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;}
+.pill{background:rgba(251,246,238,.14);border:1px solid rgba(251,246,238,.3);color:#FBF6EE;font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;}
+
+.wrap{max-width:760px;margin:0 auto;padding:0 20px;}
+section{padding:34px 0;border-bottom:1px solid var(--bd);}
+.sttl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t2);margin-bottom:16px;}
+
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.gallery a{border-radius:8px;overflow:hidden;aspect-ratio:4/3;}
+.gallery img{width:100%;height:100%;object-fit:cover;}
+
+.planta-box{border:1px solid var(--bd);border-radius:10px;overflow:hidden;background:var(--s);}
+.planta-note{font-size:12px;color:var(--t2);margin-top:10px;line-height:1.5;}
+
+.speclist{display:flex;flex-direction:column;}
+.specrow{display:flex;justify-content:space-between;gap:16px;font-size:14px;padding:11px 0;border-bottom:1px solid var(--bd);}
+.specrow:last-child{border-bottom:none;}
+.specrow span{color:var(--t2);}
+.specrow b{color:var(--t1);font-weight:700;text-align:right;white-space:nowrap;}
+
+.cta{padding:30px 20px 40px;text-align:center;}
+.cta h3{font-size:20px;font-weight:800;margin-bottom:8px;}
+.cta p{font-size:13.5px;color:var(--t2);margin-bottom:18px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.5;}
+.wabtn{display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;text-decoration:none;padding:15px 28px;border-radius:10px;font-size:14px;font-weight:700;box-shadow:0 6px 18px rgba(37,211,102,.3);}
+.wabtn:hover{filter:brightness(1.05);}
+
+footer{text-align:center;padding:24px 20px 34px;font-size:11px;color:var(--t2);}
+
+.notfound{max-width:480px;margin:80px auto;text-align:center;padding:0 20px;}
+.notfound h1{font-size:22px;margin-bottom:10px;}
+.notfound p{color:var(--t2);font-size:14px;}
+
+@media (min-width:640px){
+  .hero-ttl{font-size:42px;}
+  .gallery{grid-template-columns:repeat(3,1fr);}
+}
+</style>
+</head>
+<body>
+<header><img src="assets/logo-horizontal.png" alt="Wood House Construtora e Incorporadora" onerror="this.style.display='none'"></header>
+<div id="app"></div>
+
+<script>
+const modelos = [
+  {
+    id: 'andorra', nome: 'Andorra', dorms: 2, area: '115 m²',
+    fotos: ['assets/modelos/andorra-1.jpg','assets/modelos/andorra-2.jpg'],
+    planta: 'assets/modelos/andorra-planta.jpg',
+    specs: [
+      ['Dormitório casal (suíte)', '18,25 m²'], ['WC suíte', '3,75 m²'],
+      ['Dormitório', '12 m²'], ['Lavanderia', '5 m²'], ['WC social', '3 m²'],
+      ['Cozinha + sala de estar e jantar', '32 m²'], ['Varanda aberta coberta (frontal)', '11,5 m²'],
+      ['Varanda aberta (fundos)', '29,5 m²'], ['Garagem aberta coberta', 'incluída'],
+    ],
+  },
+  {
+    id: 'infinity', nome: 'Infinity', dorms: 2, area: '90,75 m²',
+    fotos: ['assets/modelos/infinity-1.jpg'],
+    planta: 'assets/modelos/infinity-planta.jpg',
+    specs: [
+      ['Dormitório (suíte)', '12,25 m²'], ['WC suíte', '3,75 m²'],
+      ['Dormitório', '12,25 m²'], ['WC social', '3,75 m²'], ['Corredor', '3 m²'],
+      ['Lavanderia', '4,5 m²'], ['Cozinha', '10,5 m²'], ['Sala de estar e jantar', '17,5 m²'],
+      ['Varanda aberta coberta', '5,25 m²'], ['Garagem aberta coberta', '18 m²'],
+    ],
+  },
+  {
+    id: 'maringa', nome: 'Maringá', dorms: 3, area: '145,25 m²',
+    fotos: ['assets/modelos/maringa-1.jpg','assets/modelos/maringa-2.jpg'],
+    planta: 'assets/modelos/maringa-planta.jpg',
+    specs: [
+      ['Suíte (pavimento superior)', '12 m² (x2)'], ['WC suíte', '4,5 m² / 4 m²'],
+      ['Dormitório (térreo)', '9 m²'], ['WC social (térreo)', '4 m²'], ['Área livre (superior)', '20 m²'],
+      ['Sacada', '4 m²'], ['Lavanderia', '4,5 m²'], ['Cozinha + sala de estar e jantar', '35 m²'],
+      ['Varanda coberta aberta', '7 m²'], ['Varanda lateral aberta coberta', '8 m²'],
+      ['Garagem aberta coberta', '21,25 m²'],
+    ],
+  },
+  {
+    id: 'santiago', nome: 'Santiago', dorms: 3, area: '116 m²',
+    fotos: ['assets/modelos/santiago-1.jpg','assets/modelos/santiago-2.jpg','assets/modelos/santiago-3.jpg','assets/modelos/santiago-4.jpg','assets/modelos/santiago-5.jpg','assets/modelos/santiago-6.jpg'],
+    planta: 'assets/modelos/santiago-planta.jpg',
+    specs: [
+      ['Dormitório casal (suíte)', '12 m²'], ['WC suíte', '4,5 m²'],
+      ['Dormitório', '12 m²'], ['Dormitório', '9 m²'], ['WC social', '4,5 m²'],
+      ['Lavanderia', '4,5 m²'], ['Cozinha + sala de estar e jantar', '47 m²'],
+      ['Pergolado em madeira nobre', 'incluído'], ['Varanda aberta coberta', '19,5 m²'],
+    ],
+  },
+  {
+    id: 'canada', nome: 'Canadá', dorms: 4, area: '117 m²',
+    fotos: ['assets/modelos/canada-1.jpg'],
+    planta: 'assets/modelos/canada-planta.jpg',
+    specs: [
+      ['Dormitório casal (suíte)', '9 m²'], ['WC suíte', '4,5 m²'],
+      ['Dormitório', '9 m² (x2)'], ['WC social', '3 m²'], ['Lavanderia', '3,75 m²'],
+      ['Cozinha + sala de estar e jantar', '35,25 m²'],
+      ['Lareira em alvenaria cerâmica', 'incluída'], ['Varanda aberta coberta frontal', '15,75 m²'],
+      ['Garagem aberta coberta', '18,75 m²'],
+    ],
+  },
+  {
+    id: 'holanda', nome: 'Holanda', dorms: 4, area: '145,6 m²',
+    fotos: ['assets/modelos/holanda-1.jpg','assets/modelos/holanda-2.jpg','assets/modelos/holanda-3.jpg','assets/modelos/holanda-4.jpg','assets/modelos/holanda-5.jpg','assets/modelos/holanda-6.jpg','assets/modelos/holanda-7.jpg'],
+    planta: 'assets/modelos/holanda-planta.jpg',
+    specs: [
+      ['D. Suíte + closet', '13,5 m² + 4,5 m²'], ['Dormitório', '9 m² (x3)'],
+      ['WC', '4,5 m² (x2)'], ['Circulação', '9 m²'], ['Lavanderia', '4,5 m²'],
+      ['Sala + cozinha', '30 m²'], ['Área gourmet', '15 m²'],
+      ['Varandas', '5 m² + 5,62 m²'], ['Garagem', '22,5 m²'],
+    ],
+  },
+];
+
+const WHATSAPP = '554797194337';
+const params = new URLSearchParams(location.search);
+const m = modelos.find(x => x.id === params.get('m'));
+const app = document.getElementById('app');
+
+if (!m) {
+  app.innerHTML = `<div class="notfound"><h1>Modelo não encontrado</h1><p>O link pode estar incompleto. Fale com seu corretor Wood House pra receber o link certo.</p></div>`;
+} else {
+  document.title = 'Modelo ' + m.nome + ' — Wood House';
+  const waMsg = encodeURIComponent('Olá! Tenho interesse no modelo ' + m.nome + ' (' + m.area + ') da Wood House.');
+  app.innerHTML = `
+    <div class="hero">
+      <img class="hero-img" src="${m.fotos[0]}" alt="Modelo ${m.nome}">
+      <div class="hero-scrim"></div>
+      <div class="hero-txt">
+        <div class="hero-eyebrow">Modelo Wood House</div>
+        <div class="hero-ttl">${m.nome}</div>
+        <div class="hero-meta">
+          <span class="pill">${m.area} de área total</span>
+          <span class="pill">${m.dorms} dormitórios</span>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      ${m.fotos.length > 1 ? `
+      <section>
+        <div class="sttl">Fotos do projeto</div>
+        <div class="gallery">
+          ${m.fotos.map(f => `<a href="${f}" target="_blank" rel="noopener"><img src="${f}" alt="Modelo ${m.nome}" loading="lazy"></a>`).join('')}
+        </div>
+      </section>` : ''}
+      <section>
+        <div class="sttl">Planta baixa</div>
+        <div class="planta-box"><img src="${m.planta}" alt="Planta baixa — Modelo ${m.nome}"></div>
+        <div class="planta-note">Planta ilustrativa de apresentação. Medidas e posições finais seguem o projeto técnico de execução.</div>
+      </section>
+      <section>
+        <div class="sttl">Ambientes</div>
+        <div class="speclist">
+          ${m.specs.map(([k,v]) => `<div class="specrow"><span>${k}</span><b>${v}</b></div>`).join('')}
+        </div>
+      </section>
+    </div>
+    <div class="cta">
+      <h3>Gostou do modelo ${m.nome}?</h3>
+      <p>Fale agora com a Wood House e receba uma proposta personalizada pra construir o seu.</p>
+      <a class="wabtn" href="https://wa.me/${WHATSAPP}?text=${waMsg}" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.8 14.2c-.2.6-1.4 1.2-2 1.3-.5.1-1.1.1-1.8-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.1.2-.3.4-.1.7.2.3.9 1.4 1.8 2.3 1.3 1.2 2.4 1.6 2.7 1.8.3.2.5.1.7-.1l.6-.7c.2-.3.4-.2.7-.1.3.1 1.7.8 2 .9.3.1.5.2.6.3.1.2.1.7-.1 1.3z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+    <footer>Wood House Construtora e Incorporadora — construção artesanal em madeira nobre</footer>
+  `;
+}
+</script>
+</body>
+</html>
