@@ -16,6 +16,7 @@ header img{height:30px;}
 
 .hero{position:relative;background:#1A0800;}
 .hero-img{width:100%;height:56vw;max-height:520px;min-height:260px;object-fit:cover;opacity:.92;}
+.hero-placeholder{width:100%;height:56vw;max-height:520px;min-height:260px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1A0800,#3A1400);color:rgba(251,246,238,.55);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:20px;}
 .hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,5,0,.05) 30%,rgba(15,5,0,.85) 100%);}
 .hero-txt{position:absolute;left:0;right:0;bottom:0;padding:24px 20px;color:#FBF6EE;}
 .hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ac);margin-bottom:6px;}
@@ -386,21 +387,23 @@ const modelos = [
   },
   {
     id: 'bento', nome: 'Bento', dorms: 3, area: '137,5 m²',
-    fotos: ['assets/modelos/bento-1.jpg','assets/modelos/bento-2.jpg','assets/modelos/bento-3.jpg','assets/modelos/bento-4.jpg','assets/modelos/bento-5.jpg'],
+    fotos: [],
     planta: 'assets/modelos/bento-planta.jpg',
     specs: [
       ['Tipo', 'térrea'],
       ['Banheiros', '1'],
+      ['Observação', 'Fotos de fachada originais continham placa de outra construtora e foram removidas — recomenda-se novo ensaio fotográfico.'],
     ],
   },
   {
     id: 'manaus', nome: 'Manaus', dorms: 3, area: '141,75 m²',
-    fotos: ['assets/modelos/manaus-1.jpg'],
+    fotos: [],
     planta: 'assets/modelos/manaus-planta.jpg',
     specs: [
       ['Tipo', 'térrea'],
       ['Banheiros', '2'],
       ['Diferenciais', 'lareira e churrasqueira em alvenaria rebocada'],
+      ['Observação', 'Fotos de fachada originais continham placa de outra construtora e foram removidas — recomenda-se novo ensaio fotográfico.'],
     ],
   },
   {
@@ -455,11 +458,12 @@ const modelos = [
   },
   {
     id: 'brasilia', nome: 'Brasília', dorms: 3, area: '97,5 m²',
-    fotos: ['assets/modelos/brasilia-1.jpg'],
+    fotos: [],
     planta: 'assets/modelos/brasilia-planta.jpg',
     specs: [
       ['Tipo', 'térrea'],
       ['Banheiros', '2'],
+      ['Observação', 'Fotos de fachada originais continham placa de outra construtora e foram removidas — recomenda-se novo ensaio fotográfico.'],
     ],
   },
   {
@@ -628,11 +632,12 @@ const modelos = [
   },
   {
     id: 'ivoti', nome: 'Ivoti', dorms: 4, area: '85 m²',
-    fotos: ['assets/modelos/ivoti-1.jpg','assets/modelos/ivoti-2.jpg'],
+    fotos: [],
     planta: 'assets/modelos/ivoti-planta.jpg',
     specs: [
       ['Banheiros', '2'],
       ['Lavanderia', 'alvenaria azulejada até o teto'],
+      ['Observação', 'Fotos de fachada originais continham placa de outra construtora e foram removidas — recomenda-se novo ensaio fotográfico.'],
     ],
   },
   {
@@ -755,7 +760,7 @@ if (!m) {
   const waMsg = encodeURIComponent('Olá! Tenho interesse no modelo ' + m.nome + ' (' + m.area + ') da Wood House.');
   app.innerHTML = `
     <div class="hero">
-      <img class="hero-img" src="${m.fotos[0]}" alt="Modelo ${m.nome}">
+      ${m.fotos.length ? `<img class="hero-img" src="${m.fotos[0]}" alt="Modelo ${m.nome}">` : `<div class="hero-placeholder">Fotos deste modelo em atualização</div>`}
       <div class="hero-scrim"></div>
       <div class="hero-txt">
         <div class="hero-eyebrow">Modelo Wood House</div>
