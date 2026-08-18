@@ -451,53 +451,51 @@
 
     .projetos-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 340px;
-      gap: 8px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
     }
     .proj-card {
-      position: relative; overflow: hidden; cursor: pointer;
+      cursor: pointer;
+      background: var(--s, #FFFDF8);
+      border: 1px solid rgba(92,26,0,0.10);
       border-radius: 14px;
-      transition: opacity 0.28s ease, transform 0.28s ease;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(92,26,0,0.06);
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
     }
-    .proj-card.featured { grid-column: span 2; }
+    .proj-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(92,26,0,0.14); }
     .proj-card.hidden { display: none; }
+    .proj-card .pc-media {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
     .proj-card .img {
       width: 100%; height: 100%;
       background-size: cover;
       background-position: center;
-      transition: transform 0.8s ease;
+      transition: transform 0.6s ease;
     }
-    .proj-card:hover .img { transform: scale(1.02); }
-    .proj-card .info {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 24px 24px 20px;
-      background: linear-gradient(to top, rgba(70,18,0,0.88) 0%, rgba(70,18,0,0) 100%);
-      transform: translateY(6px);
-      transition: transform 0.3s;
+    .proj-card:hover .img { transform: scale(1.05); }
+    .proj-card .pc-body {
+      padding: 16px 18px 20px;
     }
-    .proj-card:hover .info { transform: translateY(0); }
     .proj-card .proj-name {
       font-family: 'Poppins', sans-serif;
-      font-size: 16px; font-weight: 700; color: #FFF5E3;
-    }
-    .proj-card .proj-area {
-      font-size: 11px; font-weight: 600;
-      color: var(--gold); letter-spacing: 0.10em;
-      text-transform: uppercase;
+      font-size: 16px; font-weight: 700; color: var(--brown);
     }
     .proj-specs {
-      display: flex; gap: 12px; flex-wrap: wrap;
-      margin-top: 6px;
+      display: flex; gap: 14px; flex-wrap: wrap;
+      margin-top: 10px;
     }
     .proj-specs span {
-      display: inline-flex; align-items: center; gap: 4px;
-      font-size: 11px; font-weight: 600;
-      color: rgba(255,245,227,0.85);
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11.5px; font-weight: 600;
+      color: var(--muted);
     }
-    .proj-specs svg { color: var(--gold); flex-shrink: 0; }
+    .proj-specs svg { color: var(--gold2); flex-shrink: 0; }
     .proj-badge {
-      position: absolute; top: 16px; left: 16px;
+      position: absolute; top: 14px; left: 14px;
       font-family: 'Poppins', sans-serif;
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.14em; text-transform: uppercase;
@@ -1039,6 +1037,7 @@
       #hero .hero-photo { height: 340px; order: -1; }
       #hero .hero-text { padding: 48px 32px; }
       #diferenciais, #projetos, #processo, #cta, #por-dentro { padding: 72px 32px; }
+      .projetos-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
       .pd-grid { grid-template-columns: 1fr; grid-template-rows: 300px 220px 220px; }
       .pd-main { grid-row: auto; }
       #obra .obra-text { padding: 56px 40px; }
@@ -1050,14 +1049,7 @@
       #slider .slider-header { padding: 0 32px; }
     }
     @media (max-width: 768px) {
-      .projetos-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-      }
-      .proj-card:nth-child(n) {
-        grid-column: auto !important; grid-row: auto !important;
-        height: 240px;
-      }
+      .projetos-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
       #obra { grid-template-columns: 1fr; }
       #obra .obra-img { height: 280px; }
       .steps { grid-template-columns: 1fr; }
@@ -1226,9 +1218,11 @@
         data-photos='["assets/bruno-exterior-1.jpg","assets/bruno-exterior-2.jpg","assets/bruno-living.jpg","assets/bruno-cozinha.jpg","assets/bruno-suite.jpg","assets/bruno-banheiro.jpg"]'
         data-wpp="Olá! Vi o Projeto Camboriú no site e quero saber mais."
         data-related='["Projeto Las Vegas","Modelo Maringá","Projeto Flávio"]'>
-        <div class="proj-badge">3 Dormitórios · Em obra · SC</div>
-        <div class="img" style="background-image:url('assets/proj-bruno.jpeg'); background-position:center 40%;" role="img" aria-label="Projeto Camboriú — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">175 m² · 3 quartos · Térrea</div><div class="proj-name">Projeto Camboriú</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">3 Dormitórios · Em obra · SC</div>
+          <div class="img" style="background-image:url('assets/proj-bruno.jpeg'); background-position:center 40%;" role="img" aria-label="Projeto Camboriú — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Projeto Camboriú</div></div>
       </div>
       <div class="proj-card"
         data-cat="3q entregue"
@@ -1240,9 +1234,11 @@
         data-photos='["assets/proj-lasvegas.jpg"]'
         data-wpp="Olá! Vi o Projeto Las Vegas no site e quero saber mais."
         data-related='["Projeto Camboriú","Modelo Maringá","Projeto Flávio"]'>
-        <div class="proj-badge">3 Dormitórios · Entregue · SC</div>
-        <div class="img" style="background-image:url('assets/proj-lasvegas.jpg'); background-position:center 35%;" role="img" aria-label="Projeto Las Vegas — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">Obra entregue · 3 quartos · SC</div><div class="proj-name">Projeto Las Vegas</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">3 Dormitórios · Entregue · SC</div>
+          <div class="img" style="background-image:url('assets/proj-lasvegas.jpg'); background-position:center 35%;" role="img" aria-label="Projeto Las Vegas — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Projeto Las Vegas</div></div>
       </div>
       <div class="proj-card"
         data-cat="3q destaque"
@@ -1254,9 +1250,11 @@
         data-photos='["assets/proj-maringa-orig.png","assets/maringa-2.png","assets/maringa-3.png","assets/maringa-4.png","assets/maringa-5.png"]'
         data-wpp="Olá! Vi o Modelo Maringá no site e quero saber mais."
         data-related='["Projeto Camboriú","Projeto Las Vegas","Modelo Recife"]'>
-        <div class="proj-badge">3 Dormitórios · 145 m² · Sobrado</div>
-        <div class="img" style="background-image:url('assets/proj-maringa-orig.png'); background-position:center 25%;" role="img" aria-label="Modelo Maringá — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">145 m² · 3 quartos · Sobrado</div><div class="proj-name">Modelo Maringá</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">3 Dormitórios · 145 m² · Sobrado</div>
+          <div class="img" style="background-image:url('assets/proj-maringa-orig.png'); background-position:center 25%;" role="img" aria-label="Modelo Maringá — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Modelo Maringá</div></div>
       </div>
       <div class="proj-card"
         data-cat="3q"
@@ -1268,9 +1266,11 @@
         data-photos='["assets/proj-flavio.png","assets/flavio-2.png","assets/flavio-3.png","assets/flavio-4.png","assets/flavio-5.png","assets/flavio-6.png"]'
         data-wpp="Olá! Vi o Projeto Flávio no site e quero saber mais."
         data-related='["Projeto Camboriú","Modelo Maringá","Modelo Recife"]'>
-        <div class="proj-badge">3 Dormitórios · Telhado Escondido</div>
-        <div class="img" style="background-image:url('assets/proj-flavio.png'); background-position:center 45%;" role="img" aria-label="Projeto Flávio — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">Térrea · 3 quartos · Telhado Escondido</div><div class="proj-name">Projeto Flávio</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">3 Dormitórios · Telhado Escondido</div>
+          <div class="img" style="background-image:url('assets/proj-flavio.png'); background-position:center 45%;" role="img" aria-label="Projeto Flávio — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Projeto Flávio</div></div>
       </div>
 
       <div class="proj-card"
@@ -1283,9 +1283,11 @@
         data-photos='["assets/proj-santiago.jpg","assets/santiago-2.jpg","assets/santiago-3.jpg","assets/santiago-4.jpg","assets/santiago-5.jpg","assets/santiago-6.jpg"]'
         data-wpp="Olá! Vi o Modelo Santiago no site e quero saber mais."
         data-related='["Projeto Camboriú","Modelo Maringá","Projeto Flávio"]'>
-        <div class="proj-badge">3 Dormitórios · 116 m²</div>
-        <div class="img" style="background-image:url('assets/proj-santiago.jpg'); background-position:center 40%;" role="img" aria-label="Modelo Santiago — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">116 m² · 3 quartos · Térrea</div><div class="proj-name">Modelo Santiago</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">3 Dormitórios · 116 m²</div>
+          <div class="img" style="background-image:url('assets/proj-santiago.jpg'); background-position:center 40%;" role="img" aria-label="Modelo Santiago — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Modelo Santiago</div></div>
       </div>
       <div class="proj-card"
         data-cat="3q"
@@ -1297,9 +1299,11 @@
         data-photos='["assets/proj-alagoas.png","assets/alagoas-2.png","assets/alagoas-3.png","assets/alagoas-4.png"]'
         data-wpp="Olá! Vi o Modelo Alagoas no site e quero saber mais."
         data-related='["Modelo Maringá","Projeto Camboriú","Modelo Colômbia"]'>
-        <div class="proj-badge">3 Dormitórios · 151 m² · Sobrado</div>
-        <div class="img" style="background-image:url('assets/proj-alagoas.png'); background-position:center 35%;" role="img" aria-label="Modelo Alagoas — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">151 m² · 3 quartos · Sobrado</div><div class="proj-name">Modelo Alagoas</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">3 Dormitórios · 151 m² · Sobrado</div>
+          <div class="img" style="background-image:url('assets/proj-alagoas.png'); background-position:center 35%;" role="img" aria-label="Modelo Alagoas — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Modelo Alagoas</div></div>
       </div>
 
       <!-- ── 4 DORMITÓRIOS ── -->
@@ -1313,9 +1317,11 @@
         data-photos='["assets/proj-marrocos.png"]'
         data-wpp="Olá! Vi o Modelo Marrocos no site e quero saber mais."
         data-related='["Modelo Colômbia","Modelo Holanda","Modelo Nissan"]'>
-        <div class="proj-badge">4 Dormitórios · 136 m² · Sobrado</div>
-        <div class="img" style="background-image:url('assets/proj-marrocos.png'); background-position:center 35%;" role="img" aria-label="Modelo Marrocos — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">136 m² · 4 quartos · Sobrado</div><div class="proj-name">Modelo Marrocos</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">4 Dormitórios · 136 m² · Sobrado</div>
+          <div class="img" style="background-image:url('assets/proj-marrocos.png'); background-position:center 35%;" role="img" aria-label="Modelo Marrocos — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Modelo Marrocos</div></div>
       </div>
       <div class="proj-card"
         data-cat="4q"
@@ -1327,9 +1333,11 @@
         data-photos='["assets/proj-colombia.png","assets/colombia-2.png","assets/colombia-3.png","assets/colombia-4.png","assets/colombia-5.png"]'
         data-wpp="Olá! Vi o Modelo Colômbia no site e quero saber mais."
         data-related='["Modelo Colômbia","Projeto Flávio","Modelo Maringá"]'>
-        <div class="proj-badge">4 Dormitórios · 136 m² · Sobrado</div>
-        <div class="img" style="background-image:url('assets/proj-colombia.png'); background-position:center 30%;" role="img" aria-label="Modelo Colômbia — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">136 m² · 4 quartos · Sobrado · Lareira</div><div class="proj-name">Modelo Colômbia</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">4 Dormitórios · 136 m² · Sobrado</div>
+          <div class="img" style="background-image:url('assets/proj-colombia.png'); background-position:center 30%;" role="img" aria-label="Modelo Colômbia — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Modelo Colômbia</div></div>
       </div>
 
       <div class="proj-card"
@@ -1342,9 +1350,11 @@
         data-photos='["assets/proj-holanda.png","assets/holanda-2.png","assets/holanda-3.png","assets/holanda-4.png","assets/holanda-5.png","assets/holanda-6.png"]'
         data-wpp="Olá! Vi o Modelo Holanda no site e quero saber mais."
         data-related='["Modelo Holanda","Modelo Colômbia","Modelo Nissan"]'>
-        <div class="proj-badge">4 Dormitórios · 145 m²</div>
-        <div class="img" style="background-image:url('assets/proj-holanda.png'); background-position:center 40%;" role="img" aria-label="Modelo Holanda — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">145 m² · 4 quartos · Térrea</div><div class="proj-name">Modelo Holanda</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">4 Dormitórios · 145 m²</div>
+          <div class="img" style="background-image:url('assets/proj-holanda.png'); background-position:center 40%;" role="img" aria-label="Modelo Holanda — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Modelo Holanda</div></div>
       </div>
       <div class="proj-card"
         data-cat="4q"
@@ -1356,9 +1366,11 @@
         data-photos='["assets/proj-nissan.png","assets/nissan-2.png","assets/nissan-3.png","assets/nissan-4.png","assets/nissan-5.png","assets/nissan-6.png"]'
         data-wpp="Olá! Vi o Modelo Nissan no site e quero saber mais."
         data-related='["Modelo Nissan","Modelo Holanda","Modelo Colômbia"]'>
-        <div class="proj-badge">4 Dormitórios · 115 m²</div>
-        <div class="img" style="background-image:url('assets/proj-nissan.png'); background-position:center 40%;" role="img" aria-label="Modelo Nissan — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">115 m² · 4 quartos · Térrea</div><div class="proj-name">Modelo Nissan</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">4 Dormitórios · 115 m²</div>
+          <div class="img" style="background-image:url('assets/proj-nissan.png'); background-position:center 40%;" role="img" aria-label="Modelo Nissan — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Modelo Nissan</div></div>
       </div>
 
       <!-- ── 2 DORMITÓRIOS ── -->
@@ -1372,9 +1384,11 @@
         data-photos='["assets/proj-canela.png","assets/canela-2.png","assets/canela-3.png","assets/canela-4.png","assets/canela-5.png","assets/canela-6.png"]'
         data-wpp="Olá! Vi o Modelo Canela no site e quero saber mais."
         data-related='["Modelo Infinity","Chalé A-Frame","Projeto Flávio"]'>
-        <div class="proj-badge">2 Dormitórios · 103 m²</div>
-        <div class="img" style="background-image:url('assets/proj-canela.png'); background-position:center 30%;" role="img" aria-label="Modelo Canela — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">103 m² · 2 quartos · Térrea</div><div class="proj-name">Modelo Canela</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">2 Dormitórios · 103 m²</div>
+          <div class="img" style="background-image:url('assets/proj-canela.png'); background-position:center 30%;" role="img" aria-label="Modelo Canela — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Modelo Canela</div></div>
       </div>
       <div class="proj-card"
         data-cat="2q"
@@ -1386,9 +1400,11 @@
         data-photos='["assets/proj-infinity-1.png","assets/proj-infinity-2.png","assets/infinity-3.png","assets/infinity-4.png","assets/infinity-5.png","assets/infinity-6.png"]'
         data-wpp="Olá! Vi o Modelo Infinity no site e quero saber mais."
         data-related='["Modelo Canela","Chalé A-Frame","Projeto Flávio"]'>
-        <div class="proj-badge">2 Dormitórios · 90 m²</div>
-        <div class="img" style="background-image:url('assets/proj-infinity-1.png'); background-position:center 40%;" role="img" aria-label="Modelo Infinity — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">90 m² · 2 quartos · Térrea</div><div class="proj-name">Modelo Infinity</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">2 Dormitórios · 90 m²</div>
+          <div class="img" style="background-image:url('assets/proj-infinity-1.png'); background-position:center 40%;" role="img" aria-label="Modelo Infinity — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Modelo Infinity</div></div>
       </div>
 
       <div class="proj-card"
@@ -1401,9 +1417,11 @@
         data-photos='["assets/viena-1.jpg","assets/viena-2.jpg","assets/viena-3.jpg","assets/viena-4.jpg","assets/viena-5.jpg","assets/viena-6.jpg"]'
         data-wpp="Olá! Vi o Modelo Viena no site e quero saber mais."
         data-related='["Modelo Canela","Modelo Infinity","Modelo Vaticano"]'>
-        <div class="proj-badge">2 Dormitórios · 80 m²</div>
-        <div class="img" style="background-image:url('assets/proj-viena.jpg'); background-position:center 35%;" role="img" aria-label="Modelo Viena — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">80 m² · 2 quartos · Térrea</div><div class="proj-name">Modelo Viena</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">2 Dormitórios · 80 m²</div>
+          <div class="img" style="background-image:url('assets/proj-viena.jpg'); background-position:center 35%;" role="img" aria-label="Modelo Viena — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Modelo Viena</div></div>
       </div>
       <div class="proj-card"
         data-cat="2q entregue"
@@ -1415,9 +1433,11 @@
         data-photos='["assets/proj-vaticano.png","assets/vaticano-1.jpg","assets/vaticano-2.jpg","assets/vaticano-3.jpg","assets/vaticano-4.jpg"]'
         data-wpp="Olá! Vi o Modelo Vaticano no site e quero saber mais."
         data-related='["Modelo Viena","Modelo Canela","Chalé A-Frame"]'>
-        <div class="proj-badge">2 Dormitórios · Entregue · Foto real</div>
-        <div class="img" style="background-image:url('assets/proj-vaticano.png'); background-position:center 40%;" role="img" aria-label="Modelo Vaticano — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">75 m² · 2 quartos · Obra entregue</div><div class="proj-name">Modelo Vaticano</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">2 Dormitórios · Entregue · Foto real</div>
+          <div class="img" style="background-image:url('assets/proj-vaticano.png'); background-position:center 40%;" role="img" aria-label="Modelo Vaticano — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Modelo Vaticano</div></div>
       </div>
 
       <!-- ── CHALÉS ── -->
@@ -1431,9 +1451,11 @@
         data-photos='["assets/chale83-1.png","assets/chale83-2.png","assets/chale83-3.png","assets/chale83-4.png"]'
         data-wpp="Olá! Vi o Chalé A-Frame 83 M² no site e quero saber mais."
         data-related='["Chalé A-Frame 41 M²","Chalé A-Frame","Projeto Celeiro"]'>
-        <div class="proj-badge">Chalé · 83 m² · A-Frame</div>
-        <div class="img" style="background-image:url('assets/chale83-1.png'); background-position:center 40%;" role="img" aria-label="Chalé A-Frame 83 M² — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">83 m² · A-Frame · Mezanino</div><div class="proj-name">Chalé A-Frame 83 M²</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">Chalé · 83 m² · A-Frame</div>
+          <div class="img" style="background-image:url('assets/chale83-1.png'); background-position:center 40%;" role="img" aria-label="Chalé A-Frame 83 M² — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Chalé A-Frame 83 M²</div></div>
       </div>
       <div class="proj-card"
         data-cat="especial"
@@ -1445,9 +1467,11 @@
         data-photos='["assets/chale41-1.jpg","assets/chale41-2.jpg","assets/chale41-3.jpg","assets/proj-chale-render.jpg"]'
         data-wpp="Olá! Vi o Chalé A-Frame 41 M² no site e quero saber mais."
         data-related='["Chalé A-Frame 83 M²","Chalé A-Frame","Modelo Canela"]'>
-        <div class="proj-badge">Chalé · 41 m² · A-Frame</div>
-        <div class="img" style="background-image:url('assets/chale41-1.jpg'); background-position:center 40%;" role="img" aria-label="Chalé A-Frame 41 M² — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">41 m² · A-Frame · Mezanino</div><div class="proj-name">Chalé A-Frame 41 M²</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">Chalé · 41 m² · A-Frame</div>
+          <div class="img" style="background-image:url('assets/chale41-1.jpg'); background-position:center 40%;" role="img" aria-label="Chalé A-Frame 41 M² — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Chalé A-Frame 41 M²</div></div>
       </div>
 
       <!-- ── ESPECIAIS ── -->
@@ -1461,9 +1485,11 @@
         data-photos='["assets/proj-chale.jpg","assets/hero-chale-noite.jpg","assets/proj-chale-render.jpg"]'
         data-wpp="Olá! Vi o Chalé A-Frame no site e quero saber mais."
         data-related='["Modelo Canela","Modelo Infinity","Projeto Celeiro"]'>
-        <div class="proj-badge">Chalé · Entregue · Foto real</div>
-        <div class="img" style="background-image:url('assets/proj-chale.jpg'); background-position:center 35%;" role="img" aria-label="Chalé A-Frame — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">Chalé · 1 quarto · Projeto entregue</div><div class="proj-name">Chalé A-Frame</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">Chalé · Entregue · Foto real</div>
+          <div class="img" style="background-image:url('assets/proj-chale.jpg'); background-position:center 35%;" role="img" aria-label="Chalé A-Frame — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Chalé A-Frame</div></div>
       </div>
       <div class="proj-card featured"
         data-cat="especial destaque"
@@ -1475,9 +1501,11 @@
         data-photos='["assets/proj-celeiro.png","assets/celeiro-2.png","assets/celeiro-3.png","assets/celeiro-4.png","assets/celeiro-5.png","assets/celeiro-6.png"]'
         data-wpp="Olá! Vi o Projeto Celeiro no site e quero saber mais."
         data-related='["Chalé A-Frame","Modelo Colômbia","Projeto Celeiro"]'>
-        <div class="proj-badge">Projeto Especial · Celeiro</div>
-        <div class="img" style="background-image:url('assets/proj-celeiro.png'); background-position:center 50%;" role="img" aria-label="Projeto Celeiro — casa de madeira nobre"></div>
-        <div class="info"><div class="proj-area">150 m² · Celeiro · Piscina</div><div class="proj-name">Projeto Celeiro</div></div>
+        <div class="pc-media">
+          <div class="proj-badge">Projeto Especial · Celeiro</div>
+          <div class="img" style="background-image:url('assets/proj-celeiro.png'); background-position:center 50%;" role="img" aria-label="Projeto Celeiro — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Projeto Celeiro</div></div>
       </div>
 
     </div>
@@ -2202,7 +2230,7 @@
         const specsDiv = document.createElement('div');
         specsDiv.className = 'proj-specs';
         specsDiv.innerHTML = parts.join('');
-        card.querySelector('.info').appendChild(specsDiv);
+        card.querySelector('.pc-body').appendChild(specsDiv);
       }
     });
 
