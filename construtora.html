@@ -486,6 +486,16 @@
       color: var(--gold); letter-spacing: 0.10em;
       text-transform: uppercase;
     }
+    .proj-specs {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .proj-specs span {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 600;
+      color: rgba(255,245,227,0.85);
+    }
+    .proj-specs svg { color: var(--gold); flex-shrink: 0; }
     .proj-badge {
       position: absolute; top: 16px; left: 16px;
       font-family: 'Poppins', sans-serif;
@@ -2173,9 +2183,27 @@
     overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-    // Abrir ao clicar nos cards
+    // Abrir ao clicar nos cards + specs rápidas em ícone (extraídas de data-area)
+    const ICON_AREA = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>';
+    const ICON_BED  = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 18v-6a2 2 0 012-2h16a2 2 0 012 2v6M2 18v2M22 18v2M4 12V8a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>';
+    const ICON_TYPE = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></svg>';
     document.querySelectorAll('.proj-card').forEach(card => {
       card.addEventListener('click', () => openModal(card));
+
+      const area = card.dataset.area || '';
+      const m2Match = area.match(/([\d.,]+)\s*m²/);
+      const qMatch  = area.match(/(\d+)\s*(?:quartos?|dormit[oó]rios?)/i);
+      const tpMatch = area.match(/(Térrea|Sobrado)/i);
+      const parts = [];
+      if (m2Match) parts.push(`<span>${ICON_AREA}${m2Match[1]} m²</span>`);
+      if (qMatch)  parts.push(`<span>${ICON_BED}${qMatch[1]} dorm.</span>`);
+      if (tpMatch) parts.push(`<span>${ICON_TYPE}${tpMatch[1]}</span>`);
+      if (parts.length) {
+        const specsDiv = document.createElement('div');
+        specsDiv.className = 'proj-specs';
+        specsDiv.innerHTML = parts.join('');
+        card.querySelector('.info').appendChild(specsDiv);
+      }
     });
 
     // ── Filtros de portfolio
