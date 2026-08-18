@@ -106,11 +106,12 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg:    #FBF6EE;
+      --bg:    #FFF5E3;
       --bg2:   #F0E8D5;
       --bg3:   #E5D9C3;
       --brown: #5C1A00;
       --brown2: #7A3010;
+      --dark:  #1A0800;
       --gold:  #CDA96C;
       --gold2: #BB955C;
       --muted: rgba(92, 26, 0, 0.52);
@@ -272,7 +273,7 @@
 
     /* ─── MANIFESTO ─── */
     #manifesto {
-      background: #1E0D05;
+      background: var(--dark);
       padding: 72px 80px;
       text-align: center;
     }
@@ -682,7 +683,7 @@
     }
     .par-btn {
       display: inline-flex; align-items: center; gap: 10px;
-      background: #fff; color: #1A0A02;
+      background: var(--gold); color: var(--brown);
       font-family: 'Poppins', sans-serif;
       font-size: 13px; font-weight: 600;
       letter-spacing: 0.03em;
@@ -742,7 +743,7 @@
 
     /* ─── FOOTER ─── */
     footer {
-      background: #3D1A0A;
+      background: var(--dark);
       padding: 60px 80px;
       display: grid;
       grid-template-columns: 1.4fr 1fr 1fr;
@@ -769,10 +770,10 @@
       color: rgba(255,245,227,0.75);
       transition: background 0.2s, color 0.2s;
     }
-    .footer-social a:hover { background: var(--gold); color: #1A0A02; }
+    .footer-social a:hover { background: var(--gold); color: var(--brown); }
     .footer-social svg { width: 18px; height: 18px; }
     .footer-bottom {
-      background: #2A1006;
+      background: var(--dark);
       padding: 18px 80px;
       text-align: center;
       font-size: 12px; color: rgba(255,245,227,0.25);
@@ -850,7 +851,7 @@
     /* Galeria */
     .modal-gallery {
       position: relative;
-      background: #1A0800;
+      background: var(--dark);
       overflow: hidden;
       min-height: 520px;
     }
