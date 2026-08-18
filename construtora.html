@@ -181,9 +181,18 @@
 
     /* ─── HERO ─── */
     #hero {
-      height: 100vh; min-height: 700px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    #hero .hero-text {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 0 64px;
+      background: var(--bg);
+    }
+    #hero .hero-photo {
       position: relative;
-      display: flex; align-items: flex-end;
+      overflow: hidden;
     }
     /* hero — múltiplos backgrounds com fade */
     .hero-bg {
@@ -193,49 +202,41 @@
       background-position: center center;
       opacity: 0;
       transition: opacity 1.4s ease;
-      filter: brightness(0.85) contrast(1.05);
+      filter: contrast(1.05) saturate(1.05);
     }
     .hero-bg.active { opacity: 1; }
-    #hero .overlay {
-      position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(
-        135deg,
-        rgba(60,14,0,0.78) 0%,
-        rgba(60,14,0,0.38) 55%,
-        rgba(60,14,0,0.12) 100%
-      );
-    }
-    #hero .content {
-      position: relative; z-index: 2;
-      padding: 0 80px 100px;
-      max-width: 780px;
-    }
-    #hero .tag {
-      font-family: 'Poppins', sans-serif;
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 24px;
+    #hero .hero-tag {
+      margin-bottom: 24px;
     }
     #hero h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: clamp(32px, 3.2vw, 48px);
+      font-size: clamp(32px, 3vw, 46px);
       font-weight: 800;
       line-height: 1.14;
-      color: #FFF5E3;
+      color: var(--brown);
+      max-width: 560px;
       margin-bottom: 24px;
     }
     #hero h1 em {
       font-style: normal;
-      color: var(--gold);
+      color: var(--gold2);
     }
     #hero p {
-      font-size: 18px; font-weight: 400;
-      color: rgba(255,245,227,0.80);
+      font-size: 17px; font-weight: 400;
+      color: var(--muted);
       line-height: 1.65;
-      max-width: 520px;
-      margin-bottom: 48px;
+      max-width: 480px;
+      margin-bottom: 36px;
     }
-    #hero .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+    #hero .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+    #hero .hero-trust {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      font-size: 13px; font-weight: 600; color: var(--muted);
+    }
+    #hero .hero-trust .dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--gold2); flex-shrink: 0;
+    }
 
     .btn-wpp {
       display: inline-flex; align-items: center; gap: 10px;
@@ -1016,7 +1017,9 @@
     @media (max-width: 1024px) {
       nav { padding: 0 32px; }
       nav ul { display: none; }
-      #hero .content { padding: 0 32px 80px; }
+      #hero { grid-template-columns: 1fr; min-height: auto; }
+      #hero .hero-photo { height: 340px; order: -1; }
+      #hero .hero-text { padding: 48px 32px; }
       #diferenciais, #projetos, #processo, #cta, #por-dentro { padding: 72px 32px; }
       .pd-grid { grid-template-columns: 1fr; grid-template-rows: 300px 220px 220px; }
       .pd-main { grid-row: auto; }
@@ -1062,14 +1065,8 @@
 
   <!-- ═══ HERO ═══ -->
   <section id="hero">
-    <div class="hero-bg active" style="background-image:url('assets/bruno-fachada.jpg'); background-position:center 35%;" role="img" aria-label="Fachada do Projeto Bruno — casa de madeira nobre em SC"></div>
-    <div class="hero-bg" style="background-image:url('assets/foto-alagoas.png'); background-position:center 30%;" role="img" aria-label="Modelo Alagoas — casa de madeira nobre"></div>
-    <div class="hero-bg" style="background-image:url('assets/foto-maringa.png'); background-position:center 28%;" role="img" aria-label="Modelo Maringá — casa de madeira nobre"></div>
-    <div class="hero-bg" style="background-image:url('assets/foto-chale83.png'); background-position:center 20%;" role="img" aria-label="Chalé A-Frame 83 m² — casa de madeira nobre"></div>
-    <div class="hero-bg" style="background-image:url('assets/foto-celeiro.png'); background-position:center 32%;" role="img" aria-label="Projeto Celeiro — construção em madeira nobre"></div>
-    <div class="hero-bg" style="background-image:url('assets/bruno-interior.jpg'); background-position:center 40%;" role="img" aria-label="Interior do Projeto Bruno — madeira nobre aparente"></div>
-    <div class="overlay"></div>
-    <div class="content">
+    <div class="hero-text">
+      <div class="section-tag hero-tag">Casas de madeira nobre em SC e PR</div>
       <h1>Enquanto o mundo sobe,<br>a gente coloca os pés no chão.<br><em>Do zero à chave em SC e PR.</em></h1>
       <p>Enquanto o mercado corre para o concreto e o vertical, a Wood House vai na direção oposta. Construção de casas de madeira nobre em SC e PR — projeto exclusivo, entregue do início ao fim — por quem sabe o que está fazendo.</p>
       <div class="hero-ctas">
@@ -1077,8 +1074,23 @@
           <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Falar no WhatsApp
         </a>
-        <a href="#projetos" class="btn-outline">Ver Projetos</a>
+        <a href="#projetos" class="btn-wpp btn-wpp-dark">Ver Projetos</a>
       </div>
+      <div class="hero-trust">
+        <span>6 anos de experiência</span>
+        <span class="dot"></span>
+        <span>100% projetos autorais</span>
+        <span class="dot"></span>
+        <span>Atuação em SC · PR</span>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="hero-bg active" style="background-image:url('assets/bruno-fachada.jpg'); background-position:center 35%;" role="img" aria-label="Fachada do Projeto Bruno — casa de madeira nobre em SC"></div>
+      <div class="hero-bg" style="background-image:url('assets/foto-alagoas.png'); background-position:center 30%;" role="img" aria-label="Modelo Alagoas — casa de madeira nobre"></div>
+      <div class="hero-bg" style="background-image:url('assets/foto-maringa.png'); background-position:center 28%;" role="img" aria-label="Modelo Maringá — casa de madeira nobre"></div>
+      <div class="hero-bg" style="background-image:url('assets/foto-chale83.png'); background-position:center 20%;" role="img" aria-label="Chalé A-Frame 83 m² — casa de madeira nobre"></div>
+      <div class="hero-bg" style="background-image:url('assets/foto-celeiro.png'); background-position:center 32%;" role="img" aria-label="Projeto Celeiro — construção em madeira nobre"></div>
+      <div class="hero-bg" style="background-image:url('assets/bruno-interior.jpg'); background-position:center 40%;" role="img" aria-label="Interior do Projeto Bruno — madeira nobre aparente"></div>
     </div>
   </section>
 
