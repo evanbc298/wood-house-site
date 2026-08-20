@@ -454,7 +454,8 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
     }
-    .proj-card {
+    .proj-card, .novidade-card {
+      position: relative;
       cursor: pointer;
       background: var(--s, #FFFDF8);
       border: 1px solid rgba(92,26,0,0.10);
@@ -463,24 +464,24 @@
       box-shadow: 0 2px 14px rgba(92,26,0,0.06);
       transition: box-shadow 0.25s ease, transform 0.25s ease;
     }
-    .proj-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(92,26,0,0.14); }
+    .proj-card:hover, .novidade-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(92,26,0,0.14); }
     .proj-card.hidden { display: none; }
-    .proj-card .pc-media {
+    .proj-card .pc-media, .novidade-card .pc-media {
       position: relative;
       aspect-ratio: 4 / 3;
       overflow: hidden;
     }
-    .proj-card .img {
+    .proj-card .img, .novidade-card .img {
       width: 100%; height: 100%;
       background-size: cover;
       background-position: center;
       transition: transform 0.6s ease;
     }
-    .proj-card:hover .img { transform: scale(1.05); }
-    .proj-card .pc-body {
+    .proj-card:hover .img, .novidade-card:hover .img { transform: scale(1.05); }
+    .proj-card .pc-body, .novidade-card .pc-body {
       padding: 16px 18px 20px;
     }
-    .proj-card .proj-name {
+    .proj-card .proj-name, .novidade-card .proj-name {
       font-family: 'Poppins', sans-serif;
       font-size: 16px; font-weight: 700; color: var(--brown);
     }
@@ -503,6 +504,31 @@
       border: 1px solid rgba(205,169,108,0.30);
       color: var(--gold); padding: 5px 13px; border-radius: 20px;
     }
+
+    /* ─── NOVIDADES ─── */
+    #novidades {
+      padding: 90px 80px 100px;
+      background: var(--bg);
+    }
+    #novidades .header {
+      display: flex; align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      flex-wrap: wrap; gap: 24px;
+    }
+    #novidades h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(30px, 2.8vw, 44px);
+      font-weight: 800;
+      line-height: 1.15;
+      max-width: 480px;
+    }
+    .novidades-sub {
+      font-size: 15px; color: var(--muted);
+      line-height: 1.65; max-width: 640px;
+      margin-bottom: 36px;
+    }
+    .novidade-cta { position: absolute; inset: 0; z-index: 3; }
 
     /* ─── OBRA REAL ─── */
     #obra {
@@ -1506,6 +1532,75 @@
           <div class="img" style="background-image:url('assets/proj-celeiro.png'); background-position:center 50%;" role="img" aria-label="Projeto Celeiro — casa de madeira nobre"></div>
         </div>
         <div class="pc-body"><div class="proj-name">Projeto Celeiro</div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ NOVIDADES ═══ -->
+  <section id="novidades">
+    <div class="header">
+      <div>
+        <div class="section-tag">Novidades para o seu terreno</div>
+        <h2>Novos conceitos<br>chegando ao catálogo.</h2>
+      </div>
+      <a href="https://wa.me/554797194337?text=Ol%C3%A1!%20Vi%20os%20novos%20conceitos%20no%20site%20e%20quero%20saber%20mais." target="_blank" class="btn-outline-dark" style="display:inline-flex;align-items:center;border:1.5px solid rgba(92,26,0,0.25);color:var(--brown2);text-decoration:none;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.06em;padding:14px 28px;border-radius:10px;transition:border-color 0.2s,color 0.2s;white-space:nowrap;">Quero saber mais →</a>
+    </div>
+    <p class="novidades-sub">Uma nova leva de projetos que estamos preparando para o catálogo Wood House, já com nossa madeira nobre na fachada. Ainda em fase de adaptação técnica final antes de virarem modelos oficiais — mas já dá pra sonhar com o seu.</p>
+    <div class="projetos-grid">
+
+      <div class="novidade-card">
+        <div class="pc-media">
+          <div class="proj-badge">Novo conceito</div>
+          <div class="img" style="background-image:url('assets/novidade-itajai.png'); background-position:center 40%;" role="img" aria-label="Novo conceito Itajaí — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Itajaí</div></div>
+        <a class="novidade-cta" href="https://wa.me/554797194337?text=Ol%C3%A1!%20Vi%20o%20novo%20conceito%20Itaja%C3%AD%20no%20site%20e%20quero%20saber%20mais." target="_blank"></a>
+      </div>
+
+      <div class="novidade-card">
+        <div class="pc-media">
+          <div class="proj-badge">Novo conceito</div>
+          <div class="img" style="background-image:url('assets/novidade-guabiruba.png'); background-position:center 40%;" role="img" aria-label="Novo conceito Guabiruba — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Guabiruba</div></div>
+        <a class="novidade-cta" href="https://wa.me/554797194337?text=Ol%C3%A1!%20Vi%20o%20novo%20conceito%20Guabiruba%20no%20site%20e%20quero%20saber%20mais." target="_blank"></a>
+      </div>
+
+      <div class="novidade-card">
+        <div class="pc-media">
+          <div class="proj-badge">Novo conceito</div>
+          <div class="img" style="background-image:url('assets/novidade-portobelo.png'); background-position:center 40%;" role="img" aria-label="Novo conceito Porto Belo — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Porto Belo</div></div>
+        <a class="novidade-cta" href="https://wa.me/554797194337?text=Ol%C3%A1!%20Vi%20o%20novo%20conceito%20Porto%20Belo%20no%20site%20e%20quero%20saber%20mais." target="_blank"></a>
+      </div>
+
+      <div class="novidade-card">
+        <div class="pc-media">
+          <div class="proj-badge">Novo conceito</div>
+          <div class="img" style="background-image:url('assets/novidade-barravelha.png'); background-position:center 40%;" role="img" aria-label="Novo conceito Barra Velha — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Barra Velha</div></div>
+        <a class="novidade-cta" href="https://wa.me/554797194337?text=Ol%C3%A1!%20Vi%20o%20novo%20conceito%20Barra%20Velha%20no%20site%20e%20quero%20saber%20mais." target="_blank"></a>
+      </div>
+
+      <div class="novidade-card">
+        <div class="pc-media">
+          <div class="proj-badge">Novo conceito</div>
+          <div class="img" style="background-image:url('assets/novidade-doutorpedrinho.png'); background-position:center 40%;" role="img" aria-label="Novo conceito Doutor Pedrinho — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Doutor Pedrinho</div></div>
+        <a class="novidade-cta" href="https://wa.me/554797194337?text=Ol%C3%A1!%20Vi%20o%20novo%20conceito%20Doutor%20Pedrinho%20no%20site%20e%20quero%20saber%20mais." target="_blank"></a>
+      </div>
+
+      <div class="novidade-card">
+        <div class="pc-media">
+          <div class="proj-badge">Novo conceito</div>
+          <div class="img" style="background-image:url('assets/novidade-govcelsoramos.png'); background-position:center 40%;" role="img" aria-label="Novo conceito Governador Celso Ramos — casa de madeira nobre"></div>
+        </div>
+        <div class="pc-body"><div class="proj-name">Governador Celso Ramos</div></div>
+        <a class="novidade-cta" href="https://wa.me/554797194337?text=Ol%C3%A1!%20Vi%20o%20novo%20conceito%20Governador%20Celso%20Ramos%20no%20site%20e%20quero%20saber%20mais." target="_blank"></a>
       </div>
 
     </div>
