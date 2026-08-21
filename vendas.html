@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Investimento por modelo — Wood House</title>
+<meta name="description" content="Consulta de investimento por modelo — uso interno dos vendedores Wood House.">
+<meta name="robots" content="noindex, nofollow">
+<style>
+.price-box{background:var(--t1);color:#FBF6EE;border-radius:12px;padding:22px 22px;text-align:center;margin-bottom:0;}
+.price-box .lbl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);margin-bottom:6px;}
+.price-box .val{font-size:30px;font-weight:800;letter-spacing:-.01em;}
+.price-box .note{font-size:11.5px;color:rgba(251,246,238,.65);margin-top:6px;}
+:root{--bg:#FFF5E3;--s:#FFFDF8;--t1:#5C1A00;--t2:#9A7A5C;--t3:#7A4020;--ac:#CDA96C;--bd:#E7D6B8;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t1);}
+img{max-width:100%;display:block;}
+
+header{display:flex;align-items:center;justify-content:center;padding:18px 20px;background:var(--s);border-bottom:1px solid var(--bd);}
+header img{height:30px;}
+
+.hero{position:relative;background:#1A0800;}
+.hero-img{width:100%;height:56vw;max-height:520px;min-height:260px;object-fit:cover;opacity:.92;}
+.hero-placeholder{width:100%;height:56vw;max-height:520px;min-height:260px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1A0800,#3A1400);color:rgba(251,246,238,.55);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:20px;}
+.hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,5,0,.05) 30%,rgba(15,5,0,.85) 100%);}
+.hero-txt{position:absolute;left:0;right:0;bottom:0;padding:24px 20px;color:#FBF6EE;}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ac);margin-bottom:6px;}
+.hero-ttl{font-size:32px;font-weight:800;letter-spacing:-.01em;}
+.hero-meta{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;}
+.pill{background:rgba(251,246,238,.14);border:1px solid rgba(251,246,238,.3);color:#FBF6EE;font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;}
+
+.wrap{max-width:760px;margin:0 auto;padding:0 20px;}
+section{padding:34px 0;border-bottom:1px solid var(--bd);}
+.sttl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t2);margin-bottom:16px;}
+
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+.gallery a{border-radius:8px;overflow:hidden;aspect-ratio:4/3;}
+.gallery img{width:100%;height:100%;object-fit:cover;}
+
+.planta-box{border:1px solid var(--bd);border-radius:10px;overflow:hidden;background:var(--s);}
+.planta-note{font-size:12px;color:var(--t2);margin-top:10px;line-height:1.5;}
+
+.speclist{display:flex;flex-direction:column;}
+.specrow{display:flex;justify-content:space-between;gap:16px;font-size:14px;padding:11px 0;border-bottom:1px solid var(--bd);}
+.specrow:last-child{border-bottom:none;}
+.specrow span{color:var(--t2);}
+.specrow b{color:var(--t1);font-weight:700;text-align:right;white-space:nowrap;}
+
+.breadcrumb{font-size:11px;color:var(--t2);padding:14px 20px 0;max-width:760px;margin:0 auto;}
+.breadcrumb a{color:var(--t2);text-decoration:none;}
+.breadcrumb a:hover{color:var(--t1);}
+
+.inclist{display:flex;flex-direction:column;gap:12px;}
+.incrow{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.4;}
+.incrow svg{flex-shrink:0;margin-top:2px;color:var(--ac);}
+
+.related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.related-card{border-radius:8px;overflow:hidden;background:var(--s);border:1px solid var(--bd);text-decoration:none;color:var(--t1);}
+.related-card img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+.rc-info{padding:9px 11px;}
+.rc-info b{display:block;font-size:13px;font-weight:700;}
+.rc-info span{font-size:11.5px;color:var(--t2);}
+
+.cta{padding:30px 20px 40px;text-align:center;}
+.cta h3{font-size:20px;font-weight:800;margin-bottom:8px;}
+.cta p{font-size:13.5px;color:var(--t2);margin-bottom:18px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.5;}
+.wabtn{display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;text-decoration:none;padding:15px 28px;border-radius:10px;font-size:14px;font-weight:700;box-shadow:0 6px 18px rgba(37,211,102,.3);}
+.wabtn:hover{filter:brightness(1.05);}
+
+footer{text-align:center;padding:24px 20px 34px;font-size:11px;color:var(--t2);}
+
+.notfound{max-width:480px;margin:80px auto;text-align:center;padding:0 20px;}
+.notfound h1{font-size:22px;margin-bottom:10px;}
+.notfound p{color:var(--t2);font-size:14px;}
+
+@media (min-width:640px){
+  .hero-ttl{font-size:42px;}
+  .gallery{grid-template-columns:repeat(3,1fr);}
+  .related-grid{grid-template-columns:repeat(3,1fr);}
+}
+</style>
+</head>
+<body>
+<header><img src="assets/logo-horizontal.png" alt="Wood House Construtora e Incorporadora" onerror="this.style.display='none'"></header>
+<div id="app"></div>
+
+<script>
+const modelos = [
+  {
+    id: 'andorra', nome: 'Andorra', dorms: 2, area: '115 m²', valor: 'R$ 264.500,00',
+    fotos: ['assets/modelos/andorra-1.jpg','assets/modelos/andorra-2.jpg'],
+    planta: 'assets/modelos/andorra-planta.jpg',
+    specs: [
+      ['Dormitório casal (suíte)', '18,25 m²'], ['WC suíte', '3,75 m²'],
+      ['Dormitório', '12 m²'], ['Lavanderia', '5 m²'], ['WC social', '3 m²'],
+      ['Cozinha + sala de estar e jantar', '32 m²'], ['Varanda aberta coberta (frontal)', '11,5 m²'],
+      ['Varanda aberta (fundos)', '29,5 m²'], ['Garagem aberta coberta', 'incluída'],
+    ],
+  },
+  {
+    id: 'infinity', nome: 'Infinity', dorms: 2, area: '90,75 m²', valor: 'R$ 207.900,00',
+    fotos: ['assets/modelos/infinity-1.jpg'],
+    planta: 'assets/modelos/infinity-planta.jpg',
+    specs: [
+      ['Dormitório (suíte)', '12,25 m²'], ['WC suíte', '3,75 m²'],
+      ['Dormitório', '12,25 m²'], ['WC social', '3,75 m²'], ['Corredor', '3 m²'],
+      ['Lavanderia', '4,5 m²'], ['Cozinha', '10,5 m²'], ['Sala de estar e jantar', '17,5 m²'],
+      ['Varanda aberta coberta', '5,25 m²'], ['Garagem aberta coberta', '18 m²'],
+    ],
+  },
+  {
+    id: 'maringa', nome: 'Maringá', dorms: 3, area: '145,25 m²', valor: 'R$ 333.965,00',
+    fotos: ['assets/modelos/maringa-1.jpg','assets/modelos/maringa-2.jpg'],
+    planta: 'assets/modelos/maringa-planta.jpg',
+    specs: [
+      ['Suíte (pavimento superior)', '12 m² (x2)'], ['WC suíte', '4,5 m² / 4 m²'],
+      ['Dormitório (térreo)', '9 m²'], ['WC social (térreo)', '4 m²'], ['Área livre (superior)', '20 m²'],
+      ['Sacada', '4 m²'], ['Lavanderia', '4,5 m²'], ['Cozinha + sala de estar e jantar', '35 m²'],
+      ['Varanda coberta aberta', '7 m²'], ['Varanda lateral aberta coberta', '8 m²'],
+      ['Garagem aberta coberta', '21,25 m²'],
+    ],
+  },
+  {
+    id: 'santiago', nome: 'Santiago', dorms: 3, area: '116 m²', valor: 'R$ 266.200,00',
+    fotos: ['assets/modelos/santiago-1.jpg','assets/modelos/santiago-2.jpg','assets/modelos/santiago-3.jpg','assets/modelos/santiago-4.jpg','assets/modelos/santiago-5.jpg','assets/modelos/santiago-6.jpg'],
+    planta: 'assets/modelos/santiago-planta.jpg',
+    specs: [
+      ['Dormitório casal (suíte)', '12 m²'], ['WC suíte', '4,5 m²'],
+      ['Dormitório', '12 m²'], ['Dormitório', '9 m²'], ['WC social', '4,5 m²'],
+      ['Lavanderia', '4,5 m²'], ['Cozinha + sala de estar e jantar', '47 m²'],
+      ['Pergolado em madeira nobre', 'incluído'], ['Varanda aberta coberta', '19,5 m²'],
+    ],
+  },
+  {
+    id: 'canada', nome: 'Canadá', dorms: 4, area: '117 m²',
+    fotos: ['assets/modelos/canada-1.jpg'],
+    planta: 'assets/modelos/canada-planta.jpg',
+    specs: [
+      ['Dormitório casal (suíte)', '9 m²'], ['WC suíte', '4,5 m²'],
+      ['Dormitório', '9 m² (x2)'], ['WC social', '3 m²'], ['Lavanderia', '3,75 m²'],
+      ['Cozinha + sala de estar e jantar', '35,25 m²'],
+      ['Lareira em alvenaria cerâmica', 'incluída'], ['Varanda aberta coberta frontal', '15,75 m²'],
+      ['Garagem aberta coberta', '18,75 m²'],
+    ],
+  },
+  {
+    id: 'holanda', nome: 'Holanda', dorms: 4, area: '145,6 m²',
+    fotos: ['assets/modelos/holanda-1.jpg','assets/modelos/holanda-2.jpg','assets/modelos/holanda-3.jpg','assets/modelos/holanda-4.jpg','assets/modelos/holanda-5.jpg','assets/modelos/holanda-6.jpg','assets/modelos/holanda-7.jpg'],
+    planta: 'assets/modelos/holanda-planta.jpg',
+    specs: [
+      ['D. Suíte + closet', '13,5 m² + 4,5 m²'], ['Dormitório', '9 m² (x3)'],
+      ['WC', '4,5 m² (x2)'], ['Circulação', '9 m²'], ['Lavanderia', '4,5 m²'],
+      ['Sala + cozinha', '30 m²'], ['Área gourmet', '15 m²'],
+      ['Varandas', '5 m² + 5,62 m²'], ['Garagem', '22,5 m²'],
+    ],
+  },
+  {
+    id: 'everest', nome: 'Everest', dorms: 2, area: '101,75 m²', valor: 'R$ 232.400,00',
+    fotos: ['assets/modelos/everest-1.jpg'],
+    planta: 'assets/modelos/everest-planta.jpg',
+    specs: [
+      ['Banheiros', '1'],
+    ],
+  },
+  {
+    id: 'melita', nome: 'Melita', dorms: 2, area: '105 m²', valor: 'R$ 241.900,00',
+    fotos: ['assets/modelos/melita-1.jpg'],
+    planta: 'assets/modelos/melita-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lavanderia em alvenaria azulejada, cozinha com parede em alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'infinity-pocket', nome: 'Infinity Pocket', dorms: 2, area: '62,25 m²', valor: 'R$ 142.700,00',
+    fotos: ['assets/modelos/infinity-pocket-1.jpg','assets/modelos/infinity-pocket-2.jpg'],
+    planta: 'assets/modelos/infinity-pocket-planta.jpg',
+    specs: [
+      ['Banheiros', '1'],
+    ],
+  },
+  {
+    id: 'joana', nome: 'Joana', dorms: 2, area: '63 m²',
+    fotos: ['assets/modelos/joana-1.jpg','assets/modelos/joana-2.jpg'],
+    planta: 'assets/modelos/joana-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lavanderia em alvenaria azulejada, cozinha com parede em alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'junior', nome: 'Junior', dorms: 2, area: '66,5 m²',
+    fotos: ['assets/modelos/junior-1.jpg','assets/modelos/junior-2.jpg'],
+    planta: 'assets/modelos/junior-planta.jpg',
+    specs: [
+      ['Banheiros', '1'],
+    ],
+  },
+  {
+    id: 'caxias', nome: 'Caxias', dorms: 2, area: '67,75 m²', valor: 'R$ 155.900,00',
+    fotos: ['assets/modelos/caxias-1.jpg','assets/modelos/caxias-2.jpg'],
+    planta: 'assets/modelos/caxias-planta.jpg',
+    specs: [
+      ['Banheiros', '1'],
+      ['Diferenciais', 'cozinha com parede em L de alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'blumenau', nome: 'Blumenau', dorms: 2, area: '72 m²', valor: 'R$ 165.600,00',
+    fotos: ['assets/modelos/blumenau-1.jpg','assets/modelos/blumenau-2.jpg'],
+    planta: 'assets/modelos/blumenau-planta.jpg',
+    specs: [
+      ['Banheiros', '1'],
+      ['Diferenciais', 'lavanderia em alvenaria azulejada, cozinha com parede em alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'paris', nome: 'Paris', dorms: 2, area: '72 m²', valor: 'R$ 165.400,00',
+    fotos: ['assets/modelos/paris-1.jpg','assets/modelos/paris-2.jpg'],
+    planta: 'assets/modelos/paris-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lavanderia em alvenaria azulejada, cozinha com parede em alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'vaticano', nome: 'Vaticano', dorms: 2, area: '75,75 m²', valor: 'R$ 172.400,00',
+    fotos: ['assets/modelos/vaticano-1.jpg','assets/modelos/vaticano-2.jpg','assets/modelos/vaticano-3.jpg','assets/modelos/vaticano-4.jpg','assets/modelos/vaticano-5.jpg'],
+    planta: 'assets/modelos/vaticano-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lavanderia em alvenaria azulejada, churrasqueira em alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'osorio', nome: 'Osório', dorms: 2, area: '79,5 m²', valor: 'R$ 181.400,00',
+    fotos: ['assets/modelos/osorio-1.jpg'],
+    planta: 'assets/modelos/osorio-planta.jpg',
+    specs: [
+      ['Banheiros', '1'],
+    ],
+  },
+  {
+    id: 'viena', nome: 'Viena', dorms: 2, area: '80,75 m²', valor: 'R$ 184.900,00',
+    fotos: ['assets/modelos/viena-1.jpg','assets/modelos/viena-2.jpg','assets/modelos/viena-3.jpg','assets/modelos/viena-4.jpg','assets/modelos/viena-5.jpg'],
+    planta: 'assets/modelos/viena-planta.jpg',
+    specs: [
+      ['Banheiros', '1'],
+      ['Diferenciais', 'lavanderia em alvenaria azulejada'],
+    ],
+  },
+  {
+    id: 'egito', nome: 'Egito', dorms: 2, area: '83,25 m²', valor: 'R$ 190.400,00',
+    fotos: ['assets/modelos/egito-1.jpg'],
+    planta: 'assets/modelos/egito-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lavanderia em alvenaria azulejada, lareira em alvenaria revestida com cerâmica'],
+    ],
+  },
+  {
+    id: 'tubarao', nome: 'Tubarão', dorms: 2, area: '83,75 m²', valor: 'R$ 193.500,00',
+    fotos: ['assets/modelos/tubarao-1.jpg'],
+    planta: 'assets/modelos/tubarao-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lavanderia em alvenaria azulejada, sala de estar e lareira em alvenaria e tijolinho aparente'],
+    ],
+  },
+  {
+    id: 'ipatinga', nome: 'Ipatinga', dorms: 2, area: '84 m²', valor: 'R$ 193.800,00',
+    fotos: ['assets/modelos/ipatinga-1.jpg','assets/modelos/ipatinga-2.jpg','assets/modelos/ipatinga-3.jpg','assets/modelos/ipatinga-4.jpg','assets/modelos/ipatinga-5.jpg'],
+    planta: 'assets/modelos/ipatinga-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lavanderia e cozinha em alvenaria azulejada'],
+    ],
+  },
+  {
+    id: 'irati', nome: 'Irati', dorms: 2, area: '85 m²', valor: 'R$ 195.500,00',
+    fotos: ['assets/modelos/irati-1.jpg'],
+    planta: 'assets/modelos/irati-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lavanderia em alvenaria azulejada'],
+    ],
+  },
+  {
+    id: 'viana', nome: 'Viana', dorms: 2, area: '88 m²', valor: 'R$ 202.600,00',
+    fotos: ['assets/modelos/viana-1.jpg','assets/modelos/viana-2.jpg'],
+    planta: 'assets/modelos/viana-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lavanderia em alvenaria azulejada'],
+    ],
+  },
+  {
+    id: 'qatar', nome: 'Qatar', dorms: 2, area: '93 m²',
+    fotos: ['assets/modelos/qatar-1.jpg'],
+    planta: 'assets/modelos/qatar-planta.jpg',
+    specs: [
+      ['Banheiros', '3'],
+      ['Diferenciais', 'lavanderia em alvenaria azulejada, churrasqueira em alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'australia', nome: 'Austrália', dorms: 2, area: '98 m²', valor: 'R$ 225.600,00',
+    fotos: ['assets/modelos/australia-1.jpg'],
+    planta: 'assets/modelos/australia-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lavanderia em alvenaria azulejada'],
+    ],
+  },
+  {
+    id: 'nova-roma', nome: 'Nova Roma', dorms: 3, area: '101 m²', valor: 'R$ 232.200,00',
+    fotos: ['assets/modelos/nova-roma-1.jpg'],
+    planta: 'assets/modelos/nova-roma-planta.jpg',
+    specs: [
+      ['Tipo', 'sobrado'],
+      ['Banheiros', '2'],
+    ],
+  },
+  {
+    id: 'garibaldi', nome: 'Garibaldi', dorms: 3, area: '101,5 m²', valor: 'R$ 232.800,00',
+    fotos: ['assets/modelos/garibaldi-1.jpg'],
+    planta: 'assets/modelos/garibaldi-planta.jpg',
+    specs: [
+      ['Tipo', 'térrea'],
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lareira em alvenaria revestida com cerâmica, churrasqueira em alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'osvaldo', nome: 'Osvaldo', dorms: 3, area: '102 m²', valor: 'R$ 234.600,00',
+    fotos: ['assets/modelos/osvaldo-1.jpg'],
+    planta: 'assets/modelos/osvaldo-planta.jpg',
+    specs: [
+      ['Tipo', 'térrea'],
+      ['Banheiros', '2'],
+    ],
+  },
+  {
+    id: 'passo-fundo', nome: 'Passo Fundo', dorms: 3, area: '103,75 m²', valor: 'R$ 236.990,00',
+    fotos: ['assets/modelos/passo-fundo-1.jpg'],
+    planta: 'assets/modelos/passo-fundo-planta.jpg',
+    specs: [
+      ['Tipo', 'sobrado'],
+      ['Banheiros', '2'],
+    ],
+  },
+  {
+    id: 'canela', nome: 'Canela', dorms: 3, area: '103,85 m²', valor: 'R$ 236.820,00',
+    fotos: ['assets/modelos/canela-1.jpg'],
+    planta: 'assets/modelos/canela-planta.jpg',
+    specs: [
+      ['Tipo', 'térrea'],
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lareira em alvenaria revestida com cerâmica, churrasqueira em alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'recife', nome: 'Recife', dorms: 3, area: '110,2 m²', valor: 'R$ 253.940,00',
+    fotos: ['assets/modelos/recife-1.jpg','assets/modelos/recife-2.jpg','assets/modelos/recife-3.jpg','assets/modelos/recife-4.jpg','assets/modelos/recife-5.jpg'],
+    planta: 'assets/modelos/recife-planta.jpg',
+    specs: [
+      ['Tipo', 'térrea'],
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lareira e churrasqueira em alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'salvador', nome: 'Salvador', dorms: 3, area: '117 m²', valor: 'R$ 269.900,00',
+    fotos: ['assets/modelos/salvador-1.jpg'],
+    planta: 'assets/modelos/salvador-planta.jpg',
+    specs: [
+      ['Tipo', 'térrea'],
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lareira e churrasqueira em alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'aurora', nome: 'Aurora', dorms: 3, area: '118,75 m²', valor: 'R$ 271.500,00',
+    fotos: ['assets/modelos/aurora-1.jpg'],
+    planta: 'assets/modelos/aurora-planta.jpg',
+    specs: [
+      ['Tipo', 'térrea'],
+      ['Banheiros', '2'],
+    ],
+  },
+  {
+    id: 'texas', nome: 'Texas', dorms: 3, area: '123 m²', valor: 'R$ 286.900,00',
+    fotos: ['assets/modelos/texas-1.jpg'],
+    planta: 'assets/modelos/texas-planta.jpg',
+    specs: [
+      ['Tipo', 'sobrado'],
+      ['Banheiros', '2'],
+    ],
+  },
+  {
+    id: 'marrocos', nome: 'Marrocos', dorms: 3, area: '136 m²', valor: 'R$ 312.900,00',
+    fotos: ['assets/modelos/marrocos-1.jpg'],
+    planta: 'assets/modelos/marrocos-planta.jpg',
+    specs: [
+      ['Tipo', 'sobrado'],
+      ['Banheiros', '3'],
+    ],
+  },
+  {
+    id: 'bento', nome: 'Bento', dorms: 3, area: '137,5 m²', valor: 'R$ 315.915,00',
+    fotos: [],
+    planta: 'assets/modelos/bento-planta.jpg',
+    specs: [
+      ['Tipo', 'térrea'],
+      ['Banheiros', '1'],
+      ['Observação', 'Fotos de fachada originais continham placa de outra construtora e foram removidas — recomenda-se novo ensaio fotográfico.'],
+    ],
+  },
+  {
+    id: 'manaus', nome: 'Manaus', dorms: 3, area: '141,75 m²', valor: 'R$ 324.600,00',
+    fotos: [],
+    planta: 'assets/modelos/manaus-planta.jpg',
+    specs: [
+      ['Tipo', 'térrea'],
+      ['Banheiros', '2'],
+      ['Diferenciais', 'lareira e churrasqueira em alvenaria rebocada'],
+      ['Observação', 'Fotos de fachada originais continham placa de outra construtora e foram removidas — recomenda-se novo ensaio fotográfico.'],
+    ],
+  },
+  {
+    id: 'maranhao', nome: 'Maranhão', dorms: 3, area: '142 m²', valor: 'R$ 326.600,00',
+    fotos: ['assets/modelos/maranhao-1.jpg','assets/modelos/maranhao-2.jpg'],
+    planta: 'assets/modelos/maranhao-planta.jpg',
+    specs: [
+      ['Tipo', 'térrea'],
+      ['Banheiros', '2'],
+    ],
+  },
+  {
+    id: 'alagoas', nome: 'Alagoas', dorms: 3, area: '151 m²', valor: 'R$ 347.900,00',
+    fotos: ['assets/modelos/alagoas-1.jpg','assets/modelos/alagoas-2.jpg','assets/modelos/alagoas-3.jpg','assets/modelos/alagoas-4.jpg'],
+    planta: 'assets/modelos/alagoas-planta.jpg',
+    specs: [
+      ['Tipo', 'sobrado'],
+      ['Banheiros', '2'],
+    ],
+  },
+  {
+    id: 'las-vegas', nome: 'Las Vegas', dorms: 3, area: '166 m²', valor: 'R$ 381.900,00',
+    fotos: ['assets/modelos/las-vegas-1.jpg','assets/modelos/las-vegas-2.jpg'],
+    planta: 'assets/modelos/las-vegas-planta.jpg',
+    specs: [
+      ['Tipo', 'térrea'],
+      ['Banheiros', '2'],
+      ['Suítes', '1'],
+      ['Varanda/Deck', 'área aberta pergolado 9 m² e área aberta gourmet 22 m² (conforme planta baixa)'],
+      ['Diferenciais', 'área gourmet em alvenaria rebocada, churrasqueira, lareira em alvenaria revestida com cerâmica'],
+      ['Observação', 'Fotos de fachada originais continham placa de outra construtora e foram substituídas por fotos internas limpas — recomenda-se novo ensaio fotográfico da fachada.'],
+    ],
+  },
+  {
+    id: 'sergipe', nome: 'Sergipe', dorms: 3, area: '169,5 m²', valor: 'R$ 388.900,00',
+    fotos: ['assets/modelos/sergipe-1.jpg','assets/modelos/sergipe-2.jpg'],
+    planta: 'assets/modelos/sergipe-planta.jpg',
+    specs: [
+      ['Tipo', 'sobrado'],
+      ['Banheiros', '3'],
+    ],
+  },
+  {
+    id: 'sao-paulo', nome: 'São Paulo', dorms: 3, area: '93 m²', valor: 'R$ 213.600,00',
+    fotos: ['assets/modelos/sao-paulo-1.jpg'],
+    planta: 'assets/modelos/sao-paulo-planta.jpg',
+    specs: [
+      ['Tipo', 'térrea'],
+      ['Banheiros', '2'],
+      ['Diferenciais', 'churrasqueira em alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'brasilia', nome: 'Brasília', dorms: 3, area: '97,5 m²', valor: 'R$ 223.500,00',
+    fotos: [],
+    planta: 'assets/modelos/brasilia-planta.jpg',
+    specs: [
+      ['Tipo', 'térrea'],
+      ['Banheiros', '2'],
+      ['Observação', 'Fotos de fachada originais continham placa de outra construtora e foram removidas — recomenda-se novo ensaio fotográfico.'],
+    ],
+  },
+  {
+    id: 'cruzeiro', nome: 'Cruzeiro', dorms: 4, area: '107 m²',
+    fotos: ['assets/modelos/cruzeiro-1.jpg'],
+    planta: 'assets/modelos/cruzeiro-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Lavanderia', 'alvenaria azulejada até o teto'],
+      ['Cozinha', 'parede em L de alvenaria rebocada'],
+      ['Lareira', 'alvenaria revestida com cerâmica'],
+      ['Churrasqueira', 'alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'jorge', nome: 'Jorge', dorms: 4, area: '108 m²',
+    fotos: ['assets/modelos/jorge-1.jpg','assets/modelos/jorge-2.jpg'],
+    planta: 'assets/modelos/jorge-planta.jpg',
+    specs: [
+      ['Tipo', 'sobrado (2 pavimentos)'],
+      ['Banheiros', '2'],
+      ['Lavanderia', 'alvenaria azulejada'],
+      ['Assoalho e escada', 'madeira nobre'],
+    ],
+  },
+  {
+    id: 'hugo', nome: 'Hugo', dorms: 4, area: '111,5 m²',
+    fotos: ['assets/modelos/hugo-1.jpg'],
+    planta: 'assets/modelos/hugo-planta.jpg',
+    specs: [
+      ['Tipo', 'sobrado (2 pavimentos)'],
+      ['Banheiros', '2'],
+      ['Assoalho e escada', 'madeira nobre'],
+    ],
+  },
+  {
+    id: 'nissan', nome: 'Nissan', dorms: 4, area: '115,5 m²',
+    fotos: ['assets/modelos/nissan-1.jpg','assets/modelos/nissan-2.jpg','assets/modelos/nissan-3.jpg','assets/modelos/nissan-4.jpg','assets/modelos/nissan-5.jpg'],
+    planta: 'assets/modelos/nissan-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Lavanderia', 'alvenaria azulejada até o teto'],
+      ['Cozinha', 'parede em alvenaria rebocada'],
+      ['Churrasqueira', 'alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'uruguai', nome: 'Uruguai', dorms: 4, area: '120 m²',
+    fotos: ['assets/modelos/uruguai-1.jpg'],
+    planta: 'assets/modelos/uruguai-planta.jpg',
+    specs: [
+      ['Banheiros', '3'],
+      ['Lavanderia', 'alvenaria azulejada até o teto'],
+    ],
+  },
+  {
+    id: 'espanha', nome: 'Espanha', dorms: 4, area: '121,5 m²',
+    fotos: ['assets/modelos/espanha-1.jpg'],
+    planta: 'assets/modelos/espanha-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Lavanderia', 'alvenaria azulejada até o teto'],
+    ],
+  },
+  {
+    id: 'frances', nome: 'Francês', dorms: 4, area: '122,5 m²',
+    fotos: ['assets/modelos/frances-1.jpg'],
+    planta: 'assets/modelos/frances-planta.jpg',
+    specs: [
+      ['Tipo', 'sobrado (2 pavimentos)'],
+      ['Banheiros', '2'],
+      ['Cozinha', 'alvenaria rebocada'],
+      ['Assoalho e escada', 'madeira nobre'],
+    ],
+  },
+  {
+    id: 'croacia', nome: 'Croácia', dorms: 4, area: '125,5 m²',
+    fotos: ['assets/modelos/croacia-1.jpg'],
+    planta: 'assets/modelos/croacia-planta.jpg',
+    specs: [
+      ['Tipo', 'sobrado (2 pavimentos)'],
+      ['Banheiros', '3'],
+      ['Lavanderia', 'alvenaria azulejada'],
+      ['Assoalho e escada', 'madeira nobre'],
+      ['Diferencial', 'janela bay window'],
+    ],
+  },
+  {
+    id: 'dinamarca', nome: 'Dinamarca', dorms: 4, area: '125,75 m²',
+    fotos: ['assets/modelos/dinamarca-1.jpg'],
+    planta: 'assets/modelos/dinamarca-planta.jpg',
+    specs: [
+      ['Tipo', 'sobrado (2 pavimentos)'],
+      ['Banheiros', '2'],
+      ['Lavanderia', 'alvenaria azulejada'],
+      ['Assoalho e escada', 'madeira nobre'],
+    ],
+  },
+  {
+    id: 'argentina', nome: 'Argentina', dorms: 4, area: '135,5 m²',
+    fotos: ['assets/modelos/argentina-1.jpg'],
+    planta: 'assets/modelos/argentina-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Lavanderia', 'alvenaria azulejada até o teto'],
+      ['Lareira', 'alvenaria revestida com cerâmica'],
+    ],
+  },
+  {
+    id: 'madrid', nome: 'Madrid', dorms: 4, area: '140,5 m²',
+    fotos: ['assets/modelos/madrid-1.jpg'],
+    planta: 'assets/modelos/madrid-planta.jpg',
+    specs: [
+      ['Tipo', 'sobrado (2 pavimentos)'],
+      ['Banheiros', '4'],
+      ['Lavanderia', 'alvenaria azulejada'],
+      ['Cozinha', 'parede em alvenaria rebocada'],
+      ['Assoalho e escada', 'madeira nobre'],
+    ],
+  },
+  {
+    id: 'mocambique', nome: 'Moçambique', dorms: 4, area: '152,25 m²',
+    fotos: ['assets/modelos/mocambique-1.jpg'],
+    planta: 'assets/modelos/mocambique-planta.jpg',
+    specs: [
+      ['Tipo', 'sobrado (2 pavimentos)'],
+      ['Banheiros', '3'],
+      ['Lavanderia', 'alvenaria azulejada até o teto'],
+      ['Assoalho e escada', 'madeira nobre'],
+    ],
+  },
+  {
+    id: 'brasil', nome: 'Brasil', dorms: 4, area: '152,5 m²',
+    fotos: ['assets/modelos/brasil-1.jpg'],
+    planta: 'assets/modelos/brasil-planta.jpg',
+    specs: [
+      ['Banheiros', '4'],
+      ['Lavanderia', 'alvenaria azulejada até o teto'],
+      ['Cozinha', 'alvenaria rebocada'],
+      ['Lareira', 'alvenaria revestida com cerâmica'],
+      ['Churrasqueira', 'alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'gramado', nome: 'Gramado', dorms: 4, area: '153 m²',
+    fotos: ['assets/modelos/gramado-1.jpg'],
+    planta: 'assets/modelos/gramado-planta.jpg',
+    specs: [
+      ['Tipo', 'sobrado (2 pavimentos)'],
+      ['Banheiros', '3'],
+      ['Lavanderia', 'alvenaria azulejada'],
+      ['Cozinha', 'parede em alvenaria rebocada'],
+      ['Assoalho e escada', 'madeira nobre'],
+    ],
+  },
+  {
+    id: 'istambul', nome: 'Istambul', dorms: 4, area: '177,75 m²',
+    fotos: ['assets/modelos/istambul-1.jpg'],
+    planta: 'assets/modelos/istambul-planta.jpg',
+    specs: [
+      ['Banheiros', '4'],
+      ['Lavanderia', 'alvenaria azulejada'],
+      ['Cozinha', 'parede em alvenaria rebocada'],
+      ['Diferencial', 'duas janelas bay window'],
+    ],
+  },
+  {
+    id: 'ivoti', nome: 'Ivoti', dorms: 4, area: '85 m²',
+    fotos: [],
+    planta: 'assets/modelos/ivoti-planta.jpg',
+    specs: [
+      ['Banheiros', '2'],
+      ['Lavanderia', 'alvenaria azulejada até o teto'],
+      ['Observação', 'Fotos de fachada originais continham placa de outra construtora e foram removidas — recomenda-se novo ensaio fotográfico.'],
+    ],
+  },
+  {
+    id: 'pernambuco', nome: 'Pernambuco', dorms: 4, area: '89,25 m²',
+    fotos: ['assets/modelos/pernambuco-1.jpg'],
+    planta: 'assets/modelos/pernambuco-planta.jpg',
+    specs: [
+      ['Banheiros', '1'],
+      ['Lavanderia', 'alvenaria azulejada'],
+    ],
+  },
+  {
+    id: 'armenia', nome: 'Armênia', dorms: 4, area: '89,75 m²',
+    fotos: ['assets/modelos/armenia-1.jpg'],
+    planta: 'assets/modelos/armenia-planta.jpg',
+    specs: [
+      ['Banheiros', '1'],
+      ['Cozinha', 'parede em alvenaria rebocada'],
+    ],
+  },
+  {
+    id: 'verona', nome: 'Verona', dorms: 3, area: '118,5 m²',
+    fotos: ['assets/modelos/verona-1.jpg','assets/modelos/verona-2.jpg','assets/modelos/verona-3.jpg','assets/modelos/verona-4.jpg','assets/modelos/verona-5.jpg'],
+    planta: 'assets/modelos/verona-planta.jpg',
+    specs: [
+      ['Observação', 'Sem descritivo na pasta de origem; specs a confirmar com o fundador.'],
+    ],
+  },
+  {
+    id: 'colombia', nome: 'Colômbia', dorms: 3, area: '195 m²',
+    fotos: ['assets/modelos/colombia-1.jpg','assets/modelos/colombia-2.jpg','assets/modelos/colombia-3.jpg','assets/modelos/colombia-4.jpg','assets/modelos/colombia-5.jpg'],
+    planta: 'assets/modelos/colombia-planta.jpg',
+    specs: [
+      ['Suítes', '1'],
+      ['Banheiros', 'conforme suíte + social'],
+      ['Diferenciais', 'Sobrado com 2 sacadas com portas balcão e guarda-corpo em madeira nobre, Escada em madeira nobre, Telha de barro natural portuguesa com manta térmica, Garagem e varanda aberta coberta'],
+    ],
+  },
+  {
+    id: 'estados-unidos', nome: 'Estados Unidos', dorms: 3, area: '78,75 m²',
+    fotos: ['assets/modelos/estados-unidos-1.jpg','assets/modelos/estados-unidos-2.jpg','assets/modelos/estados-unidos-3.jpg','assets/modelos/estados-unidos-4.jpg','assets/modelos/estados-unidos-5.jpg'],
+    planta: 'assets/modelos/estados-unidos-planta.jpg',
+    specs: [
+      ['Suítes', '1'],
+      ['Diferenciais', 'Lareira em alvenaria revestida de cerâmica, Garagem e varanda aberta coberta com pergolado em madeira nobre, Telha de barro natural portuguesa com manta térmica'],
+    ],
+  },
+  {
+    id: 'chale-41', nome: 'Chalé 41.75 + Deck', dorms: 1, area: '41,75 m² + 15 m² deck',
+    fotos: ['assets/modelos/chale-41-1.jpg','assets/modelos/chale-41-2.jpg','assets/modelos/chale-41-3.jpg','assets/modelos/chale-41-4.jpg','assets/modelos/chale-41-5.jpg'],
+    planta: 'assets/modelos/chale-41-planta.jpg',
+    specs: [
+      ['Deck', '18 m²'], ['Sala/Cozinha', '45 m²'], ['Banheiro', '3,75 m²'],
+      ['Dormitório', '16 m²'], ['Circulação', '4 m²'], ['Dormitório 2 / flex', '10 m²'], ['Sacada', '4,80 m²'],
+    ],
+  },
+  {
+    id: 'chale-64', nome: 'Chalé 64.8 + Deck', dorms: 1, area: '64,8 m² + 15 m² deck',
+    fotos: ['assets/modelos/chale-64-1.jpg','assets/modelos/chale-64-2.jpg','assets/modelos/chale-64-3.jpg','assets/modelos/chale-64-4.jpg','assets/modelos/chale-64-5.jpg'],
+    planta: 'assets/modelos/chale-64-planta.jpg',
+    specs: [
+      ['Deck', '15 m² (com banheira externa/hidro)'], ['Sala/Cozinha', '35 m²'], ['Banheiro', '5 m²'],
+      ['Dormitório', '21 m²'], ['Sacada', '3,60 m²'],
+    ],
+  },
+  {
+    id: 'chale-83', nome: 'Chalé Amora 83.55', dorms: 2, area: '83,55 m²',
+    fotos: ['assets/modelos/chale-83-1.jpg','assets/modelos/chale-83-2.jpg','assets/modelos/chale-83-3.jpg','assets/modelos/chale-83-4.jpg','assets/modelos/chale-83-5.jpg'],
+    planta: 'assets/modelos/chale-83-planta.jpg',
+    specs: [
+      ['Diferenciais', 'Chalé estilo A-frame com deck de 18 m², Escada e assoalho em eucalipto, Telha fibrocimento com manta térmica'],
+    ],
+  },
+  {
+    id: 'celeiro', nome: 'Celeiro', dorms: 0, area: '150,86 m²',
+    fotos: ['assets/modelos/celeiro-1.jpg','assets/modelos/celeiro-2.jpg','assets/modelos/celeiro-3.jpg','assets/modelos/celeiro-4.jpg','assets/modelos/celeiro-5.jpg'],
+    planta: 'assets/modelos/celeiro-planta.jpg',
+    specs: [
+      ['Categoria', 'Celeiro de lazer — sem dormitórios (espaço de investimento/refúgio)'],
+      ['Cozinha + sala + jantar', '68,70 m²'],
+      ['Mezanino (jogos)', '57,04 m²'],
+      ['Circulação', '10,50 m²'],
+      ['Banheiros', '2 (3,75 m² cada)'],
+      ['Depósito', '7,12 m²'],
+      ['Área externa', 'Piscina e deck integrados'],
+    ],
+  },
+  {
+    id: 'chale-53', nome: 'Chalé 53.8', dorms: 1, area: '53,8 m²',
+    fotos: ['assets/modelos/chale-53-1.jpg','assets/modelos/chale-53-2.jpg','assets/modelos/chale-53-3.jpg','assets/modelos/chale-53-4.jpg','assets/modelos/chale-53-5.jpg'],
+    planta: 'assets/modelos/chale-53-planta.jpg',
+    specs: [
+      ['Área coberta (garagem)', '14,50 m²'], ['Sala/Cozinha', '15 m²'], ['Banheiro', '3,30 m²'],
+      ['Varanda', '2,4 m²'], ['Dormitório', '15 m²'], ['Sacada', '3,60 m²'],
+    ],
+  },
+  {
+    id: 'flavio', nome: 'Flávio (Telhado Escondido)', dorms: 3, area: '≈147,65 m²',
+    fotos: ['assets/modelos/flavio-1.jpg','assets/modelos/flavio-2.jpg','assets/modelos/flavio-3.jpg','assets/modelos/flavio-4.jpg','assets/modelos/flavio-5.jpg'],
+    planta: 'assets/modelos/flavio-planta.jpg',
+    specs: [
+      ['Suíte', '11,90 m²'], ['Dormitório', '11,57 m²'], ['Dormitório', '7,62 m²'],
+      ['2x WC social', '3,87 m² cada'], ['Sala + Jantar', '41,42 m²'], ['Cozinha', 'integrada à sala'],
+      ['Circulação', '4,01 m²'], ['Lavanderia', '4,62 m²'],
+      ['Varanda frontal', '25,71 m²'], ['Varanda lateral', '3,70 m²'], ['Área coberta/garagem', '29,36 m²'],
+      ['Observação', 'Área somada a partir dos ambientes da planta humanizada (varandas e área coberta inclusas); confirmar valor oficial de área construída com o fundador.'],
+    ],
+  },
+];
+
+const WHATSAPP = '554797194337';
+const params = new URLSearchParams(location.search);
+const m = modelos.find(x => x.id === params.get('m'));
+const app = document.getElementById('app');
+
+if (!m) {
+  app.innerHTML = `<div class="notfound"><h1>Modelo não encontrado</h1><p>O link pode estar incompleto. Fale com seu corretor Wood House pra receber o link certo.</p></div>`;
+} else {
+  document.title = 'Modelo ' + m.nome + ' — Wood House';
+  const waMsg = encodeURIComponent('Olá! Tenho interesse no modelo ' + m.nome + ' (' + m.area + ') da Wood House.');
+  const spec = k => { const r = m.specs.find(s => s[0] === k); return r ? r[1] : null; };
+  const banheiros = spec('Banheiros');
+  const tipo = spec('Tipo');
+  const relacionados = modelos
+    .filter(x => x.id !== m.id && x.fotos.length && x.dorms === m.dorms)
+    .slice(0, 3);
+  app.innerHTML = `
+    <div class="breadcrumb"><a href="catalogo-vendedores.html">Catálogo</a> / ${m.nome}</div>
+    <div class="hero">
+      ${m.fotos.length ? `<img class="hero-img" src="${m.fotos[0]}" alt="Modelo ${m.nome}">` : `<div class="hero-placeholder">Fotos deste modelo em atualização</div>`}
+      <div class="hero-scrim"></div>
+      <div class="hero-txt">
+        <div class="hero-eyebrow">Modelo Wood House</div>
+        <div class="hero-ttl">${m.nome}</div>
+        <div class="hero-meta">
+          ${m.valor ? `<span class="pill" style="background:var(--ac);border-color:var(--ac);color:#3A1400;font-weight:800;">${m.valor}</span>` : ''}
+          <span class="pill">${m.area} de área total</span>
+          ${m.dorms ? `<span class="pill">${m.dorms} dormitórios</span>` : ''}
+          ${banheiros ? `<span class="pill">${banheiros} banheiro${banheiros === '1' ? '' : 's'}</span>` : ''}
+          ${tipo ? `<span class="pill">${tipo}</span>` : ''}
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      ${m.valor ? `
+      <section>
+        <div class="price-box">
+          <div class="lbl">Investimento</div>
+          <div class="val">${m.valor}</div>
+          <div class="note">Valor de referência do modelo padrão. Pode variar conforme terreno, acabamento e escopo final.</div>
+        </div>
+      </section>` : ''}
+      ${m.fotos.length > 1 ? `
+      <section>
+        <div class="sttl">Fotos do projeto</div>
+        <div class="gallery">
+          ${m.fotos.map(f => `<a href="${f}" target="_blank" rel="noopener"><img src="${f}" alt="Modelo ${m.nome}" loading="lazy"></a>`).join('')}
+        </div>
+      </section>` : ''}
+      <section>
+        <div class="sttl">Planta baixa</div>
+        <div class="planta-box"><img src="${m.planta}" alt="Planta baixa — Modelo ${m.nome}"></div>
+        <div class="planta-note">Planta ilustrativa de apresentação. Medidas e posições finais seguem o projeto técnico de execução.</div>
+      </section>
+      <section>
+        <div class="sttl">Ambientes</div>
+        <div class="speclist">
+          ${m.specs.map(([k,v]) => `<div class="specrow"><span>${k}</span><b>${v}</b></div>`).join('')}
+        </div>
+      </section>
+      <section>
+        <div class="sttl">O que está incluso</div>
+        <div class="inclist">
+          <div class="incrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Equipe própria do início ao fim — sem terceirizados</div>
+          <div class="incrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Projeto técnico de execução incluso</div>
+          <div class="incrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Acompanhamento da obra do início à entrega</div>
+          <div class="incrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>5 anos de garantia da construtora</div>
+        </div>
+      </section>
+      ${relacionados.length ? `
+      <section>
+        <div class="sttl">Você também pode gostar</div>
+        <div class="related-grid">
+          ${relacionados.map(r => `
+            <a class="related-card" href="vendas.html?m=${r.id}">
+              <img src="${r.fotos[0]}" alt="Modelo ${r.nome}" loading="lazy">
+              <div class="rc-info"><b>${r.nome}</b><span>${r.area}${r.dorms ? ' · ' + r.dorms + ' dorm.' : ''}</span></div>
+            </a>`).join('')}
+        </div>
+      </section>` : ''}
+    </div>
+    <div class="cta">
+      <h3>Gostou do modelo ${m.nome}?</h3>
+      <p>Fale agora com a Wood House e receba uma proposta personalizada pra construir o seu.</p>
+      <a class="wabtn" href="https://wa.me/${WHATSAPP}?text=${waMsg}" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.8 14.2c-.2.6-1.4 1.2-2 1.3-.5.1-1.1.1-1.8-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.1.2-.3.4-.1.7.2.3.9 1.4 1.8 2.3 1.3 1.2 2.4 1.6 2.7 1.8.3.2.5.1.7-.1l.6-.7c.2-.3.4-.2.7-.1.3.1 1.7.8 2 .9.3.1.5.2.6.3.1.2.1.7-.1 1.3z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+    <footer>Wood House Construtora e Incorporadora — construção artesanal em madeira nobre</footer>
+  `;
+}
+</script>
+</body>
+</html>

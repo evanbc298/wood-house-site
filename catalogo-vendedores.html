@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Catálogo de investimento — Wood House</title>
+<meta name="description" content="Catálogo de modelos com investimento, planta e fotos — link direto pra enviar ao cliente.">
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{--bg:#FFF5E3;--s:#FFFDF8;--t1:#5C1A00;--t2:#9A7A5C;--ac:#CDA96C;--bd:#E7D6B8;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t1);}
+img{max-width:100%;display:block;}
+header{display:flex;align-items:center;justify-content:center;padding:20px;background:var(--s);border-bottom:1px solid var(--bd);}
+header img{height:32px;}
+.wrap{max-width:1100px;margin:0 auto;padding:30px 20px 60px;}
+h1{font-size:26px;font-weight:800;margin-bottom:6px;letter-spacing:-.01em;}
+.sub{font-size:14px;color:var(--t2);margin-bottom:26px;max-width:560px;line-height:1.5;}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.tab{font-size:13px;font-weight:700;letter-spacing:.02em;padding:10px 20px;border-radius:30px;border:1.5px solid var(--bd);background:var(--s);color:var(--t2);cursor:pointer;transition:all .15s;}
+.tab.active{background:var(--t1);color:#FBF6EE;border-color:var(--t1);}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.card{background:var(--s);border:1px solid var(--bd);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--t1);transition:transform .15s,box-shadow .15s;}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(92,26,0,.12);}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--bd);}
+.card-body{padding:12px 14px 14px;}
+.card-name{font-size:15px;font-weight:800;margin-bottom:3px;}
+.card-meta{font-size:12px;color:var(--t2);margin-bottom:8px;}
+.card-price{font-size:16px;font-weight:800;color:var(--t1);}
+.empty{grid-column:1/-1;text-align:center;padding:50px 20px;color:var(--t2);font-size:14px;line-height:1.6;}
+footer{text-align:center;padding:20px;font-size:11px;color:var(--t2);}
+@media (min-width:640px){ .grid{grid-template-columns:repeat(3,1fr);} }
+@media (min-width:900px){ .grid{grid-template-columns:repeat(4,1fr);} }
+</style>
+</head>
+<body>
+<header><img src="assets/logo-horizontal.png" alt="Wood House" onerror="this.style.display='none'"></header>
+<div class="wrap">
+  <h1>Catálogo de investimento</h1>
+  <p class="sub">Uso interno — envie o link direto de cada modelo pro cliente (planta, fotos e valor de investimento).</p>
+  <div class="tabs">
+    <button class="tab active" data-f="2">2 Dormitórios</button>
+    <button class="tab" data-f="3">3 Dormitórios</button>
+    <button class="tab" data-f="4">4 Dormitórios</button>
+    <button class="tab" data-f="all">Todos</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+<footer>Wood House Construtora e Incorporadora</footer>
+
+<script>
+const modelos = [
+  { id: 'infinity-pocket', nome: 'Infinity Pocket', dorms: 2, area: '62,25 m²', valor: 'R$ 142.700,00' },
+  { id: 'caxias', nome: 'Caxias', dorms: 2, area: '67,75 m²', valor: 'R$ 155.900,00' },
+  { id: 'blumenau', nome: 'Blumenau', dorms: 2, area: '72 m²', valor: 'R$ 165.600,00' },
+  { id: 'paris', nome: 'Paris', dorms: 2, area: '72 m²', valor: 'R$ 165.400,00' },
+  { id: 'vaticano', nome: 'Vaticano', dorms: 2, area: '75,75 m²', valor: 'R$ 172.400,00' },
+  { id: 'osorio', nome: 'Osório', dorms: 2, area: '79,5 m²', valor: 'R$ 181.400,00' },
+  { id: 'viena', nome: 'Viena', dorms: 2, area: '80,75 m²', valor: 'R$ 184.900,00' },
+  { id: 'egito', nome: 'Egito', dorms: 2, area: '83,25 m²', valor: 'R$ 190.400,00' },
+  { id: 'tubarao', nome: 'Tubarão', dorms: 2, area: '83,75 m²', valor: 'R$ 193.500,00' },
+  { id: 'ipatinga', nome: 'Ipatinga', dorms: 2, area: '84 m²', valor: 'R$ 193.800,00' },
+  { id: 'irati', nome: 'Irati', dorms: 2, area: '85 m²', valor: 'R$ 195.500,00' },
+  { id: 'viana', nome: 'Viana', dorms: 2, area: '88 m²', valor: 'R$ 202.600,00' },
+  { id: 'infinity', nome: 'Infinity', dorms: 2, area: '90,75 m²', valor: 'R$ 207.900,00' },
+  { id: 'australia', nome: 'Austrália', dorms: 2, area: '98 m²', valor: 'R$ 225.600,00' },
+  { id: 'melita', nome: 'Melita', dorms: 2, area: '105 m²', valor: 'R$ 241.900,00' },
+  { id: 'everest', nome: 'Everest', dorms: 2, area: '101,75 m²', valor: 'R$ 232.400,00' },
+  { id: 'andorra', nome: 'Andorra', dorms: 2, area: '115 m²', valor: 'R$ 264.500,00' },
+
+  { id: 'sao-paulo', nome: 'São Paulo', dorms: 3, area: '93 m²', valor: 'R$ 213.600,00' },
+  { id: 'brasilia', nome: 'Brasília', dorms: 3, area: '97,5 m²', valor: 'R$ 223.500,00' },
+  { id: 'nova-roma', nome: 'Nova Roma', dorms: 3, area: '101 m²', valor: 'R$ 232.200,00' },
+  { id: 'garibaldi', nome: 'Garibaldi', dorms: 3, area: '101,5 m²', valor: 'R$ 232.800,00' },
+  { id: 'osvaldo', nome: 'Osvaldo', dorms: 3, area: '102 m²', valor: 'R$ 234.600,00' },
+  { id: 'canela', nome: 'Canela', dorms: 3, area: '103,85 m²', valor: 'R$ 236.820,00' },
+  { id: 'passo-fundo', nome: 'Passo Fundo', dorms: 3, area: '103,75 m²', valor: 'R$ 236.990,00' },
+  { id: 'recife', nome: 'Recife', dorms: 3, area: '110,2 m²', valor: 'R$ 253.940,00' },
+  { id: 'santiago', nome: 'Santiago', dorms: 3, area: '116 m²', valor: 'R$ 266.200,00' },
+  { id: 'salvador', nome: 'Salvador', dorms: 3, area: '117 m²', valor: 'R$ 269.900,00' },
+  { id: 'aurora', nome: 'Aurora', dorms: 3, area: '118,75 m²', valor: 'R$ 271.500,00' },
+  { id: 'texas', nome: 'Texas', dorms: 3, area: '123 m²', valor: 'R$ 286.900,00' },
+  { id: 'marrocos', nome: 'Marrocos', dorms: 3, area: '136 m²', valor: 'R$ 312.900,00' },
+  { id: 'bento', nome: 'Bento', dorms: 3, area: '137,5 m²', valor: 'R$ 315.915,00' },
+  { id: 'manaus', nome: 'Manaus', dorms: 3, area: '141,75 m²', valor: 'R$ 324.600,00' },
+  { id: 'maranhao', nome: 'Maranhão', dorms: 3, area: '142 m²', valor: 'R$ 326.600,00' },
+  { id: 'maringa', nome: 'Maringá', dorms: 3, area: '145,25 m²', valor: 'R$ 333.965,00' },
+  { id: 'alagoas', nome: 'Alagoas', dorms: 3, area: '151 m²', valor: 'R$ 347.900,00' },
+  { id: 'las-vegas', nome: 'Las Vegas', dorms: 3, area: '166 m²', valor: 'R$ 381.900,00' },
+  { id: 'sergipe', nome: 'Sergipe', dorms: 3, area: '169,5 m²', valor: 'R$ 388.900,00' },
+];
+
+const grid = document.getElementById('grid');
+const tabs = document.querySelectorAll('.tab');
+
+function render(filter) {
+  const list = filter === 'all' ? modelos : modelos.filter(m => String(m.dorms) === filter);
+  if (filter === '4') {
+    grid.innerHTML = `<div class="empty">Modelos de 4 dormitórios em atualização de valor.<br>Fale com o fundador pra consultar o investimento desses enquanto isso.</div>`;
+    return;
+  }
+  grid.innerHTML = list.map(m => `
+    <a class="card" href="vendas.html?m=${m.id}">
+      <img src="assets/modelos/${m.id}-1.jpg" alt="${m.nome}" loading="lazy" onerror="this.style.background='var(--bd)'">
+      <div class="card-body">
+        <div class="card-name">${m.nome}</div>
+        <div class="card-meta">${m.area} · ${m.dorms} dorm.</div>
+        <div class="card-price">${m.valor}</div>
+      </div>
+    </a>`).join('');
+}
+
+tabs.forEach(t => t.addEventListener('click', () => {
+  tabs.forEach(x => x.classList.remove('active'));
+  t.classList.add('active');
+  render(t.dataset.f);
+}));
+
+render('2');
+</script>
+</body>
+</html>
