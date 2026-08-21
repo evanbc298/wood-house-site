@@ -540,7 +540,7 @@
     }
     .novidade-carousel {
       display: flex;
-      gap: 20px;
+      gap: 24px;
       overflow-x: auto;
       scroll-snap-type: x proximity;
       padding-bottom: 14px;
@@ -553,12 +553,12 @@
     .novidade-carousel::-webkit-scrollbar-thumb { background: rgba(92,26,0,0.22); border-radius: 10px; }
     .novidade-carousel::-webkit-scrollbar-track { background: transparent; }
     .novidade-carousel .novidade-card {
-      flex: 0 0 280px;
+      flex: 0 0 clamp(280px, 22vw, 360px);
       scroll-snap-align: start;
     }
     @media (max-width: 900px) {
       .novidade-carousel { margin: 0 -20px; padding-left: 20px; padding-right: 20px; }
-      .novidade-carousel .novidade-card { flex-basis: 240px; }
+      .novidade-carousel .novidade-card { flex-basis: 78vw; max-width: 320px; }
     }
 
     /* ─── OBRA REAL ─── */
