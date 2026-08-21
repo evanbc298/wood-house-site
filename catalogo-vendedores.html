@@ -88,6 +88,27 @@ const modelos = [
   { id: 'alagoas', nome: 'Alagoas', dorms: 3, area: '151 m²', valor: 'R$ 347.900,00' },
   { id: 'las-vegas', nome: 'Las Vegas', dorms: 3, area: '166 m²', valor: 'R$ 381.900,00' },
   { id: 'sergipe', nome: 'Sergipe', dorms: 3, area: '169,5 m²', valor: 'R$ 388.900,00' },
+
+  { id: 'ivoti', nome: 'Ivoti', dorms: 4, area: '85 m²', valor: 'R$ 195.990,00' },
+  { id: 'pernambuco', nome: 'Pernambuco', dorms: 4, area: '89,25 m²', valor: 'R$ 204.900,00' },
+  { id: 'armenia', nome: 'Armênia', dorms: 4, area: '89,75 m²', valor: 'R$ 204.900,00' },
+  { id: 'cruzeiro', nome: 'Cruzeiro', dorms: 4, area: '107 m²', valor: 'R$ 246.600,00' },
+  { id: 'jorge', nome: 'Jorge', dorms: 4, area: '108 m²', valor: 'R$ 248.600,00' },
+  { id: 'hugo', nome: 'Hugo', dorms: 4, area: '111,5 m²', valor: 'R$ 255.800,00' },
+  { id: 'nissan', nome: 'Nissan', dorms: 4, area: '115,5 m²', valor: 'R$ 264.500,00' },
+  { id: 'canada', nome: 'Canadá', dorms: 4, area: '117 m²', valor: 'R$ 269.900,00' },
+  { id: 'uruguai', nome: 'Uruguai', dorms: 4, area: '120 m²', valor: 'R$ 276.500,00' },
+  { id: 'espanha', nome: 'Espanha', dorms: 4, area: '121,5 m²', valor: 'R$ 278.300,00' },
+  { id: 'frances', nome: 'Francês', dorms: 4, area: '122,5 m²', valor: 'R$ 280.500,00' },
+  { id: 'croacia', nome: 'Croácia', dorms: 4, area: '125,5 m²', valor: 'R$ 287.600,00' },
+  { id: 'dinamarca', nome: 'Dinamarca', dorms: 4, area: '125,75 m²', valor: 'R$ 287.900,00' },
+  { id: 'argentina', nome: 'Argentina', dorms: 4, area: '135,5 m²', valor: 'R$ 310.600,00' },
+  { id: 'madrid', nome: 'Madrid', dorms: 4, area: '140,5 m²', valor: 'R$ 322.600,00' },
+  { id: 'mocambique', nome: 'Moçambique', dorms: 4, area: '152,25 m²', valor: 'R$ 349.700,00' },
+  { id: 'brasil', nome: 'Brasil', dorms: 4, area: '152,5 m²', valor: 'R$ 349.900,00' },
+  { id: 'gramado', nome: 'Gramado', dorms: 4, area: '153 m²', valor: 'R$ 351.900,00' },
+  { id: 'holanda', nome: 'Holanda', dorms: 4, area: '145,6 m²', valor: 'R$ 333.720,00' },
+  { id: 'istambul', nome: 'Istambul', dorms: 4, area: '177,75 m²', valor: 'R$ 407.300,00' },
 ];
 
 const grid = document.getElementById('grid');
@@ -95,10 +116,6 @@ const tabs = document.querySelectorAll('.tab');
 
 function render(filter) {
   const list = filter === 'all' ? modelos : modelos.filter(m => String(m.dorms) === filter);
-  if (filter === '4') {
-    grid.innerHTML = `<div class="empty">Modelos de 4 dormitórios em atualização de valor.<br>Fale com o fundador pra consultar o investimento desses enquanto isso.</div>`;
-    return;
-  }
   grid.innerHTML = list.map(m => `
     <a class="card" href="vendas.html?m=${m.id}">
       <img src="assets/modelos/${m.id}-1.jpg" alt="${m.nome}" loading="lazy" onerror="this.style.background='var(--bd)'">
