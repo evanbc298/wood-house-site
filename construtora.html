@@ -530,6 +530,37 @@
     }
     .novidade-cta { position: absolute; inset: 0; z-index: 3; }
 
+    .novidade-secao + .novidade-secao { margin-top: 44px; }
+    .novidade-secao-titulo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold2, #B8874A);
+      margin-bottom: 16px;
+    }
+    .novidade-carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      padding-bottom: 14px;
+      margin: 0 -80px;
+      padding-left: 80px; padding-right: 80px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(92,26,0,0.25) transparent;
+    }
+    .novidade-carousel::-webkit-scrollbar { height: 7px; }
+    .novidade-carousel::-webkit-scrollbar-thumb { background: rgba(92,26,0,0.22); border-radius: 10px; }
+    .novidade-carousel::-webkit-scrollbar-track { background: transparent; }
+    .novidade-carousel .novidade-card {
+      flex: 0 0 280px;
+      scroll-snap-align: start;
+    }
+    @media (max-width: 900px) {
+      .novidade-carousel { margin: 0 -20px; padding-left: 20px; padding-right: 20px; }
+      .novidade-carousel .novidade-card { flex-basis: 240px; }
+    }
+
     /* ─── OBRA REAL ─── */
     #obra {
       display: grid;
@@ -1547,7 +1578,10 @@
       <a href="https://wa.me/554797194337?text=Ol%C3%A1!%20Vi%20os%20novos%20conceitos%20no%20site%20e%20quero%20saber%20mais." target="_blank" class="btn-outline-dark" style="display:inline-flex;align-items:center;border:1.5px solid rgba(92,26,0,0.25);color:var(--brown2);text-decoration:none;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.06em;padding:14px 28px;border-radius:10px;transition:border-color 0.2s,color 0.2s;white-space:nowrap;">Quero saber mais →</a>
     </div>
     <p class="novidades-sub">Uma nova leva de projetos que estamos preparando para o catálogo Wood House, já com nossa madeira nobre na fachada. Ainda em fase de adaptação técnica final antes de virarem modelos oficiais — mas já dá pra sonhar com o seu.</p>
-    <div class="projetos-grid">
+
+    <div class="novidade-secao">
+      <div class="novidade-secao-titulo">Casas Térreas</div>
+      <div class="novidade-carousel">
 
       <div class="novidade-card">
         <div class="pc-media">
@@ -1720,6 +1754,7 @@
         <a class="novidade-cta" href="https://wa.me/554797194337?text=Ol%C3%A1!%20Vi%20o%20novo%20conceito%20S%C3%A3o%20Jos%C3%A9%20no%20site%20e%20quero%20saber%20mais." target="_blank"></a>
       </div>
 
+      </div>
     </div>
   </section>
 
