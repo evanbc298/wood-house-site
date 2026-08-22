@@ -11,6 +11,13 @@
 .price-box .lbl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);margin-bottom:6px;}
 .price-box .val{font-size:30px;font-weight:800;letter-spacing:-.01em;}
 .price-box .note{font-size:11.5px;color:rgba(251,246,238,.65);margin-top:6px;}
+
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.feat-card{background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:14px 16px;display:flex;gap:11px;align-items:flex-start;}
+.feat-card svg{flex-shrink:0;margin-top:1px;color:var(--ac);}
+.feat-card .ftit{font-size:13.5px;font-weight:700;color:var(--t1);margin-bottom:2px;}
+.feat-card .fsub{font-size:12px;color:var(--t2);line-height:1.4;}
+@media (max-width:480px){.feat-grid{grid-template-columns:1fr;}}
 :root{--bg:#FFF5E3;--s:#FFFDF8;--t1:#5C1A00;--t2:#9A7A5C;--t3:#7A4020;--ac:#CDA96C;--bd:#E7D6B8;}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t1);}
@@ -907,13 +914,50 @@ if (!m) {
         </div>
       </section>
       <section>
-        <div class="sttl">O que está incluso</div>
-        <div class="inclist">
-          <div class="incrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Equipe própria do início ao fim — sem terceirizados</div>
-          <div class="incrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Projeto técnico de execução incluso</div>
-          <div class="incrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Acompanhamento da obra do início à entrega</div>
-          <div class="incrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>5 anos de garantia da construtora</div>
+        <div class="sttl">Características</div>
+        <div class="feat-grid">
+          <div class="feat-card">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div><div class="ftit">Prazo médio: 60 a 90 dias úteis</div><div class="fsub">Podendo variar conforme condições climáticas. É um compromisso de cronograma, não uma estimativa.</div></div>
+          </div>
+          <div class="feat-card">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C7 6 4 11 4 15a8 8 0 0016 0c0-4-3-9-8-13z"/></svg>
+            <div><div class="ftit">Madeira nobre certificada</div><div class="fsub">Jatobá, Grapiá, Angelim, Cedro e Cambará — beneficiadas contra cupim e umidade.</div></div>
+          </div>
+          <div class="feat-card">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="13" height="10" rx="1"/><path d="M16 10h3l2 3v4h-5"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="17.5" cy="18" r="1.5"/></svg>
+            <div><div class="ftit">Equipe própria do início ao fim</div><div class="fsub">Fundação, estrutura, cobertura, elétrica, hidráulica e acabamentos — sem terceirizados.</div></div>
+          </div>
+          <div class="feat-card">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+            <div><div class="ftit">5 anos de garantia</div><div class="fsub">Cobertura da construtora após a entrega das chaves.</div></div>
+          </div>
+          <div class="feat-card">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>
+            <div><div class="ftit">Chave na mão</div><div class="fsub">Casa entregue completamente pronta pra morar, do projeto ao acabamento final.</div></div>
+          </div>
+          <div class="feat-card">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 21V10l8-6 8 6v11M9 21v-5h6v5"/></svg>
+            <div><div class="ftit">Fundação em concreto</div><div class="fsub">Tipo exato definido na vistoria técnica do terreno.</div></div>
+          </div>
         </div>
+      </section>
+      <section>
+        <div class="sttl">O que não está incluso</div>
+        <div class="speclist">
+          <div class="specrow"><span>Vidros</span><b>por conta do cliente</b></div>
+          <div class="specrow"><span>Pintura</span><b>por conta do cliente</b></div>
+          <div class="specrow"><span>Aterro para contrapiso</span><b>por conta do cliente</b></div>
+        </div>
+      </section>
+      <section>
+        <div class="sttl">Forma de pagamento</div>
+        <div class="speclist">
+          <div class="specrow"><span>Na descarga dos materiais na obra</span><b>70%</b></div>
+          <div class="specrow"><span>Na conclusão do telhado</span><b>20%</b></div>
+          <div class="specrow"><span>Na entrega das chaves</span><b>10%</b></div>
+        </div>
+        <div class="planta-note">Contrato com reconhecimento de firma em cartório ou assinatura digital — a obra só inicia após a formalização. Aceitamos veículo como parte do pagamento (cerca de 20% abaixo da FIPE).</div>
       </section>
       ${relacionados.length ? `
       <section>
