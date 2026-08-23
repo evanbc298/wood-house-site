@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Wood House Construtora</title>
+  <meta name="description" content="Guias e conteúdo sobre construção em madeira nobre: preço, comparativos, processo e materiais. Wood House Construtora, SC e PR.">
+  <link rel="canonical" href="https://www.whconstrutora.com.br/blog/">
+  <link rel="icon" href="../assets/favicon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog — Wood House Construtora">
+  <meta property="og:description" content="Guias e conteúdo sobre construção em madeira nobre: preço, comparativos, processo e materiais.">
+  <meta property="og:url" content="https://www.whconstrutora.com.br/blog/">
+  <meta property="og:image" content="https://www.whconstrutora.com.br/assets/proj-bruno.jpeg">
+  <meta property="og:site_name" content="Wood House Construtora">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:    #FBF6EE;
+      --bg2:   #F0E8D5;
+      --bg3:   #E5D9C3;
+      --brown: #5C1A00;
+      --brown2:#7A3010;
+      --gold:  #CDA96C;
+      --gold2: #BB955C;
+      --muted: rgba(92,26,0,0.45);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--brown); }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(251,246,238,0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--bg3);
+      padding: 0 48px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav a img { height: 36px; }
+    nav .nav-cta {
+      background: var(--brown); color: var(--bg);
+      font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 10px 20px; border-radius: 6px; text-decoration: none;
+    }
+
+    .blog-hero {
+      padding: 140px 48px 60px;
+      max-width: 960px; margin: 0 auto;
+    }
+    .breadcrumb {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gold2);
+      margin-bottom: 28px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .breadcrumb::before { content: ''; width: 28px; height: 2px; background: var(--gold); }
+    .breadcrumb a { color: var(--gold2); text-decoration: none; }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--brown);
+      margin-bottom: 20px;
+    }
+    .blog-hero p {
+      font-size: 17px; line-height: 1.7; color: var(--brown2);
+      max-width: 640px;
+    }
+
+    .article-list {
+      max-width: 960px; margin: 0 auto;
+      padding: 0 48px 120px;
+      display: flex; flex-direction: column; gap: 24px;
+    }
+
+    .article-card {
+      display: block; text-decoration: none; color: inherit;
+      background: var(--bg2); border: 1px solid var(--bg3);
+      border-radius: 16px; padding: 36px 40px;
+      transition: border-color 0.2s ease;
+    }
+    .article-card:hover { border-color: var(--gold); }
+    .article-card .cat {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold2);
+      margin-bottom: 14px;
+    }
+    .article-card h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 700; line-height: 1.25;
+      color: var(--brown); margin-bottom: 12px;
+    }
+    .article-card p {
+      font-size: 15px; line-height: 1.7; color: var(--brown2);
+      margin-bottom: 16px; max-width: 720px;
+    }
+    .article-card .meta {
+      font-size: 13px; color: var(--muted);
+    }
+
+    footer {
+      background: var(--brown); color: var(--bg);
+      padding: 48px; text-align: center;
+      font-size: 13px; opacity: 0.9;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 680px) {
+      nav { padding: 0 20px; }
+      .blog-hero, .article-list { padding-left: 24px; padding-right: 24px; }
+      .article-card { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../construtora.html"><img src="../assets/logo-horizontal.png" alt="Wood House Construtora"></a>
+  <a href="https://wa.me/554797194337" target="_blank" class="nav-cta">Falar no WhatsApp</a>
+</nav>
+
+<header class="blog-hero">
+  <div class="breadcrumb"><a href="../construtora.html">Wood House</a> — Blog</div>
+  <h1>Guias sobre construção em madeira nobre</h1>
+  <p>Conteúdo direto sobre preço, processo e materiais — para quem está pensando em construir em SC ou PR.</p>
+</header>
+
+<main class="article-list">
+
+  <a class="article-card" href="quanto-custa-casa-madeira-nobre-sc.html">
+    <div class="cat">Preço</div>
+    <h2>Quanto custa construir uma casa de madeira nobre em SC?</h2>
+    <p>Faixas reais de preço, o que influencia o custo e o que está incluso numa casa de madeira nobre. Sem "sob consulta" — números de verdade.</p>
+    <div class="meta">Agosto de 2026 · 7 min de leitura</div>
+  </a>
+
+  <a class="article-card" href="casa-de-madeira-vs-alvenaria.html">
+    <div class="cat">Comparativo</div>
+    <h2>Casa de Madeira Nobre vs Alvenaria: qual escolher?</h2>
+    <p>As diferenças reais entre casa de madeira nobre e alvenaria: prazo, custo, durabilidade e conforto.</p>
+    <div class="meta">Maio de 2026</div>
+  </a>
+
+</main>
+
+<footer>
+  <p>© 2026 Wood House Construtora e Incorporadora · Balneário Camboriú, SC · <a href="../construtora.html">whconstrutora.com.br</a></p>
+</footer>
+
+</body>
+</html>
