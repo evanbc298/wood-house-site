@@ -44,6 +44,9 @@ section{padding:34px 0;border-bottom:1px solid var(--bd);}
 .gallery a{border-radius:8px;overflow:hidden;aspect-ratio:4/3;}
 .gallery img{width:100%;height:100%;object-fit:cover;}
 
+.video-box{border-radius:10px;overflow:hidden;background:#000;}
+.video-box video{width:100%;display:block;}
+
 .planta-box{border:1px solid var(--bd);border-radius:10px;overflow:hidden;background:var(--s);}
 .planta-note{font-size:12px;color:var(--t2);margin-top:10px;line-height:1.5;}
 
@@ -276,7 +279,7 @@ const modelos = [
   },
   {
     id: 'ipatinga', nome: 'Ipatinga', dorms: 2, area: '84 m²', valor: 'R$ 193.800,00',
-    fotos: ['assets/modelos/ipatinga-1.jpg','assets/modelos/ipatinga-2.jpg','assets/modelos/ipatinga-3.jpg','assets/modelos/ipatinga-4.jpg','assets/modelos/ipatinga-5.jpg'],
+    fotos: ['assets/modelos/ipatinga-1.png','assets/modelos/ipatinga-2.png','assets/modelos/ipatinga-3.png','assets/modelos/ipatinga-4.png','assets/modelos/ipatinga-5.png'],
     planta: 'assets/modelos/ipatinga-planta.jpg',
     specs: [
       ['Banheiros', '2'],
@@ -520,7 +523,7 @@ const modelos = [
   },
   {
     id: 'espanha', nome: 'Espanha', dorms: 4, area: '121,5 m²', valor: 'R$ 278.300,00',
-    fotos: ['assets/modelos/espanha-1.jpg'],
+    fotos: ['assets/modelos/espanha-1.png'],
     planta: 'assets/modelos/espanha-planta.jpg',
     specs: [
       ['Banheiros', '2'],
@@ -529,7 +532,7 @@ const modelos = [
   },
   {
     id: 'frances', nome: 'Francês', dorms: 4, area: '122,5 m²', valor: 'R$ 280.500,00',
-    fotos: ['assets/modelos/frances-1.jpg'],
+    fotos: ['assets/modelos/frances-1.png'],
     planta: 'assets/modelos/frances-planta.jpg',
     specs: [
       ['Tipo', 'sobrado (2 pavimentos)'],
@@ -851,6 +854,76 @@ const modelos = [
     planta: 'assets/modelos/saojose-nv-planta.webp',
     specs: [ ['Tipo', 'térrea'], ['Suítes', '3'], ['Piscina', 'incluída no projeto'], ['Observação', 'Novo conceito Wood House, fachada e interior restilizados em madeira nobre.'] ],
   },
+  {
+    id: 'chale-master', nome: 'Chalé Master', dorms: 2, area: '70 m²', valor: 'R$ 203.000,00',
+    fotos: ['assets/modelos/chale-master-1.png','assets/modelos/chale-master-2.png'],
+    planta: 'assets/modelos/chale-master-planta.png',
+    specs: [
+      ['Quarto suíte', '≈8,4 m²'], ['Quarto de visitas', '≈7,9 m²'],
+      ['Sala de estar + cozinha integrada', '≈25,8 m²'], ['Banheiros', '2'],
+      ['Diferenciais', 'mezanino reservado, chaminé em pedra, fachada em madeira e pedra, deck externo no perímetro'],
+    ],
+  },
+  {
+    id: 'chale-vertice', nome: 'Chalé Vértice', dorms: 1, area: '63 m²', valor: 'R$ 182.700,00',
+    fotos: ['assets/modelos/chale-vertice-1.png','assets/modelos/chale-vertice-2.png','assets/modelos/chale-vertice-3.png','assets/modelos/chale-vertice-4.png','assets/modelos/chale-vertice-5.png'],
+    planta: 'assets/modelos/chale-vertice-planta.jpg',
+    specs: [
+      ['Banheiros', '1'],
+      ['Diferenciais', 'estrutura A-frame elevada sobre deck de madeira, mezanino, lareira, cozinha americana, parede em pedra'],
+    ],
+  },
+  {
+    id: 'chale-horizonte', nome: 'Chalé Horizonte', dorms: 2, area: '92,4 m² (ambientes internos, sem varanda)', valor: 'R$ 267.960,00',
+    fotos: ['assets/modelos/chale-horizonte-1.jpg','assets/modelos/chale-horizonte-2.jpg','assets/modelos/chale-horizonte-3.jpg','assets/modelos/chale-horizonte-4.jpg'],
+    planta: 'assets/modelos/chale-horizonte-planta.jpg',
+    video: 'assets/modelos/chale-horizonte-video.mp4',
+    specs: [
+      ['Dormitório 1', '12,86 m²'], ['Dormitório 2', '11,08 m²'],
+      ['Banheiros', '2 (6,26 m² + 6,02 m²)'], ['Lavanderia', '4,04 m²'],
+      ['Sala + cozinha integrada', '48,41 m²'], ['Varanda coberta', 'incluída (área externa não contabilizada)'],
+      ['Diferenciais', 'fachada moderna em madeira escura, telhado em uma água, pé-direito alto'],
+    ],
+  },
+  {
+    id: 'chale-bavaria', nome: 'Chalé Bavária', dorms: 3, area: 'A confirmar',
+    fotos: ['assets/modelos/chale-bavaria-1.jpg','assets/modelos/chale-bavaria-2.jpg','assets/modelos/chale-bavaria-3.jpg','assets/modelos/chale-bavaria-4.jpg','assets/modelos/chale-bavaria-5.jpg'],
+    planta: '',
+    specs: [
+      ['Categoria', 'Conceito — chalé alpino 2 pavimentos em pedra e madeira, varanda superior'],
+      ['Observação', 'Sem planta técnica no material recebido; metragem e dormitórios estimados pelo render. Confirmar com o fundador antes de fechar venda.'],
+    ],
+  },
+  {
+    id: 'chale-refugio', nome: 'Chalé Refúgio', dorms: 2, area: 'A confirmar',
+    fotos: ['assets/modelos/chale-refugio-1.jpg','assets/modelos/chale-refugio-2.jpg','assets/modelos/chale-refugio-3.jpg','assets/modelos/chale-refugio-4.jpg'],
+    planta: '',
+    video: 'assets/modelos/chale-refugio-video.mp4',
+    specs: [
+      ['Categoria', 'Conceito — A-frame compacto com piscina, deck gourmet e mezanino'],
+      ['Observação', 'Sem planta técnica no material recebido; metragem e dormitórios estimados pelo render. Confirmar com o fundador antes de fechar venda.'],
+    ],
+  },
+  {
+    id: 'chale-lago', nome: 'Chalé Lago', dorms: 2, area: 'A confirmar',
+    fotos: ['assets/modelos/chale-lago-1.jpg','assets/modelos/chale-lago-2.jpg','assets/modelos/chale-lago-3.jpg','assets/modelos/chale-lago-4.jpg'],
+    planta: '',
+    video: 'assets/modelos/chale-lago-video.mp4',
+    specs: [
+      ['Categoria', 'Conceito — A-frame à beira d’água com anexo lateral coberto'],
+      ['Observação', 'Sem planta técnica no material recebido; metragem e dormitórios estimados pelo render. Confirmar com o fundador antes de fechar venda.'],
+    ],
+  },
+  {
+    id: 'chale-vale', nome: 'Chalé Vale', dorms: 1, area: 'A confirmar',
+    fotos: ['assets/modelos/chale-vale-1.jpg','assets/modelos/chale-vale-2.jpg','assets/modelos/chale-vale-3.jpg','assets/modelos/chale-vale-4.jpg'],
+    planta: '',
+    video: 'assets/modelos/chale-vale-video.mp4',
+    specs: [
+      ['Categoria', 'Conceito — estilo celeiro moderno com mezanino e pergolado'],
+      ['Observação', 'Sem planta técnica no material recebido; metragem e dormitórios estimados pelo render. Confirmar com o fundador antes de fechar venda.'],
+    ],
+  },
 ];
 
 const WHATSAPP = '554797194337';
@@ -895,6 +968,15 @@ if (!m) {
           <div class="note">Valor de referência do modelo padrão. Pode variar conforme terreno, acabamento e escopo final.</div>
         </div>
       </section>` : ''}
+      ${m.video ? `
+      <section>
+        <div class="sttl">Vídeo do projeto</div>
+        <div class="video-box">
+          <video controls preload="metadata" poster="${m.fotos[0] || ''}">
+            <source src="${m.video}" type="video/mp4">
+          </video>
+        </div>
+      </section>` : ''}
       ${m.fotos.length > 1 ? `
       <section>
         <div class="sttl">Fotos do projeto</div>
@@ -902,11 +984,11 @@ if (!m) {
           ${m.fotos.map(f => `<a href="${f}" target="_blank" rel="noopener"><img src="${f}" alt="Modelo ${m.nome}" loading="lazy"></a>`).join('')}
         </div>
       </section>` : ''}
-      <section>
+      ${m.planta ? `<section>
         <div class="sttl">Planta baixa</div>
         <div class="planta-box"><img src="${m.planta}" alt="Planta baixa — Modelo ${m.nome}"></div>
         <div class="planta-note">Planta ilustrativa de apresentação. Medidas e posições finais seguem o projeto técnico de execução.</div>
-      </section>
+      </section>` : ''}
       <section>
         <div class="sttl">Ambientes</div>
         <div class="speclist">

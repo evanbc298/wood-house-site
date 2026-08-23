@@ -39,6 +39,7 @@ footer{text-align:center;padding:20px;font-size:11px;color:var(--t2);}
   <h1>Catálogo de investimento</h1>
   <p class="sub">Uso interno — envie o link direto de cada modelo pro cliente (planta, fotos e valor de investimento).</p>
   <div class="tabs">
+    <button class="tab" data-f="1">1 Dormitório</button>
     <button class="tab active" data-f="2">2 Dormitórios</button>
     <button class="tab" data-f="3">3 Dormitórios</button>
     <button class="tab" data-f="4">4 Dormitórios</button>
@@ -125,6 +126,10 @@ const modelos = [
   { id: 'agrolandia', nome: 'Agrolândia (Novo Conceito)', dorms: 3, area: '216 m²', valor: 'R$ 496.800,00' },
   { id: 'palhoca-nv', nome: 'Palhoça (Novo Conceito)', dorms: 4, area: '203 m²', valor: 'R$ 466.900,00' },
   { id: 'saojose-nv', nome: 'São José (Novo Conceito)', dorms: 4, area: '314 m²', valor: 'R$ 723.100,00' },
+
+  { id: 'chale-vertice', nome: 'Chalé Vértice', dorms: 1, area: '63 m²', valor: 'R$ 182.700,00' },
+  { id: 'chale-master', nome: 'Chalé Master', dorms: 2, area: '70 m²', valor: 'R$ 203.000,00' },
+  { id: 'chale-horizonte', nome: 'Chalé Horizonte', dorms: 2, area: '92,4 m²', valor: 'R$ 267.960,00' },
 ];
 
 const grid = document.getElementById('grid');
