@@ -928,6 +928,10 @@
       transition: opacity 0.45s ease;
     }
     .modal-gallery .gal-slide.active { opacity: 1; }
+    .modal-gallery .gal-slide.is-plan {
+      background-size: contain; background-repeat: no-repeat; background-position: center;
+      background-color: #FFFDF8;
+    }
 
     .gal-btn {
       position: absolute; top: 50%; transform: translateY(-50%);
@@ -2985,7 +2989,7 @@
       galDots.innerHTML = '';
       galPhotos.forEach((src, i) => {
         const slide = document.createElement('div');
-        slide.className = 'gal-slide';
+        slide.className = 'gal-slide' + (/planta/i.test(src) ? ' is-plan' : '');
         slide.style.backgroundImage = `url('${src}')`;
         gallery.insertBefore(slide, gallery.querySelector('.gal-btn'));
         const dot = document.createElement('div');
