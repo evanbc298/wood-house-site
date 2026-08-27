@@ -144,14 +144,14 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 0 60px;
       display: flex; align-items: center; justify-content: space-between;
-      height: 62px;
+      height: 82px;
       background: rgba(251,246,238,0.92);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(205,169,108,0.18);
       transition: box-shadow 0.3s;
     }
     nav.scrolled { box-shadow: 0 2px 20px rgba(92,26,0,0.10); }
-    nav .logo img { height: 54px; width: auto; }
+    nav .logo img { height: 74px; width: auto; }
     nav ul { list-style: none; display: flex; gap: 36px; }
     nav ul a {
       text-decoration: none;
@@ -441,11 +441,11 @@
     }
 
     /* Filtros */
-    .proj-filters {
+    .proj-rownav {
       display: flex; gap: 8px; flex-wrap: wrap;
       margin-bottom: 36px;
     }
-    .proj-filter {
+    .proj-rownav-btn {
       font-family: 'Poppins', sans-serif;
       font-size: 12px; font-weight: 600;
       letter-spacing: 0.08em;
@@ -454,17 +454,44 @@
       background: transparent; color: var(--muted);
       cursor: pointer; transition: all 0.22s;
     }
-    .proj-filter:hover { border-color: var(--gold2); color: var(--brown); }
-    .proj-filter.active {
-      background: var(--brown); color: #FFF5E3;
-      border-color: var(--brown);
-    }
+    .proj-rownav-btn:hover { border-color: var(--gold2); color: var(--brown); background: rgba(205,169,108,0.10); }
 
     .projetos-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
     }
+
+    /* Carrossel por categoria */
+    #projetos-rows { display: flex; flex-direction: column; gap: 44px; }
+    .proj-row { scroll-margin-top: 100px; }
+    .proj-row-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; }
+    .proj-row-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 21px; color: var(--brown); }
+    .proj-row-wrap { position: relative; }
+    .proj-row-track {
+      display: flex; gap: 20px;
+      overflow-x: auto; scroll-snap-type: x proximity;
+      padding: 2px 2px 12px;
+      scrollbar-width: thin; scrollbar-color: rgba(92,26,0,0.25) transparent;
+    }
+    .proj-row-track::-webkit-scrollbar { height: 6px; }
+    .proj-row-track::-webkit-scrollbar-thumb { background: rgba(92,26,0,0.22); border-radius: 3px; }
+    .proj-row-track::-webkit-scrollbar-track { background: transparent; }
+    .proj-row-track .proj-card { flex: 0 0 292px; scroll-snap-align: start; }
+    .proj-row-nav {
+      position: absolute; top: 34%; transform: translateY(-50%);
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(92,26,0,0.15);
+      background: rgba(251,246,238,0.96);
+      color: var(--brown);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; box-shadow: 0 4px 14px rgba(92,26,0,0.14);
+      z-index: 2; transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .proj-row-nav:hover { box-shadow: 0 6px 18px rgba(92,26,0,0.20); }
+    .proj-row-nav.prev { left: -16px; }
+    .proj-row-nav.next { right: -16px; }
+    @media (max-width: 900px) { .proj-row-nav { display: none; } }
     .proj-card, .novidade-card {
       position: relative;
       cursor: pointer;
@@ -1108,6 +1135,7 @@
       #hero .content { padding: 0 32px 80px; }
       #diferenciais, #projetos, #processo, #cta, #por-dentro { padding: 72px 32px; }
       .projetos-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .proj-row-track .proj-card { flex-basis: 260px; }
       .pd-grid { grid-template-columns: 1fr; grid-template-rows: 300px 220px 220px; }
       .pd-main { grid-row: auto; }
       #obra .obra-text { padding: 56px 40px; }
@@ -1121,6 +1149,8 @@
     @media (max-width: 768px) {
       #hero { height: auto; min-height: 100vh; padding-top: 90px; align-items: flex-end; }
       .projetos-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .proj-row-track .proj-card { flex-basis: 68vw; }
+      .proj-row-track { gap: 14px; }
       #obra { grid-template-columns: 1fr; }
       #obra .obra-img { height: 280px; }
       .steps { grid-template-columns: 1fr; }
@@ -1158,6 +1188,7 @@
     <div class="hero-bg" style="background-image:url('assets/bruno-interior.jpg'); background-position:center 40%;" role="img" aria-label="Interior do Projeto Camboriú — madeira nobre aparente"></div>
     <div class="hero-bg" style="background-image:url('assets/modelos/rancho-hospedes-1.png'); background-position:center 40%;" role="img" aria-label="Rancho Hóspedes — celeiro americano em madeira nobre"></div>
     <div class="hero-bg" style="background-image:url('assets/modelos/rancho-compacto-1.png'); background-position:center 45%;" role="img" aria-label="Rancho Compacto — celeiro americano em madeira nobre"></div>
+    <div class="hero-bg" style="background-image:url('assets/modelos/rancho-barndominium-1.png'); background-position:center 40%;" role="img" aria-label="Rancho Barndominium — celeiro americano em madeira nobre"></div>
     <div class="overlay"></div>
     <div class="content">
       <div class="hero-tag">Casas de madeira nobre em SC e PR</div>
@@ -1199,17 +1230,13 @@
       </div>
       <a href="https://wa.me/554797194337?text=Quero%20conhecer%20mais%20projetos%20da%20Wood%20House." target="_blank" class="btn-outline-dark" style="display:inline-flex;align-items:center;border:1.5px solid rgba(92,26,0,0.25);color:var(--brown2);text-decoration:none;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.06em;padding:14px 28px;border-radius:10px;transition:border-color 0.2s,color 0.2s;white-space:nowrap;">Falar sobre meu projeto →</a>
     </div>
-    <div class="proj-filters">
-      <button class="proj-filter active" data-filter="destaque">Destaques</button>
-      <button class="proj-filter" data-filter="especial">Chalés</button>
-      <button class="proj-filter" data-filter="rancho">Ranchos e Celeiros</button>
-      <button class="proj-filter" data-filter="2q">2 Dormitórios</button>
-      <button class="proj-filter" data-filter="3q">3 Dormitórios</button>
-      <button class="proj-filter" data-filter="4q">4 Dormitórios</button>
-      <button class="proj-filter" data-filter="entregue">Obras Entregues</button>
-      <button class="proj-filter" data-filter="all">Todos</button>
+    <div class="proj-rownav">
+      <button class="proj-rownav-btn" data-target="row-destaques">Destaques</button>
+      <button class="proj-rownav-btn" data-target="row-casas">Casas</button>
+      <button class="proj-rownav-btn" data-target="row-chales">Chalés</button>
+      <button class="proj-rownav-btn" data-target="row-ranchos">Ranchos e Celeiros</button>
     </div>
-    <div class="projetos-grid">
+    <div class="projetos-grid" id="projetos-master" style="display:none;">
 
       <!-- ── 3 DORMITÓRIOS ── -->
       <div class="proj-card featured"
@@ -1683,21 +1710,21 @@
       </div>
 
       <!-- ── RANCHOS E CELEIROS ── -->
-      <div class="proj-card featured"
-        data-cat="rancho destaque"
-        data-img="assets/modelos/rancho-flagship-1.png" data-pos="center 45%"
-        data-name="Rancho Flagship"
-        data-area="427 m² · 3 suítes · 2 Pavimentos · Flagship"
-        data-desc="O topo de linha da coleção Ranchos e Celeiros: 427 m² em 2 pavimentos, sala de estar com pé-direito duplo e lareira de pedra do piso ao teto, suíte máster no térreo, mais 2 suítes e um loft bônus sobre o shop no piso superior. Shop/galpão de 79 m² com 4 vagas."
-        data-specs='["427 m² · 2 pavimentos","Sala com pé-direito duplo + lareira","Suíte máster no térreo","2 suítes + loft bônus no piso superior","Shop/galpão 79 m² · 4 vagas","3 varandas cobertas"]'
-        data-photos='["assets/modelos/rancho-flagship-1.png","assets/modelos/rancho-flagship-2.png","assets/modelos/rancho-flagship-planta.png","assets/modelos/rancho-flagship-planta2.png"]'
-        data-wpp="Olá! Vi o Rancho Flagship no site e quero saber mais."
-        data-related='["Rancho Família","Rancho Fazenda","Rancho Branco"]'>
+      <div class="proj-card"
+        data-cat="rancho 2q"
+        data-img="assets/modelos/rancho-barndominium-1.png" data-pos="center 40%"
+        data-name="Rancho Barndominium"
+        data-area="117 m² · 2 quartos · Térrea"
+        data-desc="Rancho estilo barndominium com fachada clara em ripas verticais e telhado metálico: 117 m² com 2 quartos (sendo 1 suíte), sala de estar e jantar integradas com pé-direito alto, cozinha com ilha, varanda frontal de 37 m² e garagem anexa de 74 m² para 2 carros."
+        data-specs='["117 m² construídos","2 quartos (1 suíte)","Sala de estar/jantar integrada · pé-direito alto","Cozinha com ilha","Garagem anexa 74 m² · 2 vagas","Varanda frontal 37 m²"]'
+        data-photos='["assets/modelos/rancho-barndominium-1.png","assets/modelos/rancho-barndominium-planta.png"]'
+        data-wpp="Olá! Vi o Rancho Barndominium no site e quero saber mais."
+        data-related='["Rancho Compacto","Rancho Fazenda","Rancho Hóspedes"]'>
         <div class="pc-media">
-          <div class="proj-badge">Rancho · 427 m² · Sob consulta</div>
-          <div class="img" style="background-image:url('assets/modelos/rancho-flagship-1.png'); background-position:center 45%;" role="img" aria-label="Rancho Flagship — celeiro americano em madeira nobre"></div>
+          <div class="proj-badge">Rancho · 117 m² · Sob consulta</div>
+          <div class="img" style="background-image:url('assets/modelos/rancho-barndominium-1.png'); background-position:center 40%;" role="img" aria-label="Rancho Barndominium — celeiro americano em madeira nobre"></div>
         </div>
-        <div class="pc-body"><div class="proj-name">Rancho Flagship</div></div>
+        <div class="pc-body"><div class="proj-name">Rancho Barndominium</div></div>
       </div>
       <div class="proj-card"
         data-cat="rancho 3q"
@@ -1708,7 +1735,7 @@
         data-specs='["172 m² construídos","3 quartos (1 suíte)","Sala com lareira + cozinha integrada","Escritório","Garagem 1 vaga","Varanda coberta"]'
         data-photos='["assets/modelos/rancho-familia-1.png","assets/modelos/rancho-familia-2.png","assets/modelos/rancho-familia-planta.png"]'
         data-wpp="Olá! Vi o Rancho Família no site e quero saber mais."
-        data-related='["Rancho Flagship","Rancho Branco","Rancho Fazenda"]'>
+        data-related='["Rancho Barndominium","Rancho Branco","Rancho Fazenda"]'>
         <div class="pc-media">
           <div class="proj-badge">Rancho · 172 m² · Sob consulta</div>
           <div class="img" style="background-image:url('assets/modelos/rancho-familia-1.png'); background-position:center 45%;" role="img" aria-label="Rancho Família — celeiro americano em madeira nobre"></div>
@@ -1724,7 +1751,7 @@
         data-specs='["186 m² construídos","3 quartos (1 suíte)","Cozinha com ilha + great room","Lareira","Garagem 89 m² · 2 vagas","Varanda frontal"]'
         data-photos='["assets/modelos/rancho-branco-1.png","assets/modelos/rancho-branco-2.png","assets/modelos/rancho-branco-planta.png"]'
         data-wpp="Olá! Vi o Rancho Branco no site e quero saber mais."
-        data-related='["Rancho Família","Rancho Flagship","Rancho RV"]'>
+        data-related='["Rancho Família","Rancho Barndominium","Rancho RV"]'>
         <div class="pc-media">
           <div class="proj-badge">Rancho · 186 m² · Sob consulta</div>
           <div class="img" style="background-image:url('assets/modelos/rancho-branco-1.png'); background-position:center 45%;" role="img" aria-label="Rancho Branco — fachada clara moderna"></div>
@@ -1756,7 +1783,7 @@
         data-specs='["115 m² de área residencial · 2 pavimentos","Galpão/shop 148 m² · 6 vagas","Sala de arreios (apoio rural)","2 suítes com banheiro próprio","Great room com cozinha integrada","Madeira nobre âmbar"]'
         data-photos='["assets/modelos/rancho-fazenda-1.png","assets/modelos/rancho-fazenda-2.png","assets/modelos/rancho-fazenda-planta.png"]'
         data-wpp="Olá! Vi o Rancho Fazenda no site e quero saber mais."
-        data-related='["Rancho RV","Rancho Flagship","Rancho Hóspedes"]'>
+        data-related='["Rancho RV","Rancho Barndominium","Rancho Hóspedes"]'>
         <div class="pc-media">
           <div class="proj-badge">Rancho · 115 m² · Sob consulta</div>
           <div class="img" style="background-image:url('assets/modelos/rancho-fazenda-1.png'); background-position:center 45%;" role="img" aria-label="Rancho Fazenda — celeiro rural em madeira nobre"></div>
@@ -1796,6 +1823,33 @@
         <div class="pc-body"><div class="proj-name">Rancho Hóspedes</div></div>
       </div>
 
+    </div>
+
+    <div id="projetos-rows">
+      <div class="proj-row" id="row-destaques">
+        <div class="proj-row-head"><h3 class="proj-row-title">Destaques</h3></div>
+        <div class="proj-row-wrap">
+          <div class="proj-row-track" data-row="destaques"></div>
+        </div>
+      </div>
+      <div class="proj-row" id="row-casas">
+        <div class="proj-row-head"><h3 class="proj-row-title">Casas</h3></div>
+        <div class="proj-row-wrap">
+          <div class="proj-row-track" data-row="casas"></div>
+        </div>
+      </div>
+      <div class="proj-row" id="row-chales">
+        <div class="proj-row-head"><h3 class="proj-row-title">Chalés</h3></div>
+        <div class="proj-row-wrap">
+          <div class="proj-row-track" data-row="chales"></div>
+        </div>
+      </div>
+      <div class="proj-row" id="row-ranchos">
+        <div class="proj-row-head"><h3 class="proj-row-title">Ranchos e Celeiros</h3></div>
+        <div class="proj-row-wrap">
+          <div class="proj-row-track" data-row="ranchos"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2787,15 +2841,15 @@
         wpp: 'Olá tenho interesse e queria mais informações sobre o Projeto Las Vegas.',
         related: ['Projeto Camboriú','Modelo Santiago','Modelo Maringá']
       },
-      'Rancho Flagship': {
+      'Rancho Barndominium': {
         tag: 'Rancho · Sob consulta',
-        area: '427 m² · 3 suítes · 2 pavimentos',
-        desc: 'O topo de linha da coleção Ranchos e Celeiros: 427 m² em 2 pavimentos, sala de estar com pé-direito duplo e lareira de pedra do piso ao teto, suíte máster no térreo, mais 2 suítes e um loft bônus sobre o shop no piso superior. Shop/galpão de 79 m² com 4 vagas.',
-        specs: ['427 m² · 2 pavimentos', 'Sala com pé-direito duplo', 'Lareira de pedra', 'Suíte máster no térreo', '2 suítes no piso superior', 'Loft bônus sobre o shop', 'Shop/galpão 79 m² · 4 vagas', '3 varandas cobertas'],
-        photos: ['assets/modelos/rancho-flagship-1.png','assets/modelos/rancho-flagship-2.png','assets/modelos/rancho-flagship-planta.png','assets/modelos/rancho-flagship-planta2.png'],
-        wpp: 'Olá, vi o Rancho Flagship no site e tenho interesse em saber mais.',
-        related: ['Rancho Família','Rancho Fazenda','Rancho Branco'],
-        page: 'modelo.html?m=rancho-flagship'
+        area: '117 m² · 2 quartos · Térrea',
+        desc: 'Rancho estilo barndominium com fachada clara em ripas verticais e telhado metálico: 117 m² com 2 quartos (sendo 1 suíte), sala de estar e jantar integradas com pé-direito alto, cozinha com ilha, varanda frontal de 37 m² e garagem anexa de 74 m² para 2 carros.',
+        specs: ['117 m² construídos', '2 quartos (1 suíte)', 'Sala de estar/jantar integrada', 'Cozinha com ilha', 'Garagem anexa 74 m² · 2 vagas', 'Varanda frontal 37 m²'],
+        photos: ['assets/modelos/rancho-barndominium-1.png','assets/modelos/rancho-barndominium-planta.png'],
+        wpp: 'Olá, vi o Rancho Barndominium no site e tenho interesse em saber mais.',
+        related: ['Rancho Compacto','Rancho Fazenda','Rancho Hóspedes'],
+        page: 'modelo.html?m=rancho-barndominium'
       },
       'Rancho Família': {
         tag: 'Rancho · Sob consulta',
@@ -2804,7 +2858,7 @@
         specs: ['172 m² construídos', '3 quartos (1 suíte)', 'Sala com lareira', 'Cozinha e jantar integrados', 'Escritório', 'Garagem 1 vaga', 'Varanda coberta'],
         photos: ['assets/modelos/rancho-familia-1.png','assets/modelos/rancho-familia-2.png','assets/modelos/rancho-familia-planta.png'],
         wpp: 'Olá, vi o Rancho Família no site e tenho interesse em saber mais.',
-        related: ['Rancho Flagship','Rancho Branco','Rancho Fazenda'],
+        related: ['Rancho Barndominium','Rancho Branco','Rancho Fazenda'],
         page: 'modelo.html?m=rancho-familia'
       },
       'Rancho Branco': {
@@ -2814,7 +2868,7 @@
         specs: ['186 m² construídos', '3 quartos (1 suíte)', 'Cozinha com ilha', 'Great room com lareira', 'Garagem 89 m² · 2 vagas', 'Varanda frontal'],
         photos: ['assets/modelos/rancho-branco-1.png','assets/modelos/rancho-branco-2.png','assets/modelos/rancho-branco-planta.png'],
         wpp: 'Olá, vi o Rancho Branco no site e tenho interesse em saber mais.',
-        related: ['Rancho Família','Rancho Flagship','Rancho RV'],
+        related: ['Rancho Família','Rancho Barndominium','Rancho RV'],
         page: 'modelo.html?m=rancho-branco'
       },
       'Rancho RV': {
@@ -2834,7 +2888,7 @@
         specs: ['115 m² residenciais · 2 pavimentos', 'Galpão/shop 148 m² · 6 vagas', 'Sala de arreios', '2 suítes com banheiro próprio', 'Great room + cozinha integrada'],
         photos: ['assets/modelos/rancho-fazenda-1.png','assets/modelos/rancho-fazenda-2.png','assets/modelos/rancho-fazenda-planta.png'],
         wpp: 'Olá, vi o Rancho Fazenda no site e tenho interesse em saber mais.',
-        related: ['Rancho RV','Rancho Flagship','Rancho Hóspedes'],
+        related: ['Rancho RV','Rancho Barndominium','Rancho Hóspedes'],
         page: 'modelo.html?m=rancho-fazenda'
       },
       'Rancho Compacto': {
@@ -2883,7 +2937,7 @@
       'Chalé Nascente':   'assets/modelos/chale-nascente-1.jpg',
       'Chalé Mirante':    'assets/modelos/chale-mirante-1.jpg',
       'Chalé Preto':      'assets/modelos/chale-preto-1.jpg',
-      'Rancho Flagship':  'assets/modelos/rancho-flagship-1.png',
+      'Rancho Barndominium':  'assets/modelos/rancho-barndominium-1.png',
       'Rancho Família':   'assets/modelos/rancho-familia-1.png',
       'Rancho Branco':    'assets/modelos/rancho-branco-1.png',
       'Rancho RV':        'assets/modelos/rancho-rv-1.png',
@@ -2990,8 +3044,6 @@
     const ICON_BED  = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 18v-6a2 2 0 012-2h16a2 2 0 012 2v6M2 18v2M22 18v2M4 12V8a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>';
     const ICON_TYPE = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></svg>';
     document.querySelectorAll('.proj-card').forEach(card => {
-      card.addEventListener('click', () => openModal(card));
-
       const area = card.dataset.area || '';
       const m2Match = area.match(/([\d.,]+)\s*m²/);
       const qMatch  = area.match(/(\d+)\s*(?:quartos?|dormit[oó]rios?)/i);
@@ -3026,31 +3078,54 @@
       }
     });
 
-    // ── Filtros de portfolio
-    const filterBtns = document.querySelectorAll('.proj-filter');
-    const allCards   = document.querySelectorAll('.proj-card');
-
-    function applyFilter(f) {
-      allCards.forEach(card => {
-        if (f === 'all') {
-          card.classList.remove('hidden');
-        } else {
-          const cats = (card.dataset.cat || '').split(' ');
-          card.classList.toggle('hidden', !cats.includes(f));
-        }
-      });
-    }
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        applyFilter(btn.dataset.filter);
-      });
+    // Clique em qualquer card (original ou clonado nas carrosséis) abre o modal
+    document.getElementById('projetos').addEventListener('click', e => {
+      const card = e.target.closest('.proj-card');
+      if (card) openModal(card);
     });
 
-    // Aplica "destaques" ao carregar
-    applyFilter('destaque');
+    // ── Carrosséis por categoria (monta as fileiras a partir dos cards mestres)
+    const masterCards = Array.from(document.querySelectorAll('#projetos-master .proj-card'));
+
+    function hasCat(card, tag) {
+      return (card.dataset.cat || '').split(' ').includes(tag);
+    }
+
+    const ROW_RULES = {
+      destaques: card => hasCat(card, 'destaque'),
+      ranchos:   card => hasCat(card, 'rancho') || card.dataset.name === 'Projeto Celeiro',
+      chales:    card => hasCat(card, 'especial') && card.dataset.name !== 'Projeto Celeiro',
+      casas:     card => (hasCat(card, '2q') || hasCat(card, '3q') || hasCat(card, '4q')) && !hasCat(card, 'especial') && !hasCat(card, 'rancho'),
+    };
+
+    document.querySelectorAll('.proj-row-track').forEach(track => {
+      const rule = ROW_RULES[track.dataset.row];
+      if (!rule) return;
+      masterCards.filter(rule).forEach(card => track.appendChild(card.cloneNode(true)));
+
+      // Setas de navegação (desktop)
+      const wrap = track.closest('.proj-row-wrap');
+      const scrollAmount = () => track.querySelector('.proj-card') ? track.querySelector('.proj-card').offsetWidth + 20 : 300;
+      const prev = document.createElement('button');
+      prev.className = 'proj-row-nav prev';
+      prev.setAttribute('aria-label', 'Ver anteriores');
+      prev.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>';
+      prev.addEventListener('click', () => track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' }));
+      const next = document.createElement('button');
+      next.className = 'proj-row-nav next';
+      next.setAttribute('aria-label', 'Ver próximos');
+      next.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>';
+      next.addEventListener('click', () => track.scrollBy({ left: scrollAmount(), behavior: 'smooth' }));
+      wrap.appendChild(prev);
+      wrap.appendChild(next);
+    });
+
+    // ── Navegação rápida entre fileiras
+    document.querySelectorAll('.proj-rownav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById(btn.dataset.target).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
   </script>
 
 </body>

@@ -130,6 +130,8 @@ const modelos = [
   { id: 'chale-vertice', nome: 'Chalé Vértice', dorms: 1, area: '63 m²', valor: 'R$ 182.700,00' },
   { id: 'chale-master', nome: 'Chalé Master', dorms: 2, area: '70 m²', valor: 'R$ 203.000,00' },
   { id: 'chale-horizonte', nome: 'Chalé Horizonte', dorms: 2, area: '92,4 m²', valor: 'R$ 267.960,00' },
+
+  { id: 'rancho-barndominium', nome: 'Rancho Barndominium', dorms: 2, area: '117 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-barndominium-1.png', href: 'modelo.html?m=rancho-barndominium' },
 ];
 
 const grid = document.getElementById('grid');
@@ -138,8 +140,8 @@ const tabs = document.querySelectorAll('.tab');
 function render(filter) {
   const list = filter === 'all' ? modelos : modelos.filter(m => String(m.dorms) === filter);
   grid.innerHTML = list.map(m => `
-    <a class="card" href="vendas.html?m=${m.id}">
-      <img src="assets/modelos/${m.id}-1.jpg" alt="${m.nome}" loading="lazy" onerror="this.style.background='var(--bd)'">
+    <a class="card" href="${m.href || 'vendas.html?m=' + m.id}">
+      <img src="${m.img || 'assets/modelos/' + m.id + '-1.jpg'}" alt="${m.nome}" loading="lazy" onerror="this.style.background='var(--bd)'">
       <div class="card-body">
         <div class="card-name">${m.nome}</div>
         <div class="card-meta">${m.area} · ${m.dorms} dorm.</div>
