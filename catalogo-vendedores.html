@@ -34,11 +34,13 @@ h1{font-size:26px;font-weight:800;margin-bottom:6px;letter-spacing:-.01em;}
 .upsell-sub{font-size:13px;color:var(--t2);}
 .upsell-cta{display:inline-block;margin-top:18px;padding:12px 24px;border-radius:30px;background:var(--t1);color:#FBF6EE;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.02em;}
 footer{text-align:center;padding:20px;font-size:11px;color:var(--t2);}
+.watermark-overlay{position:fixed;inset:0;z-index:9999;pointer-events:none;background-repeat:repeat;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='260'><text x='0' y='150' font-family='Arial, Helvetica, sans-serif' font-weight='700' font-size='26' letter-spacing='3' fill='%235C1A00' fill-opacity='0.09' transform='rotate(-28 210 130)'>WOOD HOUSE — USO INTERNO</text></svg>");}
 @media (min-width:640px){ .grid{grid-template-columns:repeat(3,1fr);} }
 @media (min-width:900px){ .grid{grid-template-columns:repeat(4,1fr);} }
 </style>
 </head>
 <body>
+<div class="watermark-overlay"></div>
 <header><img src="assets/logo-horizontal.png" alt="Wood House" onerror="this.style.display='none'"></header>
 <div class="wrap">
   <h1>Catálogo de investimento</h1>
