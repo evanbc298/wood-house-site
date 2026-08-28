@@ -28,6 +28,11 @@ h1{font-size:26px;font-weight:800;margin-bottom:6px;letter-spacing:-.01em;}
 .card-meta{font-size:12px;color:var(--t2);margin-bottom:8px;}
 .card-price{font-size:16px;font-weight:800;color:var(--t1);}
 .empty{grid-column:1/-1;text-align:center;padding:50px 20px;color:var(--t2);font-size:14px;line-height:1.6;}
+.upsell{margin-top:44px;padding-top:32px;border-top:1px solid var(--bd);}
+.upsell-head{margin-bottom:16px;}
+.upsell-title{font-size:17px;font-weight:800;margin-bottom:4px;}
+.upsell-sub{font-size:13px;color:var(--t2);}
+.upsell-cta{display:inline-block;margin-top:18px;padding:12px 24px;border-radius:30px;background:var(--t1);color:#FBF6EE;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.02em;}
 footer{text-align:center;padding:20px;font-size:11px;color:var(--t2);}
 @media (min-width:640px){ .grid{grid-template-columns:repeat(3,1fr);} }
 @media (min-width:900px){ .grid{grid-template-columns:repeat(4,1fr);} }
@@ -47,6 +52,14 @@ footer{text-align:center;padding:20px;font-size:11px;color:var(--t2);}
     <button class="tab" data-f="all">Todos</button>
   </div>
   <div class="grid" id="grid"></div>
+  <div class="upsell" id="upsell" style="display:none;">
+    <div class="upsell-head">
+      <div class="upsell-title">Conheça também</div>
+      <div class="upsell-sub">Outros estilos do catálogo Wood House.</div>
+    </div>
+    <div class="grid" id="upsell-grid"></div>
+    <a class="upsell-cta" id="upsell-cta" href="catalogo-vendedores.html?f=all">Ver catálogo completo →</a>
+  </div>
 </div>
 <footer>Wood House Construtora e Incorporadora</footer>
 
@@ -143,13 +156,20 @@ const modelos = [
 
 const grid = document.getElementById('grid');
 const tabs = document.querySelectorAll('.tab');
+const upsell = document.getElementById('upsell');
+const upsellGrid = document.getElementById('upsell-grid');
+const byId = id => modelos.find(m => m.id === id);
 
-function render(filter) {
-  const list = filter === 'all' ? modelos
-    : filter === 'ranchos' ? modelos.filter(m => m.cat === 'ranchos')
-    : filter === 'chales' ? modelos.filter(m => m.cat === 'chales')
-    : modelos.filter(m => String(m.dorms) === filter && !m.cat);
-  grid.innerHTML = list.map(m => `
+const TEASER_POOL = [
+  { id: 'rancho-barndominium-sobrado', bucket: 'ranchos' },
+  { id: 'chale-vertice', bucket: 'chales' },
+  { id: 'istambul', bucket: '4' },
+  { id: 'sergipe', bucket: '3' },
+  { id: 'melita', bucket: '2' },
+];
+
+function cardHtml(m) {
+  return `
     <a class="card" href="${m.href || 'vendas.html?m=' + m.id}">
       <img src="${m.img || 'assets/modelos/' + m.id + '-1.jpg'}" alt="${m.nome}" loading="lazy" onerror="this.style.background='var(--bd)'">
       <div class="card-body">
@@ -157,16 +177,41 @@ function render(filter) {
         <div class="card-meta">${m.area} · ${m.dorms} dorm.</div>
         <div class="card-price">${m.valor}</div>
       </div>
-    </a>`).join('');
+    </a>`;
+}
+
+function render(filter) {
+  const list = filter === 'all' ? modelos
+    : filter === 'ranchos' ? modelos.filter(m => m.cat === 'ranchos')
+    : filter === 'chales' ? modelos.filter(m => m.cat === 'chales')
+    : modelos.filter(m => String(m.dorms) === filter && !m.cat);
+  grid.innerHTML = list.map(cardHtml).join('');
+
+  if (filter === 'all') {
+    upsell.style.display = 'none';
+  } else {
+    const teasers = TEASER_POOL.filter(t => t.bucket !== filter).map(t => byId(t.id)).filter(Boolean);
+    upsellGrid.innerHTML = teasers.map(cardHtml).join('');
+    upsell.style.display = teasers.length ? 'block' : 'none';
+  }
+}
+
+const VALID_FILTERS = ['2', '3', '4', 'ranchos', 'chales', 'all'];
+
+function setActiveTab(filter) {
+  tabs.forEach(x => x.classList.toggle('active', x.dataset.f === filter));
 }
 
 tabs.forEach(t => t.addEventListener('click', () => {
-  tabs.forEach(x => x.classList.remove('active'));
-  t.classList.add('active');
+  setActiveTab(t.dataset.f);
   render(t.dataset.f);
+  history.replaceState(null, '', '?f=' + t.dataset.f);
 }));
 
-render('2');
+const urlFilter = new URLSearchParams(location.search).get('f');
+const startFilter = VALID_FILTERS.includes(urlFilter) ? urlFilter : '2';
+setActiveTab(startFilter);
+render(startFilter);
 </script>
 </body>
 </html>
