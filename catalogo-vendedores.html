@@ -11,8 +11,8 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--t1);}
 img{max-width:100%;display:block;}
-header{display:flex;align-items:center;justify-content:center;padding:20px;background:var(--s);border-bottom:1px solid var(--bd);}
-header img{height:32px;}
+header{display:flex;align-items:center;justify-content:center;padding:24px;background:var(--s);border-bottom:1px solid var(--bd);}
+header img{height:56px;}
 .wrap{max-width:1100px;margin:0 auto;padding:30px 20px 60px;}
 h1{font-size:26px;font-weight:800;margin-bottom:6px;letter-spacing:-.01em;}
 .sub{font-size:14px;color:var(--t2);margin-bottom:26px;max-width:560px;line-height:1.5;}
@@ -43,6 +43,7 @@ footer{text-align:center;padding:20px;font-size:11px;color:var(--t2);}
     <button class="tab active" data-f="2">2 Dormitórios</button>
     <button class="tab" data-f="3">3 Dormitórios</button>
     <button class="tab" data-f="4">4 Dormitórios</button>
+    <button class="tab" data-f="ranchos">Ranchos e Celeiros</button>
     <button class="tab" data-f="all">Todos</button>
   </div>
   <div class="grid" id="grid"></div>
@@ -130,15 +131,23 @@ const modelos = [
   { id: 'chale-master', nome: 'Chalé Master', dorms: 2, area: '70 m²', valor: 'R$ 203.000,00' },
   { id: 'chale-horizonte', nome: 'Chalé Horizonte', dorms: 2, area: '92,4 m²', valor: 'R$ 267.960,00' },
 
-  { id: 'rancho-barndominium', nome: 'Rancho Barndominium', dorms: 2, area: '117 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-barndominium-1.jpg', href: 'modelo.html?m=rancho-barndominium' },
-  { id: 'rancho-barndominium-sobrado', nome: 'Rancho Barndominium Sobrado', dorms: 2, area: '145 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-barndominium-sobrado-1.jpg', href: 'modelo.html?m=rancho-barndominium-sobrado' },
+  { id: 'rancho-hospedes', nome: 'Rancho Hóspedes', dorms: 1, area: '67 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-hospedes-1.jpg', href: 'modelo.html?m=rancho-hospedes', cat: 'ranchos' },
+  { id: 'rancho-compacto', nome: 'Rancho Compacto', dorms: 2, area: '103 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-compacto-1.jpg', href: 'modelo.html?m=rancho-compacto', cat: 'ranchos' },
+  { id: 'rancho-fazenda', nome: 'Rancho Fazenda', dorms: 2, area: '115 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-fazenda-1.jpg', href: 'modelo.html?m=rancho-fazenda', cat: 'ranchos' },
+  { id: 'rancho-barndominium', nome: 'Rancho Barndominium', dorms: 2, area: '117 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-barndominium-1.jpg', href: 'modelo.html?m=rancho-barndominium', cat: 'ranchos' },
+  { id: 'rancho-rv', nome: 'Rancho RV', dorms: 1, area: '163 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-rv-1.jpg', href: 'modelo.html?m=rancho-rv', cat: 'ranchos' },
+  { id: 'rancho-familia', nome: 'Rancho Família', dorms: 3, area: '172 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-familia-1.jpg', href: 'modelo.html?m=rancho-familia', cat: 'ranchos' },
+  { id: 'rancho-branco', nome: 'Rancho Branco', dorms: 3, area: '186 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-branco-1.jpg', href: 'modelo.html?m=rancho-branco', cat: 'ranchos' },
+  { id: 'rancho-barndominium-sobrado', nome: 'Rancho Barndominium Sobrado', dorms: 2, area: '145 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-barndominium-sobrado-1.jpg', href: 'modelo.html?m=rancho-barndominium-sobrado', cat: 'ranchos' },
 ];
 
 const grid = document.getElementById('grid');
 const tabs = document.querySelectorAll('.tab');
 
 function render(filter) {
-  const list = filter === 'all' ? modelos : modelos.filter(m => String(m.dorms) === filter);
+  const list = filter === 'all' ? modelos
+    : filter === 'ranchos' ? modelos.filter(m => m.cat === 'ranchos')
+    : modelos.filter(m => String(m.dorms) === filter && m.cat !== 'ranchos');
   grid.innerHTML = list.map(m => `
     <a class="card" href="${m.href || 'vendas.html?m=' + m.id}">
       <img src="${m.img || 'assets/modelos/' + m.id + '-1.jpg'}" alt="${m.nome}" loading="lazy" onerror="this.style.background='var(--bd)'">
