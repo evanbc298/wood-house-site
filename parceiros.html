@@ -196,6 +196,30 @@
       .stat-row .stat { flex: 1 1 50%; border-left: none !important; padding: 6px 10px; }
     }
 
+    /* ─── SIMULADOR ─── */
+    #simulador { background: var(--bg2); padding: 90px 80px; }
+    .sim-header { max-width: 620px; margin: 0 auto 46px; text-align: center; }
+    .sim-header h2 { font-family: 'Poppins', sans-serif; font-size: clamp(26px, 2.6vw, 36px); font-weight: 800; color: var(--brown); margin-bottom: 12px; text-wrap: balance; }
+    .sim-header p { font-size: 15.5px; color: var(--muted); line-height: 1.6; }
+    .sim-card { max-width: 640px; margin: 0 auto; background: #FFFDF8; border-radius: 18px; padding: 40px 44px; border-top: 3px solid var(--gold); box-shadow: 0 20px 50px rgba(92,26,0,0.10); }
+    .sim-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; }
+    .sim-label span { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown2); }
+    .sim-label b { font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 800; color: var(--brown); font-variant-numeric: tabular-nums; }
+    #sim-range { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 4px; background: var(--bg3); outline: none; margin-bottom: 8px; }
+    #sim-range::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--gold); border: 3px solid #FFFDF8; box-shadow: 0 2px 8px rgba(92,26,0,0.30); cursor: pointer; }
+    #sim-range::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--gold); border: 3px solid #FFFDF8; box-shadow: 0 2px 8px rgba(92,26,0,0.30); cursor: pointer; }
+    .sim-range-labels { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--muted); margin-bottom: 30px; }
+    .sim-result { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+    .sim-result .r-box { background: var(--bg2); border-radius: 12px; padding: 18px 20px; }
+    .sim-result .r-box:last-child { background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%); }
+    .sim-result .r-box span { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brown2); margin-bottom: 6px; }
+    .sim-result .r-box:last-child span { color: rgba(26,8,0,0.65); }
+    .sim-result .r-box b { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 800; color: var(--brown); font-variant-numeric: tabular-nums; }
+    .sim-result .r-box:last-child b { color: var(--dark2); font-size: 24px; }
+    .sim-note { background: rgba(205,169,108,0.14); border: 1px solid rgba(205,169,108,0.30); border-radius: 10px; padding: 14px 18px; font-size: 13.5px; color: var(--brown2); line-height: 1.55; }
+    .sim-note b { color: var(--brown); }
+    @media (max-width: 640px) { #simulador { padding: 70px 24px; } .sim-card { padding: 30px 24px; } .sim-result { grid-template-columns: 1fr; } }
+
     /* ─── VANTAGENS (grid de cards) ─── */
     #vantagens { background: var(--bg); padding: 110px 80px; }
     #vantagens .van-header { max-width: 640px; margin: 0 auto 52px; text-align: center; }
@@ -422,6 +446,41 @@
     </div>
   </section>
 
+  <!-- ═══ SIMULADOR ═══ -->
+  <section id="simulador">
+    <div class="sim-header reveal">
+      <div class="section-tag-wrap"><div class="section-tag">Simulador De Ganhos</div></div>
+      <h2>Quanto você pode ganhar como parceiro?</h2>
+      <p>Corretor Wood House recebe 4% de comissão por venda fechada. Arraste e veja quanto isso representa.</p>
+    </div>
+    <div class="sim-card reveal">
+      <div class="sim-label"><span>Valor da venda</span><b id="sim-valor-label">R$ 300.000</b></div>
+      <input type="range" id="sim-range" min="150000" max="800000" step="10000" value="300000" aria-label="Valor da venda">
+      <div class="sim-range-labels"><span>R$ 150 mil</span><span>R$ 800 mil</span></div>
+      <div class="sim-result">
+        <div class="r-box"><span>Valor da venda</span><b id="sim-valor">R$ 300.000</b></div>
+        <div class="r-box"><span>Sua comissão (4%)</span><b id="sim-comissao">R$ 12.000</b></div>
+      </div>
+      <div class="sim-note">Fechando <b>2 vendas por mês</b> nesse valor, você recebe <b id="sim-mensal">R$ 24.000</b> em comissões por mês.</div>
+    </div>
+  </section>
+  <script>
+    (function(){
+      var range = document.getElementById('sim-range');
+      function fmt(v){ return v.toLocaleString('pt-BR', {style:'currency', currency:'BRL', maximumFractionDigits:0}); }
+      function update(){
+        var v = parseInt(range.value, 10);
+        var comissao = v * 0.04;
+        document.getElementById('sim-valor-label').textContent = fmt(v);
+        document.getElementById('sim-valor').textContent = fmt(v);
+        document.getElementById('sim-comissao').textContent = fmt(comissao);
+        document.getElementById('sim-mensal').textContent = fmt(comissao * 2);
+      }
+      range.addEventListener('input', update);
+      update();
+    })();
+  </script>
+
   <!-- ═══ VANTAGENS ═══ -->
   <section id="vantagens">
     <div class="van-header reveal">
@@ -433,7 +492,7 @@
       <div class="van-card reveal">
         <div class="van-icon a"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
         <h3>Condição especial</h3>
-        <p>Comissão competitiva por venda pra corretor, preço especial de parceiro pra quem revende no próprio lote.</p>
+        <p>4% de comissão por venda pra corretor, preço especial de parceiro pra quem revende no próprio lote.</p>
       </div>
       <div class="van-card reveal">
         <div class="van-icon b"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
@@ -487,7 +546,7 @@
           <h3>Um produto novo pra sua carteira de clientes</h3>
           <p>Comissão liberada logo após a assinatura, ciclo de venda mais curto que imóvel padrão, e uma fachada que já impressiona na primeira visita.</p>
           <ul class="trl-list">
-            <li>Comissão competitiva por venda</li>
+            <li>4% de comissão por venda</li>
             <li>Catálogo pronto pra apresentar</li>
             <li>Sem estoque parado — cada projeto é sob medida</li>
           </ul>
@@ -525,7 +584,7 @@
       <div class="pas-card reveal">
         <div class="pas-num">02</div>
         <h3>Conheça a condição</h3>
-        <p>Nosso time entra em contato em até 24 horas com a comissão ou preço especial.</p>
+        <p>Nosso time entra em contato em até 24 horas com os detalhes — 4% de comissão pra corretor, preço especial pra empreendimento.</p>
       </div>
       <div class="pas-card reveal">
         <div class="pas-num">03</div>
@@ -648,11 +707,11 @@
     <div class="faq-list">
       <div class="faq-item reveal">
         <h3>Preciso pagar algo pra ser parceiro?</h3>
-        <p>Não. O cadastro é gratuito. Você só recebe a comissão (corretor) ou compra na condição especial (empreendimento) quando fecha uma venda.</p>
+        <p>Não. O cadastro é gratuito. Você só recebe os 4% de comissão (corretor) ou compra na condição especial (empreendimento) quando fecha uma venda.</p>
       </div>
       <div class="faq-item reveal">
         <h3>Corretor e dono de empreendimento têm a mesma parceria?</h3>
-        <p>Não. Corretor recebe comissão por venda. Loteamento, condomínio ou pousada compra com preço especial de parceiro pra oferecer no próprio terreno. No cadastro você escolhe seu perfil e recebe a condição certa.</p>
+        <p>Não. Corretor recebe 4% de comissão por venda. Loteamento, condomínio ou pousada compra com preço especial de parceiro pra oferecer no próprio terreno. No cadastro você escolhe seu perfil e recebe a condição certa.</p>
       </div>
       <div class="faq-item reveal">
         <h3>Quanto tempo leva pra começar?</h3>
