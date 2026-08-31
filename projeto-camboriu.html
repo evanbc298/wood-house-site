@@ -43,6 +43,21 @@ section{padding:34px 0;border-bottom:1px solid var(--bd);}
 .planta-box{border:1px solid var(--bd);border-radius:10px;overflow:hidden;background:var(--s);}
 .planta-note{font-size:12px;color:var(--t2);margin-top:10px;line-height:1.5;}
 
+.price-box{background:var(--t1);color:#FBF6EE;border-radius:12px;padding:22px 22px;text-align:center;}
+.price-box .lbl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);margin-bottom:6px;}
+.price-box .val{font-size:30px;font-weight:800;letter-spacing:-.01em;}
+.price-box .note{font-size:11.5px;color:rgba(251,246,238,.65);margin-top:6px;}
+
+.speclist{display:flex;flex-direction:column;}
+.specrow{display:flex;justify-content:space-between;gap:16px;font-size:14px;padding:11px 0;border-bottom:1px solid var(--bd);}
+.specrow:last-child{border-bottom:none;}
+.specrow span{color:var(--t2);}
+.specrow b{color:var(--t1);font-weight:700;text-align:right;white-space:nowrap;}
+.pay-block{padding:14px 0;border-bottom:1px solid var(--bd);}
+.pay-block:last-child{border-bottom:none;}
+.pay-block .specrow{padding:0 0 6px;border-bottom:none;}
+.pay-sub{font-size:12.5px;color:var(--t2);line-height:1.55;max-width:520px;}
+
 .tagrow{display:flex;flex-wrap:wrap;gap:8px;}
 .tag{font-size:13px;font-weight:600;color:var(--t1);background:var(--s);border:1px solid var(--bd);padding:8px 14px;border-radius:20px;}
 
@@ -79,6 +94,7 @@ footer{text-align:center;padding:24px 20px 34px;font-size:11px;color:var(--t2);}
     <div class="hero-eyebrow">Projeto real Wood House · Entregue · SC</div>
     <div class="hero-ttl">Projeto Camboriú</div>
     <div class="hero-meta">
+      <span class="pill" style="background:var(--ac);border-color:var(--ac);color:#3A1400;font-weight:800;">R$ 402.500,00</span>
       <span class="pill">175 m² de área total</span>
       <span class="pill">3 dormitórios</span>
       <span class="pill">Térrea</span>
@@ -87,6 +103,14 @@ footer{text-align:center;padding:24px 20px 34px;font-size:11px;color:var(--t2);}
 </div>
 
 <div class="wrap">
+
+  <section>
+    <div class="price-box">
+      <div class="lbl">Investimento</div>
+      <div class="val">R$ 402.500,00</div>
+      <div class="note">Valor de referência do modelo padrão. Pode variar conforme terreno, acabamento e escopo final.</div>
+    </div>
+  </section>
 
   <section>
     <div class="sttl">Sobre o projeto</div>
@@ -138,6 +162,25 @@ footer{text-align:center;padding:24px 20px 34px;font-size:11px;color:var(--t2);}
       <div class="incrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Acompanhamento da obra do início à entrega</div>
       <div class="incrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>5 anos de garantia da construtora</div>
     </div>
+  </section>
+
+  <section>
+    <div class="sttl">Forma de pagamento</div>
+    <div class="speclist">
+      <div class="pay-block">
+        <div class="specrow"><span>Na descarga dos materiais na obra</span><b>70%</b></div>
+        <div class="pay-sub">O kit completo da sua casa em madeira nobre — estrutura, paredes, esquadrias e telhado — chega já fabricado. Você e nosso representante conferem tudo juntos, e a equipe de mão de obra já é alocada no local pra começar a montagem no mesmo momento.</div>
+      </div>
+      <div class="pay-block">
+        <div class="specrow"><span>Na conclusão do telhado</span><b>20%</b></div>
+        <div class="pay-sub">Cobre a mão de obra da fundação até o fechamento do telhado da casa e das áreas abertas — sua casa já em pé e protegida do tempo.</div>
+      </div>
+      <div class="pay-block">
+        <div class="specrow"><span>Na entrega das chaves</span><b>10%</b></div>
+        <div class="pay-sub">Últimos acabamentos e instalações, com a obra 100% concluída e pronta pra você morar.</div>
+      </div>
+    </div>
+    <div class="planta-note">Contrato com reconhecimento de firma em cartório ou assinatura digital — a obra só inicia após a formalização. Aceitamos veículo como parte do pagamento (cerca de 20% abaixo da FIPE).</div>
   </section>
 
   <a class="morelink" href="construtora.html#projetos">Ver outros projetos Wood House →</a>
