@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Programa de Parceiros para Corretores — Wood House Construtora</title>
-  <meta name="description" content="Torne-se um corretor parceiro da Wood House e leve casas de madeira nobre para a sua carteira de clientes. Comissão competitiva, material de marketing e suporte técnico.">
+  <title>Programa de Parceiros — Wood House Construtora</title>
+  <meta name="description" content="Corretor, loteamento, condomínio ou pousada: leve casas de madeira nobre Wood House pro seu negócio, com condição especial de parceiro e suporte técnico completo do projeto à entrega.">
   <link rel="canonical" href="https://www.whconstrutora.com.br/parceiros.html">
   <link rel="icon" href="assets/favicon.png">
 
@@ -19,8 +19,8 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Programa de Parceiros para Corretores — Wood House Construtora">
-  <meta property="og:description" content="Leve casas de madeira nobre para a sua carteira de clientes. Comissão competitiva, ciclo de venda curto e suporte completo.">
+  <meta property="og:title" content="Programa de Parceiros — Wood House Construtora">
+  <meta property="og:description" content="Corretor, loteamento, condomínio ou pousada: leve casas de madeira nobre pro seu negócio, com condição especial de parceiro.">
   <meta property="og:url" content="https://www.whconstrutora.com.br/parceiros.html">
   <meta property="og:image" content="https://www.whconstrutora.com.br/assets/bruno-fachada.jpg">
   <meta property="og:locale" content="pt_BR">
@@ -63,8 +63,8 @@
 
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--brown); overflow-x: hidden; }
+    ::selection { background: var(--gold); color: var(--dark); }
 
-    .gold { color: var(--gold2); }
     .section-tag {
       font-family: 'Poppins', sans-serif;
       font-size: 11px; font-weight: 700;
@@ -74,6 +74,7 @@
     }
     .section-tag::before { content: ''; width: 28px; height: 2px; background: var(--gold); }
     .section-tag.on-dark { color: var(--gold); }
+    .section-tag.center { justify-content: center; }
 
     /* ─── NAVBAR ─── */
     nav {
@@ -106,14 +107,15 @@
     }
     .nav-cta:hover { background: var(--gold2) !important; }
 
-    /* ─── BOTÕES (mesmo padrão do site) ─── */
+    /* ─── BOTÕES ─── */
     .btn-wpp {
       display: inline-flex; align-items: center; gap: 10px;
       background: var(--wpp); color: #fff; text-decoration: none;
       font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700;
-      padding: 16px 32px; border-radius: 10px; transition: opacity 0.2s;
+      padding: 16px 32px; border-radius: 10px; transition: opacity 0.2s, transform 0.15s;
     }
     .btn-wpp:hover { opacity: 0.88; }
+    .btn-wpp:active { transform: scale(0.98); }
     .btn-wpp svg { width: 20px; height: 20px; fill: #fff; }
     .btn-gold {
       display: inline-flex; align-items: center; gap: 10px;
@@ -127,7 +129,7 @@
       display: inline-flex; align-items: center;
       border: 1.5px solid rgba(255,245,227,0.45); color: #FFF5E3; text-decoration: none;
       font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.06em;
-      padding: 16px 32px; border-radius: 10px; transition: border-color 0.2s, color 0.2s;
+      padding: 15.5px 32px; border-radius: 10px; transition: border-color 0.2s, color 0.2s;
     }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
     .btn-outline-dark {
@@ -138,26 +140,23 @@
     }
     .btn-outline-dark:hover { border-color: var(--gold2); color: var(--gold2); }
 
-    /* ─── REVEAL (scroll) ─── */
+    /* ─── REVEAL ─── */
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.in { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; transition: none; }
-    }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
     /* ─── HERO ─── */
     #hero {
-      height: 100vh; min-height: 640px; position: relative;
+      min-height: 100dvh; position: relative;
       display: flex; align-items: flex-end;
       background-image: url('assets/bruno-fachada.jpg');
       background-size: cover; background-position: center 35%;
-      filter: none;
     }
     #hero .overlay {
       position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(135deg, rgba(26,8,0,0.86) 0%, rgba(26,8,0,0.55) 55%, rgba(26,8,0,0.20) 100%);
+      background: linear-gradient(135deg, rgba(26,8,0,0.88) 0%, rgba(26,8,0,0.58) 50%, rgba(26,8,0,0.24) 100%);
     }
-    #hero .content { position: relative; z-index: 2; padding: 0 80px 90px; max-width: 760px; }
+    #hero .content { position: relative; z-index: 2; padding: 0 80px 76px; max-width: 780px; }
     #hero .hero-tag {
       font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 700;
       letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
@@ -165,69 +164,69 @@
     }
     #hero .hero-tag::before { content: ''; width: 28px; height: 2px; background: var(--gold); }
     #hero h1 {
-      font-family: 'Poppins', sans-serif; font-size: clamp(30px, 3.4vw, 46px);
-      font-weight: 800; line-height: 1.16; color: #FFF5E3; margin-bottom: 20px;
+      font-family: 'Poppins', sans-serif; font-size: clamp(32px, 3.8vw, 50px);
+      font-weight: 800; line-height: 1.1; letter-spacing: -0.01em; color: #FFF5E3; margin-bottom: 20px;
+      text-wrap: balance;
     }
     #hero h1 em { font-style: normal; color: var(--gold); }
-    #hero p { font-size: 17px; font-weight: 400; color: rgba(255,245,227,0.82); line-height: 1.65; max-width: 500px; margin-bottom: 34px; }
+    #hero p { font-size: 17px; font-weight: 400; color: rgba(255,245,227,0.82); line-height: 1.65; max-width: 540px; margin-bottom: 34px; }
     #hero .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 
-    @media (max-width: 1024px) { #hero .content { padding: 0 32px 70px; } }
+    /* stat strip */
+    #stats { background: var(--dark); border-top: 1px solid rgba(205,169,108,0.16); padding: 30px 80px; }
+    #stats .stat-row { max-width: 1160px; margin: 0 auto; display: flex; }
+    #stats .stat { flex: 1; text-align: center; padding: 0 20px; border-left: 1px solid rgba(205,169,108,0.16); }
+    #stats .stat:first-child { border-left: none; }
+    #stats .stat b { display: block; font-family: 'Poppins', sans-serif; font-size: clamp(22px, 2.4vw, 30px); font-weight: 800; color: var(--gold); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+    #stats .stat span { font-size: 12px; color: rgba(255,245,227,0.55); }
+
+    @media (max-width: 1024px) { #hero .content { padding: 0 32px 60px; } #stats { padding: 26px 32px; } }
     @media (max-width: 768px) {
-      #hero { height: auto; min-height: 100vh; padding-top: 90px; align-items: flex-end; }
-      #hero .content { padding-bottom: 150px; }
+      #hero { min-height: 100dvh; padding-top: 90px; }
       #hero .hero-ctas { flex-direction: column; align-items: stretch; }
       #hero .hero-ctas a { justify-content: center; }
+      #stats .stat-row { flex-wrap: wrap; gap: 20px 0; }
+      #stats .stat { flex: 1 1 50%; border-left: none !important; padding: 10px 12px; }
     }
 
-    /* ─── VANTAGENS (bento) ─── */
-    #vantagens { background: var(--bg); padding: 110px 80px; }
-    #vantagens .van-header { max-width: 620px; margin: 0 auto 52px; text-align: center; }
-    #vantagens h2 { font-family: 'Poppins', sans-serif; font-size: clamp(28px, 2.6vw, 40px); font-weight: 800; color: var(--brown); line-height: 1.18; margin-bottom: 14px; }
-    #vantagens .van-sub { font-size: 16px; color: var(--muted); line-height: 1.6; }
-    .van-grid {
-      max-width: 1160px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 220px auto;
-      gap: 20px;
+    /* ─── TRILHAS (2 blocos assimétricos) ─── */
+    #trilhas { background: var(--dark); padding: 100px 80px 110px; }
+    #trilhas .trl-header { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+    #trilhas h2 { font-family: 'Poppins', sans-serif; font-size: clamp(28px, 2.8vw, 40px); font-weight: 800; color: #FFF5E3; line-height: 1.18; margin-bottom: 14px; text-wrap: balance; }
+    #trilhas .trl-sub { font-size: 16px; color: rgba(255,245,227,0.58); line-height: 1.6; }
+    .trl-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.15fr 1fr; gap: 24px; }
+    .trl-card {
+      position: relative; min-height: 520px; border-radius: 18px; overflow: hidden;
+      background-size: cover; background-position: center; display: flex; align-items: flex-end;
     }
-    .van-tile {
-      border-radius: 16px; padding: 32px; position: relative; overflow: hidden;
-    }
-    .van-tile.photo {
-      grid-column: 1 / 4; grid-row: 1;
-      background: url('assets/foto-celeiro.png') center 40% / cover no-repeat;
-      display: flex; align-items: flex-end;
-    }
-    .van-tile.photo::before {
+    .trl-card::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(0deg, rgba(26,8,0,0.82) 0%, rgba(26,8,0,0.25) 60%, transparent 100%);
+      background: linear-gradient(0deg, rgba(15,6,0,0.92) 0%, rgba(15,6,0,0.55) 42%, rgba(15,6,0,0.10) 78%);
     }
-    .van-tile.photo .van-inner { position: relative; z-index: 1; max-width: 560px; }
-    .van-tile.photo h3 { color: #FFF5E3; font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 10px; }
-    .van-tile.photo p { color: rgba(255,245,227,0.82); font-size: 15px; line-height: 1.6; }
-    .van-tile.card { grid-row: 2; background: var(--bg2); }
-    .van-tile.card:nth-child(3) { background: var(--bg3); }
-    .van-tile .icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(92,26,0,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
-    .van-tile .icon svg { width: 22px; height: 22px; stroke: var(--brown); fill: none; stroke-width: 1.6; }
-    .van-tile.card h3 { font-family: 'Poppins', sans-serif; font-size: 17px; font-weight: 700; color: var(--brown); margin-bottom: 8px; }
-    .van-tile.card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .trl-card .trl-body { position: relative; z-index: 2; padding: 44px; }
+    .trl-tag { font-family: 'Poppins', sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .trl-card h3 { font-family: 'Poppins', sans-serif; font-size: 26px; font-weight: 800; color: #FFF5E3; margin-bottom: 12px; letter-spacing: -0.01em; }
+    .trl-card p { font-size: 14.5px; color: rgba(255,245,227,0.78); line-height: 1.6; margin-bottom: 22px; max-width: 420px; }
+    .trl-list { list-style: none; margin-bottom: 26px; }
+    .trl-list li { font-size: 13px; color: rgba(255,245,227,0.68); padding: 4px 0; }
+    .trl-list li::before { content: '— '; color: var(--gold); }
     @media (max-width: 1024px) {
-      #vantagens { padding: 90px 32px; }
-      .van-grid { grid-template-columns: 1fr; grid-template-rows: none; }
-      .van-tile.photo { grid-column: 1; grid-row: auto; min-height: 260px; }
-      .van-tile.card { grid-row: auto; }
+      #trilhas { padding: 80px 32px 90px; }
+      .trl-grid { grid-template-columns: 1fr; }
+      .trl-card { min-height: 440px; }
     }
 
-    /* ─── COMISSÃO (statement) ─── */
-    #comissao { background: var(--dark); padding: 110px 80px; text-align: center; }
-    #comissao .com-wrap { max-width: 680px; margin: 0 auto; }
-    #comissao h2 {
-      font-family: 'Poppins', sans-serif; font-size: clamp(28px, 3.4vw, 46px); font-weight: 800;
-      color: #FFF5E3; line-height: 1.2; margin-bottom: 22px;
-    }
-    #comissao h2 em { font-style: normal; color: var(--gold); }
-    #comissao p { font-size: 17px; color: rgba(255,245,227,0.62); line-height: 1.75; margin-bottom: 36px; }
-    @media (max-width: 1024px) { #comissao { padding: 90px 32px; } }
+    /* ─── BENEFÍCIOS (lista editorial) ─── */
+    #beneficios { background: var(--bg); padding: 110px 80px; }
+    #beneficios .ben-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 60px; align-items: start; }
+    #beneficios h2 { font-family: 'Poppins', sans-serif; font-size: clamp(28px, 2.8vw, 38px); font-weight: 800; color: var(--brown); line-height: 1.18; margin-bottom: 16px; text-wrap: balance; }
+    #beneficios .ben-sub { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 28px; }
+    .ben-list { border-top: 1px solid rgba(92,26,0,0.14); }
+    .ben-row { display: grid; grid-template-columns: 44px 1fr; gap: 18px; padding: 26px 0; border-bottom: 1px solid rgba(92,26,0,0.14); }
+    .ben-row b { font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 800; color: var(--gold2); font-variant-numeric: tabular-nums; }
+    .ben-row h3 { font-family: 'Poppins', sans-serif; font-size: 16.5px; font-weight: 700; color: var(--brown); margin-bottom: 5px; }
+    .ben-row p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    @media (max-width: 900px) { #beneficios { padding: 90px 32px; } #beneficios .ben-inner { grid-template-columns: 1fr; gap: 32px; } }
 
     /* ─── MODELOS ─── */
     #modelos { background: var(--bg2); padding: 110px 80px; }
@@ -244,76 +243,43 @@
     #modelos .mod-cta { text-align: center; }
     @media (max-width: 1024px) { #modelos { padding: 90px 32px; } .mod-grid { grid-template-columns: repeat(2, 1fr); } }
 
-    /* ─── BENEFÍCIOS (divider list) ─── */
-    #beneficios { background: var(--bg); padding: 110px 80px; }
-    #beneficios .ben-header { max-width: 620px; margin: 0 auto 48px; text-align: center; }
-    #beneficios h2 { font-family: 'Poppins', sans-serif; font-size: clamp(28px, 2.6vw, 40px); font-weight: 800; color: var(--brown); line-height: 1.18; }
-    .ben-grid { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; }
-    .ben-item { padding: 32px 36px; border-top: 1px solid rgba(92,26,0,0.10); display: flex; gap: 18px; }
-    .ben-item:nth-child(-n+2) { border-top: none; }
-    .ben-item:nth-child(odd) { border-right: 1px solid rgba(92,26,0,0.10); }
-    .ben-item .icon { width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px; background: rgba(205,169,108,0.16); display: flex; align-items: center; justify-content: center; }
-    .ben-item .icon svg { width: 20px; height: 20px; stroke: var(--gold2); fill: none; stroke-width: 1.6; }
-    .ben-item h3 { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: var(--brown); margin-bottom: 6px; }
-    .ben-item p { font-size: 14px; color: var(--muted); line-height: 1.6; }
-    @media (max-width: 768px) {
-      #beneficios { padding: 90px 32px; }
-      .ben-grid { grid-template-columns: 1fr; }
-      .ben-item:nth-child(-n+2) { border-top: 1px solid rgba(92,26,0,0.10); }
-      .ben-item:first-child { border-top: none; }
-      .ben-item:nth-child(odd) { border-right: none; }
-    }
-
-    /* ─── VÍDEO ─── */
-    #video { background: var(--dark); padding: 100px 80px; }
-    #video .vid-wrap { max-width: 920px; margin: 0 auto; text-align: center; }
-    #video h2 { font-family: 'Poppins', sans-serif; font-size: clamp(24px, 2.4vw, 34px); font-weight: 800; color: #FFF5E3; margin-bottom: 14px; }
-    #video p.vid-sub { font-size: 15px; color: rgba(255,245,227,0.55); margin-bottom: 40px; }
-    .vid-frame {
-      position: relative; border-radius: 16px; overflow: hidden;
-      aspect-ratio: 16/9; background: url('assets/bruno-interior.jpg') center 40% / cover no-repeat;
-      text-decoration: none; display: block;
-    }
-    .vid-frame::before { content: ''; position: absolute; inset: 0; background: rgba(26,8,0,0.42); transition: background 0.25s; }
-    .vid-frame:hover::before { background: rgba(26,8,0,0.55); }
-    .vid-play {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 84px; height: 84px; border-radius: 50%;
-      background: rgba(255,245,227,0.94); display: flex; align-items: center; justify-content: center;
-      transition: transform 0.2s;
-    }
-    .vid-frame:hover .vid-play { transform: translate(-50%, -50%) scale(1.06); }
-    .vid-play svg { width: 28px; height: 28px; fill: var(--brown); margin-left: 4px; }
-    .vid-caption { position: absolute; left: 24px; bottom: 20px; z-index: 1; color: #FFF5E3; font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600; }
-    @media (max-width: 1024px) { #video { padding: 80px 32px; } }
-
     /* ─── PASSOS ─── */
-    #passos { background: var(--bg2); padding: 110px 80px; }
+    #passos { background: var(--bg); padding: 110px 80px; }
     #passos .pas-header { max-width: 560px; margin: 0 auto 52px; text-align: center; }
     #passos h2 { font-family: 'Poppins', sans-serif; font-size: clamp(28px, 2.6vw, 40px); font-weight: 800; color: var(--brown); }
     .pas-list { max-width: 680px; margin: 0 auto; }
     .pas-item { display: flex; gap: 28px; padding: 30px 0; border-bottom: 1px solid rgba(92,26,0,0.10); }
     .pas-item:last-child { border-bottom: none; }
-    .pas-num { font-family: 'Poppins', sans-serif; font-size: 32px; font-weight: 800; color: var(--gold); flex-shrink: 0; width: 52px; }
+    .pas-num { font-family: 'Poppins', sans-serif; font-size: 32px; font-weight: 800; color: var(--gold); flex-shrink: 0; width: 52px; font-variant-numeric: tabular-nums; }
     .pas-item h3 { font-family: 'Poppins', sans-serif; font-size: 17px; font-weight: 700; color: var(--brown); margin-bottom: 6px; }
     .pas-item p { font-size: 14.5px; color: var(--muted); line-height: 1.6; }
     @media (max-width: 768px) { #passos { padding: 90px 32px; } }
 
+    /* ─── FAQ ─── */
+    #faq { background: var(--bg2); padding: 110px 80px; }
+    #faq .faq-header { max-width: 560px; margin: 0 auto 48px; text-align: center; }
+    #faq h2 { font-family: 'Poppins', sans-serif; font-size: clamp(28px, 2.6vw, 38px); font-weight: 800; color: var(--brown); }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { padding: 26px 0; border-bottom: 1px solid rgba(92,26,0,0.12); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: var(--brown); margin-bottom: 8px; }
+    .faq-item p { font-size: 14.5px; color: var(--muted); line-height: 1.65; max-width: 620px; }
+    @media (max-width: 768px) { #faq { padding: 90px 32px; } }
+
     /* ─── CADASTRO (form) ─── */
     #cadastro { padding: 110px 0; background: var(--dark); position: relative; }
     #cadastro .cf-wrap { max-width: 600px; margin: 0 auto; padding: 0 24px; text-align: center; }
-    #cadastro .section-tag { justify-content: center; }
     #cadastro h2 { color: #FFF5E3; font-family: 'Poppins', sans-serif; font-size: clamp(26px, 3.4vw, 38px); font-weight: 800; margin-bottom: 14px; }
     #cadastro .cf-sub { color: rgba(255,245,227,0.62); font-size: 15px; line-height: 1.6; margin-bottom: 40px; }
     #cadastro .cf-card { background: var(--bg); border-radius: 14px; padding: 36px 30px; text-align: left; box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
     #cadastro .cf-field { margin-bottom: 18px; }
     #cadastro .cf-field label { display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gold2); margin-bottom: 7px; }
-    #cadastro .cf-field input, #cadastro .cf-field textarea {
+    #cadastro .cf-field input, #cadastro .cf-field select, #cadastro .cf-field textarea {
       width: 100%; border: 1px solid var(--bg3); border-radius: 8px; padding: 12px 14px; font-size: 14.5px;
       font-family: 'Inter', sans-serif; color: var(--brown); background: #fff; outline: none; transition: border-color .2s;
     }
     #cadastro .cf-field input::placeholder, #cadastro .cf-field textarea::placeholder { color: rgba(92,26,0,0.35); }
-    #cadastro .cf-field input:focus, #cadastro .cf-field textarea:focus { border-color: var(--gold); }
+    #cadastro .cf-field input:focus, #cadastro .cf-field select:focus, #cadastro .cf-field textarea:focus { border-color: var(--gold); }
     #cadastro .cf-field textarea { resize: vertical; min-height: 76px; }
     #cadastro .cf-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     #cadastro .cf-submit {
@@ -328,7 +294,7 @@
     #cadastro .cf-ok p { color: var(--muted); font-size: 14px; line-height: 1.6; }
     @media (max-width: 520px) { #cadastro .cf-row2 { grid-template-columns: 1fr; } }
 
-    /* ─── FOOTER (idêntico ao site) ─── */
+    /* ─── FOOTER ─── */
     footer { background: var(--dark); padding: 60px 80px; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; border-top: 1px solid rgba(205,169,108,0.20); }
     footer img { height: 36px; margin-bottom: 16px; }
     footer p { font-size: 13px; color: rgba(255,245,227,0.55); line-height: 1.65; }
@@ -380,52 +346,88 @@
     <div class="overlay"></div>
     <div class="content">
       <div class="hero-tag">Programa de Parceiros</div>
-      <h1>Leve a Wood House para dentro<br>da sua carteira de clientes.</h1>
-      <p>Casas de madeira nobre com apelo comercial forte. Comissão competitiva, ciclo de venda curto e todo o suporte da nossa equipe.</p>
+      <h1>Casas de madeira nobre <em>dentro do seu negócio</em>, não só no seu portfólio.</h1>
+      <p>Corretor, loteamento, condomínio ou pousada — leve a Wood House pro que você já vende, com condição especial de parceiro e todo o suporte técnico da nossa equipe, do projeto à entrega.</p>
       <div class="hero-ctas">
         <a href="#cadastro" class="btn-gold">Quero ser parceiro</a>
-        <a href="https://wa.me/554797194337?text=Olá,%20vi%20a%20página%20de%20parceiros%20e%20quero%20saber%20mais%20sobre%20o%20programa." target="_blank" class="btn-outline">Falar no WhatsApp</a>
+        <a href="https://wa.me/554797194337?text=Olá,%20vi%20a%20página%20de%20parceiros%20e%20quero%20saber%20mais." target="_blank" class="btn-outline">Falar no WhatsApp</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══ VANTAGENS ═══ -->
-  <section id="vantagens">
-    <div class="van-header reveal">
-      <h2>Por que corretores estão trazendo a Wood House para o portfólio</h2>
-      <p class="van-sub">Um produto diferente do que o mercado imobiliário está acostumado a vender, com uma estrutura de parceria pensada para quem já vende imóveis.</p>
+  <!-- ═══ STATS ═══ -->
+  <section id="stats">
+    <div class="stat-row">
+      <div class="stat reveal"><b>80+</b><span>Modelos no catálogo</span></div>
+      <div class="stat reveal"><b>6</b><span>Anos de mercado</span></div>
+      <div class="stat reveal"><b>40–60%</b><span>Mais rápido que alvenaria</span></div>
+      <div class="stat reveal"><b>5</b><span>Anos de garantia</span></div>
     </div>
-    <div class="van-grid">
-      <div class="van-tile photo reveal">
-        <div class="van-inner">
-          <h3>Um mercado em expansão</h3>
-          <p>Casas de madeira nobre deixaram de ser nicho. Mais famílias estão trocando o apartamento padrão por um projeto autoral, fora da curva do mercado tradicional.</p>
+  </section>
+
+  <!-- ═══ TRILHAS ═══ -->
+  <section id="trilhas">
+    <div class="trl-header reveal">
+      <div class="section-tag on-dark center">Duas Formas de Parceria</div>
+      <h2>Qual é o seu perfil?</h2>
+      <p class="trl-sub">A condição muda conforme o que você já faz — mas o suporte é o mesmo pros dois.</p>
+    </div>
+    <div class="trl-grid">
+      <div class="trl-card reveal" style="background-image:url('assets/proj-maringa-orig.jpg'); background-position: center 30%;">
+        <div class="trl-body">
+          <div class="trl-tag">Corretores</div>
+          <h3>Um produto novo pra sua carteira de clientes</h3>
+          <p>Comissão liberada logo após a assinatura, ciclo de venda mais curto que imóvel padrão, e uma fachada que já impressiona na primeira visita.</p>
+          <ul class="trl-list">
+            <li>Comissão competitiva por venda</li>
+            <li>Catálogo pronto pra apresentar</li>
+            <li>Sem estoque parado — cada projeto é sob medida</li>
+          </ul>
+          <a href="#cadastro" class="btn-outline">Sou corretor</a>
         </div>
       </div>
-      <div class="van-tile card reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-        <h3>Comissão competitiva</h3>
-        <p>Entre as mais altas do setor de construtoras de médio e alto padrão da região, com pagamento liberado logo após a assinatura.</p>
-      </div>
-      <div class="van-tile card reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
-        <h3>Venda mais rápida</h3>
-        <p>Sem estoque parado disputando espaço. Cada projeto é autoral e sob medida, o que encurta a negociação com o cliente.</p>
-      </div>
-      <div class="van-tile card reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg></div>
-        <h3>Produto que se vende sozinho</h3>
-        <p>Fachada, material e acabamento que já impressionam na primeira visita ao terreno ou nas fotos do anúncio.</p>
+      <div class="trl-card reveal" style="background-image:url('assets/modelos/rancho-barndominium-sobrado-1.jpg');">
+        <div class="trl-body">
+          <div class="trl-tag">Loteamentos, condomínios &amp; pousadas</div>
+          <h3>Casas prontas pra oferecer no seu terreno</h3>
+          <p>Compre com condição especial de parceiro e ofereça moradia completa a quem já está comprando o lote — sem gerenciar nenhuma etapa da obra.</p>
+          <ul class="trl-list">
+            <li>Condição especial de parceiro</li>
+            <li>Loteamentos, condomínios, pousadas e resorts</li>
+            <li>Nossa equipe cuida do projeto à entrega</li>
+          </ul>
+          <a href="#cadastro" class="btn-outline">Tenho um empreendimento</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ COMISSÃO ═══ -->
-  <section id="comissao">
-    <div class="com-wrap reveal">
-      <h2>Uma das comissões <em>mais competitivas</em> do setor.</h2>
-      <p>Não publicamos o percentual fixo aqui porque cada parceria é fechada individualmente, com pagamento liberado logo após a assinatura do contrato. Você recebe a tabela atualizada assim que enviar seu cadastro.</p>
-      <a href="#cadastro" class="btn-gold">Quero ser parceiro</a>
+  <!-- ═══ BENEFÍCIOS ═══ -->
+  <section id="beneficios">
+    <div class="ben-inner">
+      <div class="reveal">
+        <div class="section-tag">O Que Você Recebe</div>
+        <h2>Tudo pronto pra vender, nada pra você gerenciar</h2>
+        <p class="ben-sub">Não importa se você é corretor ou dono de empreendimento — o suporte por trás da parceria é o mesmo.</p>
+      </div>
+      <div class="ben-list reveal">
+        <div class="ben-row">
+          <b>01</b>
+          <div><h3>Condição especial de parceiro</h3><p>Comissão por venda pra corretor, preço especial pra quem revende no próprio lote — sempre acima da média do setor.</p></div>
+        </div>
+        <div class="ben-row">
+          <b>02</b>
+          <div><h3>Material de marketing pronto</h3><p>Catálogos digitais, fotos e apresentações prontas pra enviar direto ao seu cliente.</p></div>
+        </div>
+        <div class="ben-row">
+          <b>03</b>
+          <div><h3>Equipe própria do início ao fim</h3><p>Projeto, aprovações e construção conduzidos pela nossa equipe — sem terceirizados, sem imprevisto pra você resolver.</p></div>
+        </div>
+        <div class="ben-row">
+          <b>04</b>
+          <div><h3>Suporte técnico direto</h3><p>Arquitetos e engenheiros disponíveis pra esclarecer dúvidas técnicas do seu cliente, quando precisar.</p></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -484,47 +486,25 @@
           <div class="mod-area">427 m² · 3 suítes</div>
         </div>
       </div>
+      <div class="mod-card reveal">
+        <div class="mod-img" style="background-image:url('assets/modelos/las-vegas-1.jpg');"></div>
+        <div class="mod-body">
+          <div class="mod-tag">Térrea · R$ 381.900</div>
+          <h3>Las Vegas</h3>
+          <div class="mod-area">166 m² · 3 quartos</div>
+        </div>
+      </div>
+      <div class="mod-card reveal">
+        <div class="mod-img" style="background-image:url('assets/modelos/flavio-1.jpg');"></div>
+        <div class="mod-body">
+          <div class="mod-tag">Térrea · R$ 339.600</div>
+          <h3>Flávio (Telhado Escondido)</h3>
+          <div class="mod-area">≈147,65 m² · 3 quartos</div>
+        </div>
+      </div>
     </div>
     <div class="mod-cta reveal">
       <a href="construtora.html#projetos" class="btn-outline-dark" style="border-color: rgba(92,26,0,0.30); color: var(--brown2);">Ver catálogo completo →</a>
-    </div>
-  </section>
-
-  <!-- ═══ BENEFÍCIOS ═══ -->
-  <section id="beneficios">
-    <div class="ben-header reveal">
-      <h2>O que você recebe como parceiro</h2>
-    </div>
-    <div class="ben-grid">
-      <div class="ben-item reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 8h18M8 12h4"/></svg></div>
-        <div><h3>Material de marketing</h3><p>Catálogos digitais, fotos e apresentações prontas para enviar ao cliente.</p></div>
-      </div>
-      <div class="ben-item reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3zM3 12l9 4.5 9-4.5"/></svg></div>
-        <div><h3>Treinamento especializado</h3><p>Capacitação sobre os diferenciais técnicos e comerciais das casas de madeira.</p></div>
-      </div>
-      <div class="ben-item reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 10-16 0"/><circle cx="12" cy="8" r="5"/></svg></div>
-        <div><h3>Suporte técnico</h3><p>Equipe de arquitetos e engenheiros disponível para esclarecer dúvidas dos clientes.</p></div>
-      </div>
-      <div class="ben-item reveal">
-        <div class="icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 6 6 9.5 6 13a6 6 0 0012 0c0-3.5-2-7-6-11z"/></svg></div>
-        <div><h3>Exclusividade territorial</h3><p>Prioridade em determinadas regiões para parceiros que atingirem metas.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ VÍDEO ═══ -->
-  <section id="video">
-    <div class="vid-wrap reveal">
-      <h2>Converse direto com quem constrói</h2>
-      <p class="vid-sub">Um recado sobre o programa de parceiros, direto de quem toca a Wood House no dia a dia.</p>
-      <!-- TODO: trocar este link por <video> ou <iframe> assim que o vídeo estiver pronto -->
-      <a class="vid-frame" href="https://wa.me/554797194337?text=Olá,%20vi%20a%20página%20de%20parceiros%20e%20queria%20saber%20mais." target="_blank">
-        <span class="vid-caption">Fale agora no WhatsApp</span>
-        <span class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-      </a>
     </div>
   </section>
 
@@ -536,11 +516,11 @@
     <div class="pas-list">
       <div class="pas-item reveal">
         <div class="pas-num">01</div>
-        <div><h3>Cadastre-se</h3><p>Preencha o formulário abaixo com seus dados e seu CRECI.</p></div>
+        <div><h3>Cadastre-se</h3><p>Preencha o formulário abaixo e escolha seu perfil — corretor ou empreendimento.</p></div>
       </div>
       <div class="pas-item reveal">
         <div class="pas-num">02</div>
-        <div><h3>Conheça o programa</h3><p>Nosso time entra em contato em até 24 horas com todos os detalhes, comissão e catálogo completo.</p></div>
+        <div><h3>Conheça a condição</h3><p>Nosso time entra em contato em até 24 horas com a comissão ou preço especial e o catálogo completo.</p></div>
       </div>
       <div class="pas-item reveal">
         <div class="pas-num">03</div>
@@ -549,10 +529,40 @@
     </div>
   </section>
 
+  <!-- ═══ FAQ ═══ -->
+  <section id="faq">
+    <div class="faq-header reveal">
+      <div class="section-tag center">Dúvidas Frequentes</div>
+      <h2>Perguntas &amp; Respostas</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <h3>Preciso pagar algo pra ser parceiro?</h3>
+        <p>Não. O cadastro é gratuito. Você só recebe a comissão (corretor) ou compra na condição especial (empreendimento) quando fecha uma venda.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Corretor e dono de empreendimento têm a mesma parceria?</h3>
+        <p>Não. Corretor recebe comissão por venda. Loteamento, condomínio ou pousada compra com preço especial de parceiro pra oferecer no próprio terreno. No cadastro você escolhe seu perfil e recebe a condição certa.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Quanto tempo leva pra começar?</h3>
+        <p>Nosso time entra em contato em até 24 horas com todos os detalhes, a condição comercial e o catálogo completo.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Vocês cuidam de toda a obra?</h3>
+        <p>Sim. Projeto, aprovações e construção são conduzidos pela nossa equipe própria, sem terceirizados — seu cliente final recebe a casa pronta, chave na mão.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Atendem em qual região?</h3>
+        <p>Atuação focada em Santa Catarina e Paraná, com projetos já entregues também no Rio Grande do Sul.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ CADASTRO ═══ -->
   <section id="cadastro">
     <div class="cf-wrap">
-      <div class="section-tag on-dark reveal">Cadastro de Parceiro</div>
+      <div class="section-tag on-dark center reveal">Cadastro de Parceiro</div>
       <h2 class="reveal">Comece sua parceria com a Wood House</h2>
       <p class="cf-sub reveal">Preencha seus dados. Nossa equipe entra em contato em até 24 horas com todos os detalhes do programa.</p>
       <div class="cf-card reveal">
@@ -562,11 +572,23 @@
             <div class="cf-field"><label>WhatsApp</label><input type="tel" id="pf-fone" placeholder="(47) 99999-9999" required></div>
             <div class="cf-field"><label>E-mail</label><input type="email" id="pf-email" placeholder="seu@email.com"></div>
           </div>
-          <div class="cf-row2">
-            <div class="cf-field"><label>CRECI</label><input type="text" id="pf-creci" placeholder="Número do CRECI"></div>
-            <div class="cf-field"><label>Região de atuação</label><input type="text" id="pf-regiao" placeholder="Cidade / região"></div>
+          <div class="cf-field">
+            <label>Perfil</label>
+            <select id="pf-perfil" required>
+              <option value="">Selecione</option>
+              <option>Corretor</option>
+              <option>Loteamento</option>
+              <option>Condomínio</option>
+              <option>Pousada / Resort</option>
+              <option>Outro</option>
+            </select>
           </div>
-          <div class="cf-field"><label>Mensagem (opcional)</label><textarea id="pf-msg" placeholder="Conte um pouco sobre sua carteira de clientes"></textarea></div>
+          <div class="cf-row2">
+            <div class="cf-field"><label>CRECI (se corretor)</label><input type="text" id="pf-creci" placeholder="Número do CRECI"></div>
+            <div class="cf-field"><label>Cidade / região</label><input type="text" id="pf-regiao" placeholder="Cidade / região"></div>
+          </div>
+          <div class="cf-field"><label>Nome do empreendimento (se aplicável)</label><input type="text" id="pf-empreend" placeholder="Ex: Loteamento Vista Verde"></div>
+          <div class="cf-field"><label>Mensagem (opcional)</label><textarea id="pf-msg" placeholder="Conte um pouco sobre sua carteira de clientes ou seu empreendimento"></textarea></div>
           <div style="position:absolute;left:-9999px;" aria-hidden="true"><label>Website</label><input type="text" id="pf-hp" tabindex="-1" autocomplete="off"></div>
           <button type="submit" class="cf-submit" id="pf-btn">Quero ser parceiro</button>
         </form>
@@ -583,13 +605,18 @@
       if(document.getElementById('pf-hp').value) return false;
       const btn=document.getElementById('pf-btn');
       btn.disabled=true; btn.textContent='Enviando...';
+      const perfil=document.getElementById('pf-perfil').value.trim();
       const creci=document.getElementById('pf-creci').value.trim();
+      const empreend=document.getElementById('pf-empreend').value.trim();
       const regiao=document.getElementById('pf-regiao').value.trim();
       const email=document.getElementById('pf-email').value.trim();
       const msg=document.getElementById('pf-msg').value.trim();
+      const tagPerfil = perfil === 'Corretor' ? '[PARCEIRO/CORRETOR]' : perfil ? '[PARCEIRO/EMPREENDIMENTO]' : '[PARCEIRO]';
       const notas=[
-        '[PARCEIRO/CORRETOR]',
+        tagPerfil,
+        perfil?('Perfil: '+perfil):'',
         creci?('CRECI: '+creci):'',
+        empreend?('Empreendimento: '+empreend):'',
         email?('E-mail: '+email):'',
         msg?('Mensagem: '+msg):''
       ].filter(Boolean).join(' | ');
