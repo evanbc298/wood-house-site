@@ -151,13 +151,21 @@
 
     /* ─── HERO ─── */
     #hero { background: var(--dark2); position: relative; padding: 150px 80px 90px; overflow: hidden; }
+    .hero-collage { position: absolute; inset: 0; z-index: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .hero-collage span { background-size: cover; background-position: center; filter: grayscale(0.3) brightness(0.55) saturate(0.85); }
+    .hero-scrim {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse at center, rgba(18,5,0,0.35) 0%, rgba(18,5,0,0.80) 72%),
+        linear-gradient(180deg, rgba(18,5,0,0.80) 0%, rgba(18,5,0,0.55) 45%, rgba(18,5,0,0.88) 100%);
+    }
     #hero::before {
-      content: ''; position: absolute; top: -20%; right: -10%; width: 60%; height: 90%;
+      content: ''; position: absolute; top: -20%; right: -10%; width: 60%; height: 90%; z-index: 1;
       background: radial-gradient(circle, rgba(205,169,108,0.22) 0%, rgba(205,169,108,0) 68%);
       pointer-events: none;
     }
     #hero::after {
-      content: ''; position: absolute; bottom: -30%; left: -10%; width: 50%; height: 80%;
+      content: ''; position: absolute; bottom: -30%; left: -10%; width: 50%; height: 80%; z-index: 1;
       background: radial-gradient(circle, rgba(122,48,16,0.28) 0%, rgba(122,48,16,0) 68%);
       pointer-events: none;
     }
@@ -218,6 +226,20 @@
     .sim-result .r-box:last-child b { color: var(--dark2); font-size: 24px; }
     .sim-note { background: rgba(205,169,108,0.14); border: 1px solid rgba(205,169,108,0.30); border-radius: 10px; padding: 14px 18px; font-size: 13.5px; color: var(--brown2); line-height: 1.55; }
     .sim-note b { color: var(--brown); }
+    .sim-foot { max-width: 640px; margin: 16px auto 0; text-align: center; font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+    .sim-examples-label { max-width: 1000px; margin: 56px auto 22px; text-align: center; font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--brown2); }
+    .sim-examples { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .ex-card { background: #FFFDF8; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 26px rgba(92,26,0,0.08); }
+    .ex-card .ex-img { height: 140px; background-size: cover; background-position: center; }
+    .ex-card .ex-body { padding: 16px 18px 18px; }
+    .ex-card h4 { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: var(--brown); margin-bottom: 2px; }
+    .ex-card .ex-meta { font-size: 12.5px; color: var(--muted); margin-bottom: 12px; }
+    .ex-card .ex-row { display: flex; justify-content: space-between; align-items: baseline; padding-top: 10px; border-top: 1px solid rgba(92,26,0,0.10); }
+    .ex-card .ex-row + .ex-row { padding-top: 6px; border-top: none; }
+    .ex-card .ex-row span { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--brown2); font-weight: 700; }
+    .ex-card .ex-row b { font-family: 'Poppins', sans-serif; font-size: 14.5px; font-weight: 800; color: var(--brown); }
+    .ex-card .ex-row.comm b { color: var(--gold2); font-size: 16px; }
+    @media (max-width: 860px) { .sim-examples { grid-template-columns: 1fr; max-width: 420px; } }
     @media (max-width: 640px) { #simulador { padding: 70px 24px; } .sim-card { padding: 30px 24px; } .sim-result { grid-template-columns: 1fr; } }
 
     /* ─── VANTAGENS (grid de cards) ─── */
@@ -225,7 +247,7 @@
     #vantagens .van-header { max-width: 640px; margin: 0 auto 52px; text-align: center; }
     #vantagens h2 { font-family: 'Poppins', sans-serif; font-size: clamp(28px, 2.8vw, 40px); font-weight: 800; color: var(--brown); line-height: 1.18; margin-bottom: 14px; text-wrap: balance; }
     #vantagens .van-sub { font-size: 16px; color: var(--muted); line-height: 1.6; }
-    .van-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .van-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .van-card {
       background: var(--s, #FFFDF8); background: #FFFDF8; border-radius: 14px; padding: 28px 24px;
       border-top: 3px solid var(--gold); box-shadow: 0 10px 26px rgba(92,26,0,0.06);
@@ -243,7 +265,8 @@
     .van-card .van-icon svg { width: 22px; height: 22px; fill: none; stroke-width: 1.7; }
     .van-card h3 { font-family: 'Poppins', sans-serif; font-size: 15.5px; font-weight: 700; color: var(--brown); margin-bottom: 7px; }
     .van-card p { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
-    @media (max-width: 1024px) { #vantagens { padding: 90px 32px; } .van-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 900px) { .van-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 1024px) { #vantagens { padding: 90px 32px; } }
     @media (max-width: 560px) { .van-grid { grid-template-columns: 1fr; } }
 
     /* ─── TRILHAS ─── */
@@ -424,6 +447,13 @@
 
   <!-- ═══ HERO ═══ -->
   <section id="hero">
+    <div class="hero-collage" aria-hidden="true">
+      <span style="background-image:url('assets/modelos/rancho-branco-1.jpg');" title="Rancho Branco"></span>
+      <span style="background-image:url('assets/modelos/chale-horizonte-1.jpg');" title="Chalé Horizonte"></span>
+      <span style="background-image:url('assets/proj-maringa-orig.jpg');" title="Modelo Maringá"></span>
+      <span style="background-image:url('assets/proj-marrocos.jpg');" title="Modelo Marrocos"></span>
+    </div>
+    <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="hero-badge"><span class="dot"></span> Comece sua parceria hoje</div>
       <h1>Casas de madeira nobre <em>dentro do seu negócio</em>, não só no seu portfólio.</h1>
@@ -462,6 +492,37 @@
         <div class="r-box"><span>Sua comissão (4%)</span><b id="sim-comissao">R$ 12.000</b></div>
       </div>
       <div class="sim-note">Fechando <b>2 vendas por mês</b> nesse valor, você recebe <b id="sim-mensal">R$ 24.000</b> em comissões por mês.</div>
+    </div>
+    <p class="sim-foot reveal">Comissão liberada em até 3 dias úteis após a assinatura — até 60% acima da média do mercado imobiliário tradicional.</p>
+    <div class="sim-examples-label reveal">Exemplos reais do catálogo</div>
+    <div class="sim-examples">
+      <div class="ex-card reveal">
+        <div class="ex-img" style="background-image:url('assets/proj-canela.jpg');"></div>
+        <div class="ex-body">
+          <h4>Modelo Canela</h4>
+          <div class="ex-meta">103,85 m² · 3 dormitórios</div>
+          <div class="ex-row"><span>Valor</span><b>R$ 236.820,00</b></div>
+          <div class="ex-row comm"><span>Comissão (4%)</span><b>R$ 9.472,80</b></div>
+        </div>
+      </div>
+      <div class="ex-card reveal">
+        <div class="ex-img" style="background-image:url('assets/proj-marrocos.jpg'); background-position: center 35%;"></div>
+        <div class="ex-body">
+          <h4>Modelo Marrocos</h4>
+          <div class="ex-meta">136 m² · 3 dormitórios (sobrado)</div>
+          <div class="ex-row"><span>Valor</span><b>R$ 312.900,00</b></div>
+          <div class="ex-row comm"><span>Comissão (4%)</span><b>R$ 12.516,00</b></div>
+        </div>
+      </div>
+      <div class="ex-card reveal">
+        <div class="ex-img" style="background-image:url('assets/proj-maringa-orig.jpg'); background-position: center 25%;"></div>
+        <div class="ex-body">
+          <h4>Modelo Maringá</h4>
+          <div class="ex-meta">145,25 m² · 3 dormitórios</div>
+          <div class="ex-row"><span>Valor</span><b>R$ 333.965,00</b></div>
+          <div class="ex-row comm"><span>Comissão (4%)</span><b>R$ 13.358,60</b></div>
+        </div>
+      </div>
     </div>
   </section>
   <script>
@@ -528,6 +589,11 @@
         <div class="van-icon b"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 6 6 9.5 6 13a6 6 0 0012 0c0-3.5-2-7-6-11z"/></svg></div>
         <h3>Prioridade de atendimento</h3>
         <p>Parceiros com volume recorrente têm prioridade na agenda de obras.</p>
+      </div>
+      <div class="van-card reveal">
+        <div class="van-icon a"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-7.58 7-13a7 7 0 10-14 0c0 5.42 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <h3>Exclusividade territorial</h3>
+        <p>Parceiros com metas atingidas ganham exclusividade em determinadas regiões.</p>
       </div>
     </div>
   </section>
