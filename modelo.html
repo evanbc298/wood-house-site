@@ -82,6 +82,7 @@ footer{text-align:center;padding:24px 20px 34px;font-size:11px;color:var(--t2);}
   .related-grid{grid-template-columns:repeat(3,1fr);}
 }
 </style>
+  <script src="assets/campanha-setembro.js"></script>
 </head>
 <body>
 <header><img src="assets/logo-horizontal.png" alt="Wood House Construtora e Incorporadora" onerror="this.style.display='none'"></header>
@@ -1034,6 +1035,7 @@ if (!m) {
         </div>
       </section>` : ''}
     </div>
+    ${window.WHCampanha ? WHCampanha.bloco() : ''}
     <div class="cta">
       <h3>Gostou do modelo ${m.nome}?</h3>
       <p>Fale agora com a Wood House e receba uma proposta personalizada pra construir o seu.</p>
