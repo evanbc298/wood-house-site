@@ -1277,6 +1277,7 @@
       /* 82px de barra numa tela de 844px e muito. 62 basta pra logo respirar. */
       nav { height: 62px; padding: 0 12px 0 16px; }
       nav .logo img { height: 44px; }
+      nav .logo a { display: flex; align-items: center; }
       section[id], #contato-form, #projetos, #processo { scroll-margin-top: 72px; }
 
       /* O balao vira so o balao. A etiqueta tinha 178px, quase metade da tela,
@@ -1288,6 +1289,54 @@
       body.wh-camp-on .wpp-wrap { bottom: calc(18px + var(--wh-camp-h, 0px)) !important; }
     }
 
+
+    /* ─── LEGIBILIDADE NO CELULAR ─── */
+    @media (max-width: 900px) {
+      /* Rotulos em caixa alta com muito espacamento ficam ilegiveis pequenos.
+         Sobem um pouco e apertam o espacamento, que e o que trava a leitura. */
+      .proj-badge {
+        font-size: 11.5px; letter-spacing: 0.08em;
+        padding: 6px 11px;
+      }
+      .par-tag { font-size: 11.5px; letter-spacing: 0.16em; }
+      /* Com #id na frente, mesma especificidade das regras com id, senao
+         elas ganham e o tamanho nao muda. */
+      .section-tag, .hero-tag, #hero .hero-tag { font-size: 12px; letter-spacing: 0.16em; }
+      .stat-label, #obra .stat-label { font-size: 12px; }
+      .proj-rownav-btn { min-height: 42px; }
+      .modal-close { width: 44px; height: 44px; }
+      .novidade-secao-titulo { font-size: 13px; letter-spacing: 0.10em; }
+      footer h4 { font-size: 12px; letter-spacing: 0.12em; }
+      footer p { font-size: 14px; }
+
+      /* Os links do rodape tinham 17px de altura. Um dedo pede 44. */
+      footer ul li { margin-bottom: 0; }
+      footer ul li a {
+        display: flex; align-items: center;
+        min-height: 46px; font-size: 15px;
+        color: rgba(255,245,227,0.72);
+      }
+      .footer-social { gap: 12px; margin-top: 20px; }
+      .footer-social a { width: 44px; height: 44px; }
+
+      /* A foto do Plano Direto tem a logo da Wood House na parede, no alto a
+         esquerda. No corte do celular ela caia bem atras do titulo. */
+      /* So deslocar o corte nao resolve: sobra 22% de folga lateral e a logo
+         ocupa de 24% a 53% da foto. Aproximando, ela sai do quadro. */
+      .par-panel img[src="assets/plano-direto-bg.jpg"],
+      .par-panel:hover img[src="assets/plano-direto-bg.jpg"] {
+        transform: scale(1.55);
+        transform-origin: 72% 82%;
+      }
+      .par-panel .par-ov {
+        background: linear-gradient(to top,
+          rgba(10,3,0,0.90) 0%,
+          rgba(10,3,0,0.66) 52%,
+          rgba(10,3,0,0.34) 100%);
+      }
+      .par-txt { padding: 0 24px 30px; }
+      .par-h { font-size: 27px; }
+    }
 </style>
   <script src="assets/campanha-setembro.js"></script>
   <script src="assets/wh-eventos.js" defer></script>
@@ -2358,6 +2407,14 @@
       #contato-form .cf-ok{display:none;text-align:center;padding:30px 10px;}
       #contato-form .cf-ok h3{font-family:'Poppins',sans-serif;font-size:20px;color:var(--brown);margin-bottom:8px;}
       #contato-form .cf-ok p{color:var(--muted);font-size:14px;line-height:1.6;}
+      @media (max-width:900px){
+        /* Com menos de 16px o iPhone da zoom na pagina inteira quando o campo
+           recebe foco, e a pessoa perde o formulario de vista. */
+        #contato-form .cf-field input,
+        #contato-form .cf-field select,
+        #contato-form .cf-field textarea { font-size: 16px; }
+        #contato-form .cf-field label { font-size: 12px; }
+      }
       @media(max-width:520px){ #contato-form .cf-row2{grid-template-columns:1fr;} }
     </style>
     <div class="cf-wrap">

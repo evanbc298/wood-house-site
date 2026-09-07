@@ -81,15 +81,23 @@ const CAMPANHA = {
          133px, 16% da tela do celular, coberta em cima do conteudo. */
       .wh-camp-in { padding: 10px 38px 10px 12px; gap: 10px; flex-wrap: nowrap; }
       .wh-camp img { width: 38px; height: 38px; border-radius: 8px; }
-      .wh-camp-kick { font-size: 9px; letter-spacing: .14em; margin-bottom: 1px; }
+      .wh-camp-kick { font-size: 10px; letter-spacing: .14em; margin-bottom: 1px; }
       .wh-camp-tit {
         font-size: 13px; line-height: 1.25;
         display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
         overflow: hidden;
       }
       .wh-camp-det { display: none; }
-      .wh-camp-btn { padding: 9px 14px; font-size: 12px; }
-      .wh-camp-x { right: 8px; padding: 6px; font-size: 18px; }
+      .wh-camp-btn {
+        padding: 9px 14px; font-size: 12px;
+        min-height: 40px; display: flex; align-items: center;
+      }
+      /* O X tinha 12px de altura, impossivel de acertar com o dedo */
+      .wh-camp-x {
+        right: 2px; padding: 0; font-size: 20px;
+        width: 40px; height: 40px;
+        display: flex; align-items: center; justify-content: center;
+      }
     }
 
     /* ─── bloco dentro da página do modelo ─── */
