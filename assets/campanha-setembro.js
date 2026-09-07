@@ -1,5 +1,5 @@
 /* ============================================================
-   Campanha de setembro — faixa de aviso do brinde
+   Campanha de setembro: faixa de aviso do brinde
    Wood House Construtora
 
    TUDO que se edita está no bloco CAMPANHA abaixo.

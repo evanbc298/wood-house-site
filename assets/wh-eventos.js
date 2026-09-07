@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────
-   Wood House — evento de conversão do Meta
+   Wood House: evento de conversão do Meta
 
    Dispara o evento padrão "Lead" quando alguém clica em qualquer
    botão de WhatsApp do site. É esse sinal que permite ao Meta

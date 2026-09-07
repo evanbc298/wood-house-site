@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" href="assets/favicon.png">
-<title>Investimento por modelo — Wood House</title>
-<meta name="description" content="Consulta de investimento por modelo — uso interno dos vendedores Wood House.">
+<title>Investimento por modelo | Wood House</title>
+<meta name="description" content="Consulta de investimento por modelo, uso interno dos vendedores Wood House.">
 <meta name="robots" content="noindex, nofollow">
 <style>
 .price-box{background:var(--t1);color:#FBF6EE;border-radius:12px;padding:22px 22px;text-align:center;margin-bottom:0;}
@@ -687,7 +687,7 @@ const modelos = [
     planta: 'assets/modelos/celeiro-planta.jpg',
     video: 'assets/modelos/celeiro-video.mp4',
     specs: [
-      ['Categoria', 'Celeiro de lazer — sem dormitórios (espaço de investimento/refúgio)'],
+      ['Categoria', 'Celeiro de lazer, sem dormitórios (espaço de investimento/refúgio)'],
       ['Cozinha + sala + jantar', '68,70 m²'],
       ['Mezanino (jogos)', '57,04 m²'],
       ['Circulação', '10,50 m²'],
@@ -870,7 +870,7 @@ const modelos = [
     fotos: ['assets/modelos/chale-bavaria-1.jpg','assets/modelos/chale-bavaria-2.jpg','assets/modelos/chale-bavaria-3.jpg','assets/modelos/chale-bavaria-4.jpg','assets/modelos/chale-bavaria-5.jpg'],
     planta: '',
     specs: [
-      ['Categoria', 'Conceito — chalé alpino 2 pavimentos em pedra e madeira, varanda superior'],
+      ['Categoria', 'Conceito: chalé alpino 2 pavimentos em pedra e madeira, varanda superior'],
       ['Observação', 'Sem planta técnica no material recebido; metragem e dormitórios estimados pelo render. Confirmar com o fundador antes de fechar venda.'],
     ],
   },
@@ -880,7 +880,7 @@ const modelos = [
     planta: '',
     video: 'assets/modelos/chale-refugio-video.mp4',
     specs: [
-      ['Categoria', 'Conceito — A-frame compacto com piscina, deck gourmet e mezanino'],
+      ['Categoria', 'Conceito: A-frame compacto com piscina, deck gourmet e mezanino'],
       ['Observação', 'Sem planta técnica no material recebido; metragem e dormitórios estimados pelo render. Confirmar com o fundador antes de fechar venda.'],
     ],
   },
@@ -890,7 +890,7 @@ const modelos = [
     planta: '',
     video: 'assets/modelos/chale-lago-video.mp4',
     specs: [
-      ['Categoria', 'Conceito — A-frame à beira d’água com anexo lateral coberto'],
+      ['Categoria', 'Conceito: A-frame à beira d’água com anexo lateral coberto'],
       ['Observação', 'Sem planta técnica no material recebido; metragem e dormitórios estimados pelo render. Confirmar com o fundador antes de fechar venda.'],
     ],
   },
@@ -900,7 +900,7 @@ const modelos = [
     planta: '',
     video: 'assets/modelos/chale-vale-video.mp4',
     specs: [
-      ['Categoria', 'Conceito — estilo celeiro moderno com mezanino e pergolado'],
+      ['Categoria', 'Conceito: estilo celeiro moderno com mezanino e pergolado'],
       ['Observação', 'Sem planta técnica no material recebido; metragem e dormitórios estimados pelo render. Confirmar com o fundador antes de fechar venda.'],
     ],
   },
@@ -914,7 +914,7 @@ const app = document.getElementById('app');
 if (!m) {
   app.innerHTML = `<div class="notfound"><h1>Modelo não encontrado</h1><p>O link pode estar incompleto. Fale com seu corretor Wood House pra receber o link certo.</p></div>`;
 } else {
-  document.title = 'Modelo ' + m.nome + ' — Wood House';
+  document.title = 'Modelo ' + m.nome + ' | Wood House';
   const waMsg = encodeURIComponent('Olá! Tenho interesse no modelo ' + m.nome + ' (' + m.area + ') da Wood House.');
   const spec = k => { const r = m.specs.find(s => s[0] === k); return r ? r[1] : null; };
   const banheiros = spec('Banheiros');
@@ -966,7 +966,7 @@ if (!m) {
       </section>` : ''}
       ${m.planta ? `<section>
         <div class="sttl">Planta baixa</div>
-        <div class="planta-box"><img src="${m.planta}" alt="Planta baixa — Modelo ${m.nome}"></div>
+        <div class="planta-box"><img src="${m.planta}" alt="Planta baixa, Modelo ${m.nome}"></div>
         <div class="planta-note">Planta ilustrativa de apresentação. Medidas e posições finais seguem o projeto técnico de execução.</div>
       </section>` : ''}
       <section>
@@ -984,11 +984,11 @@ if (!m) {
           </div>
           <div class="feat-card">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C7 6 4 11 4 15a8 8 0 0016 0c0-4-3-9-8-13z"/></svg>
-            <div><div class="ftit">Madeira nobre certificada</div><div class="fsub">Jatobá, Grapiá, Angelim, Cedro e Cambará — beneficiadas contra cupim e umidade.</div></div>
+            <div><div class="ftit">Madeira nobre certificada</div><div class="fsub">Jatobá, Grapiá, Angelim, Cedro e Cambará, beneficiadas contra cupim e umidade.</div></div>
           </div>
           <div class="feat-card">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="13" height="10" rx="1"/><path d="M16 10h3l2 3v4h-5"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="17.5" cy="18" r="1.5"/></svg>
-            <div><div class="ftit">Equipe própria do início ao fim</div><div class="fsub">Fundação, estrutura, cobertura, elétrica, hidráulica e acabamentos — sem terceirizados.</div></div>
+            <div><div class="ftit">Equipe própria do início ao fim</div><div class="fsub">Fundação, estrutura, cobertura, elétrica, hidráulica e acabamentos, sem terceirizados.</div></div>
           </div>
           <div class="feat-card">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
@@ -1017,18 +1017,18 @@ if (!m) {
         <div class="speclist">
           <div class="pay-block">
             <div class="specrow"><span>Na descarga dos materiais na obra</span><b>70%</b></div>
-            <div class="pay-sub">O kit completo da sua casa em madeira nobre — estrutura, paredes, esquadrias e telhado — chega já fabricado. Você e nosso representante conferem tudo juntos, e a equipe de mão de obra já é alocada no local pra começar a montagem no mesmo momento.</div>
+            <div class="pay-sub">O kit completo da sua casa em madeira nobre, com estrutura, paredes, esquadrias e telhado, chega já fabricado. Você e nosso representante conferem tudo juntos, e a equipe de mão de obra já é alocada no local pra começar a montagem no mesmo momento.</div>
           </div>
           <div class="pay-block">
             <div class="specrow"><span>Na conclusão do telhado</span><b>20%</b></div>
-            <div class="pay-sub">Cobre a mão de obra da fundação até o fechamento do telhado da casa e das áreas abertas — sua casa já em pé e protegida do tempo.</div>
+            <div class="pay-sub">Cobre a mão de obra da fundação até o fechamento do telhado da casa e das áreas abertas. Sua casa já em pé e protegida do tempo.</div>
           </div>
           <div class="pay-block">
             <div class="specrow"><span>Na entrega das chaves</span><b>10%</b></div>
             <div class="pay-sub">Últimos acabamentos e instalações, com a obra 100% concluída e pronta pra você morar.</div>
           </div>
         </div>
-        <div class="planta-note">Contrato com reconhecimento de firma em cartório ou assinatura digital — a obra só inicia após a formalização. Aceitamos veículo como parte do pagamento (cerca de 20% abaixo da FIPE).</div>
+        <div class="planta-note">Contrato com reconhecimento de firma em cartório ou assinatura digital. A obra só inicia após a formalização. Aceitamos veículo como parte do pagamento (cerca de 20% abaixo da FIPE).</div>
       </section>
       ${relacionados.length ? `
       <section>
@@ -1051,7 +1051,7 @@ if (!m) {
         Falar no WhatsApp
       </a>
     </div>
-    <footer>Wood House Construtora e Incorporadora — construção artesanal em madeira nobre</footer>
+    <footer>Wood House Construtora e Incorporadora, construção artesanal em madeira nobre</footer>
   `;
 }
 </script>
