@@ -77,11 +77,19 @@ const CAMPANHA = {
     .wh-camp-x:hover { color: rgba(255,245,227,0.9); }
 
     @media (max-width: 720px) {
-      .wh-camp-in { padding: 12px 44px 12px 14px; gap: 12px; flex-wrap: wrap; }
-      .wh-camp img { width: 44px; height: 44px; }
-      .wh-camp-tit { font-size: 14px; }
+      /* Em uma linha so. Com o botao ocupando a largura toda a faixa ia a
+         133px, 16% da tela do celular, coberta em cima do conteudo. */
+      .wh-camp-in { padding: 10px 38px 10px 12px; gap: 10px; flex-wrap: nowrap; }
+      .wh-camp img { width: 38px; height: 38px; border-radius: 8px; }
+      .wh-camp-kick { font-size: 9px; letter-spacing: .14em; margin-bottom: 1px; }
+      .wh-camp-tit {
+        font-size: 13px; line-height: 1.25;
+        display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
       .wh-camp-det { display: none; }
-      .wh-camp-btn { width: 100%; text-align: center; padding: 11px 18px; }
+      .wh-camp-btn { padding: 9px 14px; font-size: 12px; }
+      .wh-camp-x { right: 8px; padding: 6px; font-size: 18px; }
     }
 
     /* ─── bloco dentro da página do modelo ─── */

@@ -1269,7 +1269,26 @@
       nav .nav-cta { display: none; }
       nav .nav-access { display: none !important; }
     }
-  </style>
+      /* ─── MENOS CROMO NO CELULAR ─── */
+    /* A barra fixa cobre o topo da secao quando se chega por um link do menu */
+    section[id], #contato-form, #projetos, #processo { scroll-margin-top: 92px; }
+
+    @media (max-width: 900px) {
+      /* 82px de barra numa tela de 844px e muito. 62 basta pra logo respirar. */
+      nav { height: 62px; padding: 0 12px 0 16px; }
+      nav .logo img { height: 44px; }
+      section[id], #contato-form, #projetos, #processo { scroll-margin-top: 72px; }
+
+      /* O balao vira so o balao. A etiqueta tinha 178px, quase metade da tela,
+         e ficava por cima da foto dos cards. */
+      .wpp-wrap { bottom: 18px; right: 16px; gap: 0; }
+      .wpp-label { display: none; }
+      .wpp-float { width: 52px; height: 52px; }
+      .wpp-float svg { width: 25px; height: 25px; }
+      body.wh-camp-on .wpp-wrap { bottom: calc(18px + var(--wh-camp-h, 0px)) !important; }
+    }
+
+</style>
   <script src="assets/campanha-setembro.js"></script>
   <script src="assets/wh-eventos.js" defer></script>
 </head>
