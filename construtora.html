@@ -179,6 +179,117 @@
     }
     .nav-access:hover { color: var(--gold2) !important; opacity: 1; }
 
+
+    /* ─── MENU DO CELULAR ─── */
+    .nav-burger {
+      display: none;
+      width: 46px; height: 46px;
+      flex-shrink: 0;
+      align-items: center; justify-content: center;
+      background: transparent; border: 0; padding: 0;
+      cursor: pointer; color: var(--brown);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .nav-burger span {
+      display: block; position: relative;
+      width: 24px; height: 2px; border-radius: 2px;
+      background: currentColor;
+      transition: background .18s;
+    }
+    .nav-burger span::before,
+    .nav-burger span::after {
+      content: ''; position: absolute; left: 0;
+      width: 24px; height: 2px; border-radius: 2px;
+      background: currentColor;
+      transition: transform .28s cubic-bezier(.22,.61,.36,1);
+    }
+    .nav-burger span::before { top: -7px; }
+    .nav-burger span::after  { top:  7px; }
+    body.menu-aberto .nav-burger span { background: transparent; }
+    body.menu-aberto .nav-burger span::before { transform: translateY(7px) rotate(45deg); }
+    body.menu-aberto .nav-burger span::after  { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-fundo {
+      position: fixed; inset: 0; z-index: 9500;
+      background: rgba(26,8,0,0.55);
+      opacity: 0; pointer-events: none;
+      transition: opacity .26s ease;
+    }
+    body.menu-aberto .nav-fundo { opacity: 1; pointer-events: auto; }
+
+    .nav-gaveta {
+      position: fixed; top: 0; right: 0; z-index: 9600;
+      width: min(86vw, 340px); height: 100dvh;
+      background: var(--dark);
+      transform: translateX(100%);
+      transition: transform .3s cubic-bezier(.22,.61,.36,1);
+      display: flex; flex-direction: column;
+      overflow-y: auto; -webkit-overflow-scrolling: touch;
+      box-shadow: -2px 0 28px rgba(0,0,0,0.34);
+      padding: 22px 0 28px;
+    }
+    body.menu-aberto .nav-gaveta { transform: translateX(0); }
+
+    .nav-gaveta-topo {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px 18px;
+      border-bottom: 1px solid rgba(205,169,108,0.16);
+    }
+    .nav-gaveta-titulo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .nav-gaveta-fechar {
+      width: 44px; height: 44px; margin-right: -10px;
+      display: flex; align-items: center; justify-content: center;
+      background: transparent; border: 0; cursor: pointer;
+      color: rgba(255,245,227,0.72); font-size: 24px; line-height: 1;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .nav-gaveta ul { list-style: none; display: block; padding: 8px 0; margin: 0; }
+    .nav-gaveta li { display: block; }
+    .nav-gaveta a {
+      display: flex; align-items: center; gap: 12px;
+      min-height: 54px; padding: 14px 20px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px; font-weight: 600;
+      letter-spacing: 0.02em; text-transform: none;
+      color: rgba(255,245,227,0.92); text-decoration: none;
+      border-bottom: 1px solid rgba(205,169,108,0.10);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .nav-gaveta a:active { background: rgba(205,169,108,0.12); }
+    .nav-gaveta a svg { flex-shrink: 0; }
+    .nav-gaveta .nav-cta {
+      background: var(--gold) !important;
+      color: var(--dark) !important;
+      margin: 18px 20px 0;
+      padding: 16px 20px !important;
+      border-radius: 10px !important;
+      justify-content: center;
+      border-bottom: 0;
+      font-size: 15px !important;
+      letter-spacing: 0.02em !important;
+    }
+    .nav-gaveta .nav-access {
+      color: rgba(255,245,227,0.55) !important;
+      opacity: 1; font-size: 13px !important; font-weight: 500 !important;
+      min-height: 48px;
+    }
+    /* Com a gaveta aberta, nada de flutuante disputando a tela */
+    .wpp-wrap, .wh-camp { transition: opacity .2s ease; }
+    body.menu-aberto .wpp-wrap,
+    body.menu-aberto .wh-camp {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    @media (max-width: 1024px) {
+      .nav-burger { display: flex; }
+    }
+
     /* ─── HERO ─── */
     #hero {
       height: 100vh; min-height: 700px;
@@ -1178,7 +1289,18 @@
       <li><a href="https://central-wh-server-production.up.railway.app/login.html" target="_blank" rel="noopener" class="nav-access" title="Acesso ao sistema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></li>
       <li><a href="https://wa.me/5547997194337" target="_blank" class="nav-cta">Falar Conosco</a></li>
     </ul>
+    <button class="nav-burger" id="navBurger" type="button"
+            aria-label="Abrir menu" aria-expanded="false" aria-controls="navGaveta"><span></span></button>
   </nav>
+
+  <div class="nav-fundo" id="navFundo" hidden></div>
+  <aside class="nav-gaveta" id="navGaveta" aria-hidden="true" aria-label="Menu">
+    <div class="nav-gaveta-topo">
+      <div class="nav-gaveta-titulo">Wood House</div>
+      <button class="nav-gaveta-fechar" id="navFechar" type="button" aria-label="Fechar menu">✕</button>
+    </div>
+    <ul id="navGavetaLista"></ul>
+  </aside>
 
   <!-- ═══ HERO ═══ -->
   <section id="hero">
@@ -3348,5 +3470,56 @@
     });
   </script>
 
+
+  <script>
+  /* Menu do celular. A lista se monta a partir dos links que ja existem na
+     navbar do desktop, entao os dois nunca ficam diferentes. */
+  (function () {
+    var burger = document.getElementById('navBurger');
+    var gaveta = document.getElementById('navGaveta');
+    var fundo  = document.getElementById('navFundo');
+    var fechar = document.getElementById('navFechar');
+    var lista  = document.getElementById('navGavetaLista');
+    var origem = document.querySelector('#navbar > ul');
+    if (!burger || !gaveta || !fundo || !lista || !origem) return;
+
+    lista.innerHTML = origem.innerHTML;
+
+    // O cadeado do sistema interno so faz sentido com rotulo aqui dentro
+    var acesso = lista.querySelector('.nav-access');
+    if (acesso && !acesso.textContent.trim()) {
+      acesso.insertAdjacentHTML('beforeend', '<span>Acessar o sistema</span>');
+    }
+
+    function abrir(sim) {
+      document.body.classList.toggle('menu-aberto', sim);
+      document.body.style.overflow = sim ? 'hidden' : '';
+      burger.setAttribute('aria-expanded', sim ? 'true' : 'false');
+      burger.setAttribute('aria-label', sim ? 'Fechar menu' : 'Abrir menu');
+      gaveta.setAttribute('aria-hidden', sim ? 'false' : 'true');
+      fundo.hidden = !sim;
+    }
+
+    burger.addEventListener('click', function () {
+      abrir(!document.body.classList.contains('menu-aberto'));
+    });
+    fundo.addEventListener('click', function () { abrir(false); });
+    if (fechar) fechar.addEventListener('click', function () { abrir(false); });
+
+    // Tocar num link fecha a gaveta antes de a pagina rolar ate a secao
+    lista.addEventListener('click', function (e) {
+      if (e.target.closest('a')) abrir(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') abrir(false);
+    });
+
+    // Voltando pro desktop, nao deixa a rolagem travada
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1024) abrir(false);
+    });
+  })();
+  </script>
 </body>
 </html>
