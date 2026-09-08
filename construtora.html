@@ -290,6 +290,21 @@
       .nav-burger { display: flex; }
     }
 
+    /* O menu tem 6 itens mais o cadeado e o botao. Entre 1025 e 1200 px ele
+       nao cabia numa linha e quebrava por cima do botao, entao a gaveta assume
+       antes. De 1201 a 1450 px cabe, mas so apertando o espacamento. */
+    @media (max-width: 1200px) {
+      nav { padding: 0 32px; }
+      nav ul { display: none; }
+      .nav-burger { display: flex; }
+    }
+    @media (min-width: 1201px) and (max-width: 1450px) {
+      nav { padding: 0 34px; }
+      nav ul { gap: 20px; }
+      nav ul a { font-size: 11px; letter-spacing: 0.06em; }
+      .nav-cta { padding: 10px 16px !important; }
+    }
+
     /* ─── HERO ─── */
     #hero {
       height: 100vh; min-height: 700px;
@@ -1353,6 +1368,7 @@
       <li><a href="#processo">Como Construímos</a></li>
       <li><a href="blog/">Blog</a></li>
       <li><a href="parceiros.html" target="_blank" rel="noopener">Parceiro</a></li>
+      <li><a href="fornecedores.html" target="_blank" rel="noopener">Fornecedor</a></li>
       <li><a href="#contato-form">Fale com um Consultor</a></li>
       <li><a href="https://central-wh-server-production.up.railway.app/login.html" target="_blank" rel="noopener" class="nav-access" title="Acesso ao sistema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></a></li>
       <li><a href="https://wa.me/5547997194337" target="_blank" class="nav-cta">Falar Conosco</a></li>
