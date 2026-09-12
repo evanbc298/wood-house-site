@@ -191,6 +191,8 @@ const modelos = [
   { id: 'rancho-rv', nome: 'Rancho RV', dorms: 1, area: '263 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-rv-1.jpg', href: 'modelo.html?m=rancho-rv', cat: 'ranchos' },
   { id: 'rancho-familia', nome: 'Rancho Família', dorms: 3, area: '261 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-familia-1.jpg', href: 'modelo.html?m=rancho-familia', cat: 'ranchos' },
   { id: 'rancho-branco', nome: 'Rancho Branco', dorms: 3, area: '275 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-branco-1.jpg', href: 'modelo.html?m=rancho-branco', cat: 'ranchos' },
+  { id: 'rancho-araucaria', nome: 'Rancho Araucária', dorms: 3, area: '367 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-araucaria-1.jpg', href: 'modelo.html?m=rancho-araucaria', cat: 'ranchos' },
+  { id: 'celeiro', nome: 'Celeiro WH', dorms: 0, meta: '150,86 m² · espaço de lazer', area: '150,86 m²', valor: 'Sob consulta', img: 'assets/modelos/celeiro-1.jpg', href: 'modelo.html?m=celeiro', cat: 'ranchos' },
   { id: 'rancho-barndominium-sobrado', nome: 'Rancho Barndominium Sobrado', dorms: 2, area: '214 m²', valor: 'Sob consulta', img: 'assets/modelos/rancho-barndominium-sobrado-1.jpg', href: 'modelo.html?m=rancho-barndominium-sobrado', cat: 'ranchos' },
 ];
 
@@ -214,7 +216,7 @@ function cardHtml(m) {
       <img src="${m.img || 'assets/modelos/' + m.id + '-1.jpg'}" alt="${m.nome}" loading="lazy" onerror="this.style.background='var(--bd)'">
       <div class="card-body">
         <div class="card-name">${m.nome}</div>
-        <div class="card-meta">${m.area} · ${m.dorms} dorm.</div>
+        <div class="card-meta">${m.meta || (m.area + ' · ' + m.dorms + ' dorm.')}</div>
         <div class="card-price">${m.valor}</div>
       </div>
     </a>`;
