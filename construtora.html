@@ -1490,7 +1490,7 @@
         data-specs='["145 m² · 2 pavimentos","Garagem coberta integrada","Varanda no segundo pavimento"]'
         data-photos='["assets/proj-maringa-orig.jpg","assets/modelos/maringa-1.jpg","assets/modelos/maringa-2.jpg","assets/maringa-5.jpg","assets/modelos/maringa-planta.jpg"]'
         data-wpp="Olá! Vi o Modelo Maringá no site e quero saber mais."
-        data-related='["Projeto Camboriú","Projeto Las Vegas","Modelo Recife"]'>
+        data-related='["Projeto Camboriú","Projeto Las Vegas","Modelo Alagoas"]'>
         <div class="pc-media">
           <div class="proj-badge">3 Dormitórios · 145 m² · Sobrado</div>
           <div class="img" style="background-image:url('assets/proj-maringa-orig.jpg'); background-position:center 25%;" role="img" aria-label="Modelo Maringá, casa de madeira nobre"></div>
@@ -1506,7 +1506,7 @@
         data-specs='["Telhado escondido","Fachada contemporânea","Lareira na sala de estar","Projeto autoral exclusivo"]'
         data-photos='["assets/modelos/flavio-1.jpg","assets/modelos/flavio-2.jpg","assets/modelos/flavio-3.jpg","assets/modelos/flavio-4.jpg","assets/modelos/flavio-5.jpg","assets/modelos/flavio-6.jpg","assets/modelos/flavio-7.jpg","assets/modelos/flavio-8.jpg","assets/modelos/flavio-planta.jpg"]'
         data-wpp="Olá! Vi o Projeto Urubici no site e quero saber mais."
-        data-related='["Projeto Camboriú","Modelo Maringá","Modelo Recife"]'>
+        data-related='["Projeto Camboriú","Modelo Maringá","Modelo Santiago"]'>
         <div class="pc-media">
           <div class="proj-badge">3 Dormitórios · Telhado Escondido</div>
           <div class="img" style="background-image:url('assets/modelos/flavio-1.jpg'); background-position:center 40%;" role="img" aria-label="Projeto Urubici, casa de madeira nobre"></div>
@@ -3112,7 +3112,7 @@
         specs: ['4 dormitórios', 'Sobrado', 'Alto padrão', 'Madeira nobre maciça', 'Personalizável', 'SC e PR'],
         photos: ['assets/holanda-1.jpg','assets/holanda-2.jpg','assets/holanda-3.jpg','assets/holanda-4.jpg','assets/holanda-5.jpg','assets/holanda-6.jpg'],
         wpp: 'Olá tenho interesse e queria mais informações sobre o Modelo Holanda.',
-        related: ['Modelo Croácia','Modelo Colômbia','Projeto Celeiro']
+        related: ['Modelo Nissan','Modelo Colômbia','Projeto Celeiro']
       },
       'Modelo Nissan': {
         tag: 'Modelo disponível',
@@ -3121,7 +3121,7 @@
         specs: ['4 dormitórios', 'Térrea', 'Linhas modernas', 'Madeira nobre', 'Grandes aberturas', 'SC e PR'],
         photos: ['assets/nissan-1.jpg','assets/nissan-2.jpg','assets/nissan-3.jpg','assets/nissan-4.jpg','assets/nissan-5.jpg','assets/nissan-6.jpg'],
         wpp: 'Olá tenho interesse e queria mais informações sobre o Modelo Nissan.',
-        related: ['Modelo Holanda','Modelo Croácia','Projeto Camboriú']
+        related: ['Modelo Holanda','Modelo Colômbia','Projeto Camboriú']
       },
       'Modelo Viena': {
         tag: 'Projeto entregue',
@@ -3345,6 +3345,11 @@
     const PROJECT_THUMB = {
       'Projeto Camboriú':    'assets/bruno-exterior-1.jpg',
       'Projeto Celeiro':  'assets/proj-celeiro.jpg',
+      'Modelo Santiago':  'assets/proj-santiago.jpg',
+      'Modelo Holanda':   'assets/proj-holanda.jpg',
+      'Modelo Nissan':    'assets/proj-nissan.jpg',
+      'Modelo Viena':     'assets/proj-viena.jpg',
+      'Modelo Vaticano':  'assets/proj-vaticano.jpg',
       'Modelo Maringá':   'assets/proj-maringa-orig.jpg',
       'Projeto Las Vegas':'assets/modelos/las-vegas-1.jpg',
       'Modelo Canela':    'assets/proj-canela.jpg',
@@ -3428,9 +3433,10 @@
       const specsEl = document.getElementById('modalSpecs');
       specsEl.innerHTML = p.specs.map(s => `<div class="spec-item">${s}</div>`).join('');
 
-      // CTA
+      // CTA. As mensagens de data-wpp ja comecam com saudacao; prefixar
+      // mandava "Ola, Ola! Vi o..." para o cliente.
       const ctaEl = document.getElementById('modalCta');
-      ctaEl.href = `https://wa.me/5547997194337?text=${encodeURIComponent('Olá, ' + p.wpp)}`;
+      ctaEl.href = `https://wa.me/5547997194337?text=${encodeURIComponent(p.wpp)}`;
 
       // Link para página completa (quando o projeto tiver uma)
       const pageLinkEl = document.getElementById('modalPageLink');
@@ -3451,10 +3457,11 @@
           <div class="rlabel">${rname}</div>
         </div>`).join('');
       relEl.querySelectorAll('.related-card').forEach(rc => {
-        rc.addEventListener('click', () => {
-          const found = document.querySelector(`.proj-card[data-name="${rc.dataset.name}"]`);
-          if (found) openModal(found);
-        });
+        // projeto citado que nao tem cartao na pagina sai da lista, em vez de
+        // virar clique que nao faz nada (foi o caso do "Modelo Recife")
+        const found = document.querySelector(`.proj-card[data-name="${rc.dataset.name}"]`);
+        if (!found) { rc.remove(); return; }
+        rc.addEventListener('click', () => openModal(found));
       });
 
       overlay.classList.add('open');
