@@ -25,17 +25,15 @@ ou acrescentar tema a qualquer momento.
 
 ## Fila (o próximo é sempre o primeiro da lista)
 
-1. **Preciso de fundação? Como funciona em terreno com declive.** Muita gente em SC tem
-   lote em aclive e acha que inviabiliza.
-2. **Dá para financiar uma casa de madeira?** O que os bancos aceitam e o que muda em
+1. **Dá para financiar uma casa de madeira?** O que os bancos aceitam e o que muda em
    relação à alvenaria. *Atenção: não citar o Plano Direto sem o Evan liberar.*
-3. **Quanto tempo dura uma casa de madeira nobre?** Durabilidade, exemplos antigos no Sul,
+2. **Quanto tempo dura uma casa de madeira nobre?** Durabilidade, exemplos antigos no Sul,
    o que encurta a vida útil.
-4. **Casa de madeira é quente no verão e fria no inverno?** Conforto térmico e acústico.
-5. **Como escolher o terreno para casa de madeira.** Acesso, solo, orientação solar.
-6. **O que está incluso numa obra chave na mão.** O que costuma ficar de fora nos
+3. **Casa de madeira é quente no verão e fria no inverno?** Conforto térmico e acústico.
+4. **Como escolher o terreno para casa de madeira.** Acesso, solo, orientação solar.
+5. **O que está incluso numa obra chave na mão.** O que costuma ficar de fora nos
    orçamentos do mercado.
-7. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
+6. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
    obra entregue é uma página que pode ranquear pela cidade dela.
 
 ## Publicados
@@ -47,6 +45,7 @@ ou acrescentar tema a qualquer momento.
 | 12/09/2026 | Quanto tempo leva para construir | `quanto-tempo-leva-construir-casa-madeira.html` |
 | 12/09/2026 | Madeira nobre, eucalipto ou pinus | `madeira-nobre-eucalipto-pinus-diferenca.html` |
 | 12/09/2026 | Casa de madeira precisa de manutenção? | `casa-de-madeira-precisa-de-manutencao.html` |
+| 15/09/2026 | Preciso de fundação? Como funciona em terreno com declive | `fundacao-terreno-declive-casa-madeira.html` |
 
 ## Dúvidas para o Evan
 
