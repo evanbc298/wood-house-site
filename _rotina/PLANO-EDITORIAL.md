@@ -11,7 +11,7 @@ ou acrescentar tema a qualquer momento.
    - alvenaria comparável: **8 a 18 meses**;
    - faixa de projetos: **R$ 193 mil a R$ 450 mil ou mais**;
    - espécies: Jatobá, Cedro, Grápia, Cambará, Angelim, Sucupira;
-   - telefone **(47) 99719-4337**.
+   - telefone **(47) 3091-0877**.
    Se um artigo precisar de um número que não existe aqui, **deixar a pergunta anotada na
    seção "Dúvidas para o Evan"** e escrever o artigo sem ele.
 2. **Nunca usar travessão.** É preferência dele, já pedida mais de uma vez.

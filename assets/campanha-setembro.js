@@ -18,7 +18,7 @@ const CAMPANHA = {
   textoBotao: 'Quero saber mais',
 
   foto: 'assets/spa-jurere.jpg',
-  whatsapp: '5547997194337',
+  whatsapp: '554730910877',
   mensagem: 'Olá! Vi a campanha de setembro no site e quero saber mais sobre o spa que vai junto com o projeto.',
 
   // troque a chave se quiser que quem já fechou veja a faixa de novo
