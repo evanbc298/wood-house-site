@@ -25,15 +25,13 @@ ou acrescentar tema a qualquer momento.
 
 ## Fila (o próximo é sempre o primeiro da lista)
 
-1. **Dá para financiar uma casa de madeira?** O que os bancos aceitam e o que muda em
-   relação à alvenaria. *Atenção: não citar o Plano Direto sem o Evan liberar.*
-2. **Quanto tempo dura uma casa de madeira nobre?** Durabilidade, exemplos antigos no Sul,
+1. **Quanto tempo dura uma casa de madeira nobre?** Durabilidade, exemplos antigos no Sul,
    o que encurta a vida útil.
-3. **Casa de madeira é quente no verão e fria no inverno?** Conforto térmico e acústico.
-4. **Como escolher o terreno para casa de madeira.** Acesso, solo, orientação solar.
-5. **O que está incluso numa obra chave na mão.** O que costuma ficar de fora nos
+2. **Casa de madeira é quente no verão e fria no inverno?** Conforto térmico e acústico.
+3. **Como escolher o terreno para casa de madeira.** Acesso, solo, orientação solar.
+4. **O que está incluso numa obra chave na mão.** O que costuma ficar de fora nos
    orçamentos do mercado.
-6. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
+5. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
    obra entregue é uma página que pode ranquear pela cidade dela.
 
 ## Publicados
@@ -46,6 +44,7 @@ ou acrescentar tema a qualquer momento.
 | 12/09/2026 | Madeira nobre, eucalipto ou pinus | `madeira-nobre-eucalipto-pinus-diferenca.html` |
 | 12/09/2026 | Casa de madeira precisa de manutenção? | `casa-de-madeira-precisa-de-manutencao.html` |
 | 15/09/2026 | Preciso de fundação? Como funciona em terreno com declive | `fundacao-terreno-declive-casa-madeira.html` |
+| 18/09/2026 | Dá para financiar uma casa de madeira nobre? | `financiamento-casa-madeira-nobre.html` |
 
 ## Dúvidas para o Evan
 
@@ -60,3 +59,10 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   de revisão de verniz/selante (a cada quantos anos, por exemplo) nem sobre existência de um
   manual de manutenção entregue ao cliente. O artigo foi escrito sem esse número. Se existir
   uma frequência real, adicionar aqui para atualizar o artigo depois.
+- No artigo de financiamento (`financiamento-casa-madeira-nobre.html`), não havia no plano
+  nenhum dado sobre parceria real da Wood House com algum banco ou administradora de
+  consórcio, nem sobre taxas ou percentual de avaliação que costumam aceitar na prática. O
+  artigo ficou no nível geral (como funciona o financiamento no Brasil, o que costuma pedir
+  o laudo de engenharia), sem citar banco, taxa ou percentual algum, e sem citar o Plano
+  Direto, conforme a ressalva da fila. Se a Wood House tiver parceria com alguma instituição
+  ou dado real de aprovação, avisar aqui para atualizar o artigo com informação concreta.
