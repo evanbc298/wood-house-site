@@ -1111,6 +1111,9 @@
       user-select: none;
     }
     .gal-btn:hover { background: rgba(205,169,108,0.25); }
+    /* o dedo troca de foto: mostra que da para tocar e nao seleciona texto */
+    .modal-gallery { cursor: pointer; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+    .gal-btn { cursor: pointer; }
     .gal-btn.prev { left: 14px; }
     .gal-btn.next { right: 14px; }
 
@@ -3401,6 +3404,30 @@
 
     document.getElementById('galPrev').addEventListener('click', e => { e.stopPropagation(); setSlide(galIndex - 1); });
     document.getElementById('galNext').addEventListener('click', e => { e.stopPropagation(); setSlide(galIndex + 1); });
+
+    // ── Toque na foto e arrasto, porque no celular ninguem procura a seta ──
+    // Metade direita avanca, metade esquerda volta; arrastar tambem troca.
+    (function () {
+      let x0 = null, y0 = null, arrastou = false;
+      gallery.addEventListener('pointerdown', (e) => {
+        if (e.target.closest('.gal-btn, .gal-dot')) return;
+        x0 = e.clientX; y0 = e.clientY; arrastou = false;
+      });
+      gallery.addEventListener('pointerup', (e) => {
+        if (x0 === null || galPhotos.length < 2) { x0 = null; return; }
+        if (e.target.closest('.gal-btn, .gal-dot')) { x0 = null; return; }
+        const dx = e.clientX - x0, dy = e.clientY - y0;
+        x0 = null;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+          setSlide(galIndex + (dx < 0 ? 1 : -1));   // arrastou
+          return;
+        }
+        if (Math.abs(dx) < 12 && Math.abs(dy) < 12) {
+          const r = gallery.getBoundingClientRect();
+          setSlide(galIndex + (e.clientX - r.left > r.width / 2 ? 1 : -1));  // tocou
+        }
+      });
+    })();
 
     function openModal(card) {
       const name = card.dataset.name;
