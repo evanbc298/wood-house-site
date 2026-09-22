@@ -25,13 +25,11 @@ ou acrescentar tema a qualquer momento.
 
 ## Fila (o próximo é sempre o primeiro da lista)
 
-1. **Quanto tempo dura uma casa de madeira nobre?** Durabilidade, exemplos antigos no Sul,
-   o que encurta a vida útil.
-2. **Casa de madeira é quente no verão e fria no inverno?** Conforto térmico e acústico.
-3. **Como escolher o terreno para casa de madeira.** Acesso, solo, orientação solar.
-4. **O que está incluso numa obra chave na mão.** O que costuma ficar de fora nos
+1. **Casa de madeira é quente no verão e fria no inverno?** Conforto térmico e acústico.
+2. **Como escolher o terreno para casa de madeira.** Acesso, solo, orientação solar.
+3. **O que está incluso numa obra chave na mão.** O que costuma ficar de fora nos
    orçamentos do mercado.
-5. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
+4. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
    obra entregue é uma página que pode ranquear pela cidade dela.
 
 ## Publicados
@@ -45,6 +43,7 @@ ou acrescentar tema a qualquer momento.
 | 12/09/2026 | Casa de madeira precisa de manutenção? | `casa-de-madeira-precisa-de-manutencao.html` |
 | 15/09/2026 | Preciso de fundação? Como funciona em terreno com declive | `fundacao-terreno-declive-casa-madeira.html` |
 | 18/09/2026 | Dá para financiar uma casa de madeira nobre? | `financiamento-casa-madeira-nobre.html` |
+| 22/09/2026 | Quanto tempo dura uma casa de madeira nobre? | `quanto-tempo-dura-casa-madeira-nobre.html` |
 
 ## Dúvidas para o Evan
 
