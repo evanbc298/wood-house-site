@@ -133,6 +133,7 @@
     }
 
     .article-body strong { color: var(--brown); font-weight: 600; }
+    .article-body p a { color: var(--brown); font-weight: 600; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
 
     /* TABELA COMPARATIVA */
     .compare-table {
@@ -190,6 +191,19 @@
       padding: 14px 28px; border-radius: 8px; margin-left: 16px;
     }
 
+    /* CONVITE NO MEIO DO TEXTO */
+    .inline-cta {
+      background: var(--bg2); border: 1px solid var(--bg3);
+      border-radius: 12px; padding: 28px 32px; margin: 36px 0 8px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .inline-cta p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--brown); }
+    .inline-cta p strong { display: block; font-family: 'Poppins', sans-serif; font-size: 18px; margin-bottom: 4px; }
+    .inline-cta .btn-wpp-cta { flex-shrink: 0; padding: 14px 24px; font-size: 13px; }
+
+    /* BARRA FIXA DO CELULAR */
+    .barra-wpp { display: none; }
+
     /* FOOTER */
     footer {
       background: var(--brown); color: var(--bg);
@@ -203,6 +217,24 @@
       .article-hero, .article-body { padding-left: 24px; padding-right: 24px; }
       .article-cta { padding: 40px 24px; }
       .btn-outline-cta { margin-left: 0; margin-top: 12px; display: block; text-align: center; }
+      .compare-table { font-size: 14px; }
+      .compare-table th, .compare-table td { padding: 12px 10px; }
+      .compare-table th { letter-spacing: 0.06em; }
+      .inline-cta { flex-direction: column; align-items: stretch; padding: 24px; }
+      .inline-cta .btn-wpp-cta { justify-content: center; }
+      .barra-wpp {
+        display: flex; align-items: center; justify-content: center; gap: 10px;
+        position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom));
+        z-index: 90; background: #25D366; color: #fff; text-decoration: none;
+        font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700;
+        letter-spacing: 0.06em; text-transform: uppercase;
+        padding: 15px 20px; border-radius: 10px;
+        box-shadow: 0 6px 20px rgba(92,26,0,0.22);
+        transition: opacity .25s, transform .25s;
+      }
+      .barra-wpp svg { width: 20px; height: 20px; fill: #fff; }
+      .barra-wpp.escondida { opacity: 0; transform: translateY(20px); pointer-events: none; }
+      body { padding-bottom: 84px; }
     }
   </style>
   <!-- Meta Pixel Code -->
@@ -233,6 +265,10 @@
   </script>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ico-wpp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+</svg>
 
 <nav>
   <a href="../construtora.html"><img src="../assets/logo-horizontal.png" alt="Wood House Construtora"></a>
@@ -283,7 +319,7 @@
       <tr>
         <td>Prazo de obra</td>
         <td><span class="plus">60–90 dias</span></td>
-        <td>6–18 meses</td>
+        <td>8–18 meses</td>
       </tr>
       <tr>
         <td>Conforto térmico</td>
@@ -326,6 +362,14 @@
     Essa diferença tem peso real: menos meses pagando aluguel, menos meses de obra aberta, menos exposição a imprevistos climáticos e de fornecedores.
   </p>
 
+  <div class="inline-cta">
+    <p><strong>Quanto tempo levaria a sua?</strong>Conta pra gente o terreno e o tamanho da casa que a gente responde pelo WhatsApp.</p>
+    <a href="https://wa.me/554730910877?text=Olá,%20li%20o%20artigo%20sobre%20madeira%20vs%20alvenaria%20e%20quero%20saber%20o%20prazo%20da%20minha%20casa." target="_blank" class="btn-wpp-cta">
+      <svg viewBox="0 0 24 24"><use href="#ico-wpp"/></svg>
+      Perguntar o prazo
+    </a>
+  </div>
+
   <h2>Conforto térmico e acústico</h2>
   <p>
     A madeira é um isolante térmico natural. Ela retém calor no inverno e não aquece excessivamente no verão, sem depender de isolamento adicional. Para quem constrói em regiões serranas de SC e PR, isso é especialmente relevante.
@@ -343,6 +387,7 @@
   </p>
   <p>
     Madeiras como Jatobá e Grápia têm dureza e resistência estrutural superiores a muitos concretos. O que compromete a durabilidade de casas de madeira é o uso de espécies inadequadas ou a falta de tratamento, não a madeira em si.
+    Tem um artigo só sobre isso: <a href="quanto-tempo-dura-casa-madeira-nobre.html">quanto tempo dura uma casa de madeira nobre</a>.
   </p>
 
   <h2>Manutenção</h2>
@@ -351,6 +396,7 @@
   </p>
   <p>
     Em contrapartida, uma casa de alvenaria com problemas de infiltração, trincas ou recalque de fundação pode gerar custos de manutenção significativos, e imprevisíveis.
+    O passo a passo está em <a href="casa-de-madeira-precisa-de-manutencao.html">casa de madeira precisa de manutenção?</a>
   </p>
 
   <h2>Custo: o que ninguém te conta</h2>
@@ -366,6 +412,9 @@
   <h3>Madeira nobre faz mais sentido para quem:</h3>
   <p>
     Quer uma casa com identidade própria, fora do padrão. Valoriza prazo curto e previsível. Busca conforto térmico natural (especialmente em clima frio). Quer uma casa de campo, chalé ou refúgio com atmosfera. Entende que casa é patrimônio e legado, não apenas metro quadrado.
+  </p>
+  <p>
+    Se esse é o seu caso, <a href="../construtora.html#projetos">veja os modelos de casas, chalés e ranchos que a Wood House constrói</a>.
   </p>
 
   <h3>Alvenaria faz mais sentido para quem:</h3>
@@ -399,6 +448,27 @@
 <footer>
   <p>© 2026 Wood House Construtora e Incorporadora · Balneário Camboriú, SC · <a href="../construtora.html">whconstrutora.com.br</a></p>
 </footer>
+
+<!-- Barra fixa de WhatsApp, só no celular. Some quando o convite do final aparece na tela, para não ficar dois botões iguais. -->
+<a href="https://wa.me/554730910877?text=Olá,%20li%20o%20artigo%20sobre%20madeira%20vs%20alvenaria%20e%20quero%20saber%20mais." target="_blank" class="barra-wpp" id="barraWpp">
+  <svg viewBox="0 0 24 24"><use href="#ico-wpp"/></svg>
+  Falar no WhatsApp
+</a>
+<script>
+  (function () {
+    var barra = document.getElementById('barraWpp');
+    var alvos = document.querySelectorAll('.article-cta, footer');
+    if (!barra || !('IntersectionObserver' in window)) return;
+    var naTela = new Set();
+    var obs = new IntersectionObserver(function (itens) {
+      itens.forEach(function (i) {
+        if (i.isIntersecting) naTela.add(i.target); else naTela.delete(i.target);
+      });
+      barra.classList.toggle('escondida', naTela.size > 0);
+    });
+    alvos.forEach(function (a) { obs.observe(a); });
+  })();
+</script>
 
 </body>
 </html>
