@@ -17,7 +17,10 @@ const CAMPANHA = {
   detalhe: 'Spa Jurere 160 com 10 jatos, aquecimento e cromoterapia.',
   textoBotao: 'Quero saber mais',
 
-  foto: 'assets/spa-jurere.jpg',
+  // caminho a partir da raiz do site, com a barra na frente: a faixa tambem
+  // roda nas paginas dentro de modelos/, e ali 'assets/...' viraria
+  // /modelos/assets/... e daria 404.
+  foto: '/assets/spa-jurere.jpg',
   whatsapp: '554730910877',
   mensagem: 'Olá! Vi a campanha de setembro no site e quero saber mais sobre o spa que vai junto com o projeto.',
 
