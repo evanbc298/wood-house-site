@@ -25,11 +25,10 @@ ou acrescentar tema a qualquer momento.
 
 ## Fila (o próximo é sempre o primeiro da lista)
 
-1. **Casa de madeira é quente no verão e fria no inverno?** Conforto térmico e acústico.
-2. **Como escolher o terreno para casa de madeira.** Acesso, solo, orientação solar.
-3. **O que está incluso numa obra chave na mão.** O que costuma ficar de fora nos
+1. **Como escolher o terreno para casa de madeira.** Acesso, solo, orientação solar.
+2. **O que está incluso numa obra chave na mão.** O que costuma ficar de fora nos
    orçamentos do mercado.
-4. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
+3. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
    obra entregue é uma página que pode ranquear pela cidade dela.
 
 ## Publicados
@@ -44,6 +43,7 @@ ou acrescentar tema a qualquer momento.
 | 15/09/2026 | Preciso de fundação? Como funciona em terreno com declive | `fundacao-terreno-declive-casa-madeira.html` |
 | 18/09/2026 | Dá para financiar uma casa de madeira nobre? | `financiamento-casa-madeira-nobre.html` |
 | 22/09/2026 | Quanto tempo dura uma casa de madeira nobre? | `quanto-tempo-dura-casa-madeira-nobre.html` |
+| 25/09/2026 | Casa de madeira é quente no verão e fria no inverno? | `casa-de-madeira-conforto-termico-acustico.html` |
 
 ## Dúvidas para o Evan
 
@@ -65,3 +65,9 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   o laudo de engenharia), sem citar banco, taxa ou percentual algum, e sem citar o Plano
   Direto, conforme a ressalva da fila. Se a Wood House tiver parceria com alguma instituição
   ou dado real de aprovação, avisar aqui para atualizar o artigo com informação concreta.
+- No artigo de conforto térmico e acústico (`casa-de-madeira-conforto-termico-acustico.html`),
+  não havia no plano nenhum número de desempenho (coeficiente de transmitância térmica,
+  redução de ruído em dB, resultado de ensaio) para a madeira nobre usada pela Wood House. O
+  artigo ficou só no princípio físico geral (madeira isola mais que concreto/alvenaria), sem
+  citar nenhum valor. Se existir laudo ou ensaio próprio com número real, avisar aqui para
+  reforçar o artigo com dado concreto da empresa.
