@@ -25,10 +25,9 @@ ou acrescentar tema a qualquer momento.
 
 ## Fila (o próximo é sempre o primeiro da lista)
 
-1. **Como escolher o terreno para casa de madeira.** Acesso, solo, orientação solar.
-2. **O que está incluso numa obra chave na mão.** O que costuma ficar de fora nos
+1. **O que está incluso numa obra chave na mão.** O que costuma ficar de fora nos
    orçamentos do mercado.
-3. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
+2. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
    obra entregue é uma página que pode ranquear pela cidade dela.
 
 ## Publicados
@@ -44,6 +43,7 @@ ou acrescentar tema a qualquer momento.
 | 18/09/2026 | Dá para financiar uma casa de madeira nobre? | `financiamento-casa-madeira-nobre.html` |
 | 22/09/2026 | Quanto tempo dura uma casa de madeira nobre? | `quanto-tempo-dura-casa-madeira-nobre.html` |
 | 25/09/2026 | Casa de madeira é quente no verão e fria no inverno? | `casa-de-madeira-conforto-termico-acustico.html` |
+| 29/09/2026 | Como escolher o terreno para casa de madeira | `como-escolher-terreno-casa-madeira.html` |
 
 ## Dúvidas para o Evan
 
@@ -71,3 +71,10 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   artigo ficou só no princípio físico geral (madeira isola mais que concreto/alvenaria), sem
   citar nenhum valor. Se existir laudo ou ensaio próprio com número real, avisar aqui para
   reforçar o artigo com dado concreto da empresa.
+- No artigo de terreno (`como-escolher-terreno-casa-madeira.html`), o CTA de WhatsApp usou o
+  número 5547997194337, que veio explícito no prompt da rotina em 29/09/2026. Todo o resto do
+  site (nav e CTA dos outros artigos) usa wa.me/554730910877, o telefone (47) 3091-0877
+  aprovado no plano. Ficaram dois números de WhatsApp diferentes no ar. Confirmar com o Evan
+  qual é o número correto para os CTAs de artigo (se 5547997194337 é um WhatsApp novo só para
+  o blog, ou se foi engano e o artigo novo deve ser corrigido para 554730910877 como os
+  outros) e, se for o caso, padronizar todos os artigos pelo número certo.
