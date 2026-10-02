@@ -25,9 +25,7 @@ ou acrescentar tema a qualquer momento.
 
 ## Fila (o próximo é sempre o primeiro da lista)
 
-1. **O que está incluso numa obra chave na mão.** O que costuma ficar de fora nos
-   orçamentos do mercado.
-2. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
+1. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
    obra entregue é uma página que pode ranquear pela cidade dela.
 
 ## Publicados
@@ -44,6 +42,7 @@ ou acrescentar tema a qualquer momento.
 | 22/09/2026 | Quanto tempo dura uma casa de madeira nobre? | `quanto-tempo-dura-casa-madeira-nobre.html` |
 | 25/09/2026 | Casa de madeira é quente no verão e fria no inverno? | `casa-de-madeira-conforto-termico-acustico.html` |
 | 29/09/2026 | Como escolher o terreno para casa de madeira | `como-escolher-terreno-casa-madeira.html` |
+| 02/10/2026 | O que está incluso numa obra chave na mão | `o-que-esta-incluso-obra-chave-na-mao.html` |
 
 ## Dúvidas para o Evan
 
