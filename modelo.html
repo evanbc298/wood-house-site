@@ -900,9 +900,9 @@ const modelos = [
     ],
   },
   {
-    id: 'rancho-branco', nome: 'Rancho Branco', dorms: 3, area: '297 m²',
-    fotos: ['assets/modelos/rancho-branco-1.jpg','assets/modelos/rancho-branco-2.jpg'],
-    planta: 'assets/modelos/rancho-branco-planta.jpg',
+    id: 'rancho-serra', nome: 'Rancho Serra', dorms: 3, area: '297 m²',
+    fotos: ['assets/modelos/rancho-serra-1.jpg','assets/modelos/rancho-serra-2.jpg'],
+    planta: 'assets/modelos/rancho-serra-planta.jpg',
     specs: [
       ['Moradia (área fechada)', '185,3 m²'],
       ['Suíte máster', '18,1 m²'], ['Banheiro suíte', 'privativo'], ['Closet suíte', 'incluído'],
@@ -993,7 +993,8 @@ const WHATSAPP = '554730910877';
 const params = new URLSearchParams(location.search);
 // Nomes que ja circularam em link de vendedor e nao valem mais. Sem isto o
 // cliente que guardou o link antigo cai em "Modelo nao encontrado".
-const APELIDOS = { 'rancho-barndominium': 'rancho-alpendre' };
+const APELIDOS = { 'rancho-barndominium': 'rancho-alpendre',
+                   'rancho-branco': 'rancho-serra' };
 const pedido = params.get('m');
 const alvo = APELIDOS[pedido] || pedido;
 const m = modelos.find(x => x.id === alvo);
