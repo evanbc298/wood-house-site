@@ -869,9 +869,9 @@ const modelos = [
     ],
   },
   {
-    id: 'rancho-barndominium', nome: 'Rancho Barndominium', dorms: 2, area: '197 m²',
-    fotos: ['assets/modelos/rancho-barndominium-1.jpg'],
-    planta: 'assets/modelos/rancho-barndominium-planta.jpg',
+    id: 'rancho-alpendre', nome: 'Rancho Alpendre', dorms: 2, area: '197 m²',
+    fotos: ['assets/modelos/rancho-alpendre-1.jpg'],
+    planta: 'assets/modelos/rancho-alpendre-planta.jpg',
     specs: [
       ['Moradia (área fechada)', '117 m²'],
       ['Dimensões da construção', '9,19 m de frente × 21,42 m de fundo, por fora da parede'],
@@ -991,7 +991,12 @@ const modelos = [
 
 const WHATSAPP = '554730910877';
 const params = new URLSearchParams(location.search);
-const m = modelos.find(x => x.id === params.get('m'));
+// Nomes que ja circularam em link de vendedor e nao valem mais. Sem isto o
+// cliente que guardou o link antigo cai em "Modelo nao encontrado".
+const APELIDOS = { 'rancho-barndominium': 'rancho-alpendre' };
+const pedido = params.get('m');
+const alvo = APELIDOS[pedido] || pedido;
+const m = modelos.find(x => x.id === alvo);
 const app = document.getElementById('app');
 
 if (!m) {
