@@ -281,9 +281,8 @@
       min-height: 48px;
     }
     /* Com a gaveta aberta, nada de flutuante disputando a tela */
-    .wpp-wrap, .wh-camp { transition: opacity .2s ease; }
-    body.menu-aberto .wpp-wrap,
-    body.menu-aberto .wh-camp {
+    .wpp-wrap { transition: opacity .2s ease; }
+    body.menu-aberto .wpp-wrap {
       opacity: 0 !important;
       pointer-events: none !important;
     }
@@ -1306,7 +1305,6 @@
       .wpp-label { display: none; }
       .wpp-float { width: 52px; height: 52px; }
       .wpp-float svg { width: 25px; height: 25px; }
-      body.wh-camp-on .wpp-wrap { bottom: calc(18px + var(--wh-camp-h, 0px)) !important; }
     }
 
 
@@ -1358,7 +1356,6 @@
       .par-h { font-size: 27px; }
     }
 </style>
-  <script src="assets/campanha-setembro.js" defer></script>
   <script src="assets/wh-eventos.js" defer></script>
 </head>
 <body>
