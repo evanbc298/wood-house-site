@@ -27,6 +27,7 @@ ou acrescentar tema a qualquer momento.
 
 1. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
    obra entregue é uma página que pode ranquear pela cidade dela.
+   **Bloqueado para a rotina automática em 06/10/2026**, ver "Dúvidas para o Evan".
 
 ## Publicados
 
@@ -77,3 +78,16 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   qual é o número correto para os CTAs de artigo (se 5547997194337 é um WhatsApp novo só para
   o blog, ou se foi engano e o artigo novo deve ser corrigido para 554730910877 como os
   outros) e, se for o caso, padronizar todos os artigos pelo número certo.
+- Em 06/10/2026, rodada sem artigo novo: o único item da fila era "páginas de obra entregue,
+  uma por obra". Fui ver o template existente (`projeto-camboriu.html`, na raiz do site) antes
+  de clonar, e ele é uma página de venda, não um artigo de blog: tem `price-box` com
+  "R$ 347.700,00", bloco "Forma de pagamento" com os percentuais de 70/20/10 e a condição de
+  aceitar veículo como parte do pagamento. Criar uma página assim para outra obra exigiria (1)
+  escrever fora de `blog/`, o que a rotina tem proibição explícita de fazer sozinha, e (2)
+  inventar ou expor preço e condição de pagamento de um projeto que não está no plano, o que é
+  proibido em qualquer hipótese. Não criei a página. Como não havia outro tema na fila para
+  escrever um artigo de blog normal, esta rodada não publicou conteúdo novo, só rodou a
+  conferência de saúde do site (tudo certo, sem pendência). Para desbloquear: Evan precisa
+  decidir (a) se quer uma versão da página de obra entregue sem preço nem forma de pagamento,
+  que a rotina poderia clonar com segurança, ou (b) se prefere continuar fazendo essas páginas
+  de venda manualmente e dar à rotina um novo tema de blog para a fila.
