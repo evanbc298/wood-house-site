@@ -25,7 +25,29 @@ ou acrescentar tema a qualquer momento.
 
 ## Fila (o próximo é sempre o primeiro da lista)
 
-1. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
+Temas repostos em 06/10/2026, porque a fila tinha ficado só com um item que depende do
+Evan. São perguntas que quem pesquisa casa de madeira faz. Vale a regra de ouro: dado que
+não estiver neste plano nem no site vira pergunta em "Dúvidas para o Evan", nunca número
+inventado.
+
+1. **Casa de madeira nobre dá cupim?** O que protege, o que é mito e o que o dono precisa olhar.
+2. **Casa de madeira é segura contra incêndio?** Como a madeira maciça se comporta no fogo e o
+   que a instalação elétrica tem a ver com isso.
+3. **Casa de madeira no litoral: a maresia estraga?** Cuidados de projeto e de manutenção perto do mar.
+4. **Dá para fazer sobrado em madeira nobre?** O que muda na estrutura, no prazo e no uso. Linkar
+   para a página do Sobrado Maringá.
+5. **Precisa de alvará e projeto aprovado para construir casa de madeira?** O caminho na prefeitura,
+   em linhas gerais, sem citar regra de município específico.
+6. **Chalé de madeira para alugar por temporada vale a pena?** O que pensar antes, sem prometer
+   retorno nem citar valor de diária.
+7. **Casa de madeira nobre ou steel frame: qual a diferença?** Comparativo no mesmo tom do artigo
+   de madeira e alvenaria.
+8. **Como é a obra de uma casa de madeira, etapa por etapa?** Da fundação à entrega, na ordem em
+   que acontece.
+
+Fica por último, e continua bloqueado:
+
+9. **Páginas de obra entregue**, uma por obra. Hoje só existe a do Projeto Camboriú, e cada
    obra entregue é uma página que pode ranquear pela cidade dela.
    **Bloqueado para a rotina automática em 06/10/2026**, ver "Dúvidas para o Evan".
 

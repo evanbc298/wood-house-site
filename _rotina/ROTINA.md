@@ -59,6 +59,11 @@ com potencial, depois artigo novo.
 - Card novo no topo de `blog/index.html`.
 - Entrada nova em `sitemap.xml`.
 - Linha nova na tabela "Publicados" do `PLANO-EDITORIAL.md`, e tema retirado da fila.
+- `python _rotina/geo-site.py`, sempre depois de publicar ou editar artigo. Ele recria o
+  `llms.txt` da raiz (o resumo do site para as IAs) e o bloco FAQPage de cada artigo. A
+  pergunta sai do título e a resposta sai da primeira seção, então **todo artigo novo tem
+  título em forma de pergunta e começa com uma seção de resposta direta**, de 2 a 4 frases,
+  antes de qualquer contexto. O `llms.txt` entra no mesmo commit.
 
 ## 7. Publicar
 
@@ -71,7 +76,7 @@ Resumo curto do que mediu, do que corrigiu e do que publicou, com o link.
 
 ## Nunca fazer sozinho
 
-- Editar qualquer arquivo fora de `blog/`, `sitemap.xml`, `_rotina/` e das páginas de
+- Editar qualquer arquivo fora de `blog/`, `sitemap.xml`, `llms.txt`, `_rotina/` e das páginas de
   conteúdo já citadas.
 - Apagar ou alterar `google059c8323d85f2102.html`, que é a verificação do Search Console.
 - Mexer em preço, condição de pagamento ou qualquer coisa do Plano Direto.
