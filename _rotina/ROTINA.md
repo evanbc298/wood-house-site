@@ -64,6 +64,19 @@ com potencial, depois artigo novo.
   e trocar cabeçalho, `<header class="article-hero">` e `<main class="article-body">`.
   Trocar também: title, description, canonical, og:*, e no JSON-LD headline, description,
   datePublished e mainEntityOfPage.
+- **Para quem escrever.** O leitor é profissional ou empresário de médio e alto padrão, cansado
+  da correria da cidade, que já conquistou o dinheiro e agora busca tempo de qualidade com a
+  família. Ele não está comparando preço: está decidindo se a casa de madeira nobre entrega a
+  vida que ele imagina. Por isso, em todo artigo:
+  - responder a dúvida técnica com precisão, e ligar a resposta ao que ela significa no dia a
+    dia da família (a casa que não dá trabalho, o fim de semana que rende, a mesa cheia, o
+    lugar que fica para os filhos);
+  - tratar o leitor como quem decide com calma e tem critério: tom sereno, de especialista,
+    sem urgência, sem tom de oferta e sem exclamação;
+  - nunca escrever para quem procura a opção mais barata, nem usar "econômica", "acessível" ou
+    "em conta" como argumento;
+  - não inventar cena de cliente nem depoimento. Pode descrever a vida que a casa permite, sem
+    atribuir a uma pessoa real.
 - Tamanho que vem funcionando: 700 a 900 palavras, 6 a 8 seções.
 - Seguir as regras do `PLANO-EDITORIAL.md`.
 
