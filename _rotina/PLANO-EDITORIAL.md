@@ -29,6 +29,23 @@ ou acrescentar tema a qualquer momento.
 8. **Nunca citar nome de cliente nem cidade de obra de cliente**, e nunca usar foto de obra
    que não esteja já publicada no site.
 
+<!-- PESQUISADOR:INICIO -->
+## Fila do Pesquisador (tem prioridade sobre a fila de baixo)
+
+Temas tirados de buscas reais do Google, já filtrados para médio e alto padrão. Este bloco é
+reescrito pela Central: **não reordenar nem apagar linha**. A rotina pega o primeiro `- [ ]`,
+transforma a busca num artigo com título em forma de pergunta e, ao publicar, troca `[ ]` por
+`[x]` e acrescenta o arquivo no fim da linha. Se o tema pedir número que o plano não tem, ou
+ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir para o próximo.
+O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
+quem procura a opção mais barata.
+
+- [ ] **projeto casa de campo de madeira** (#31) · sinais da busca: casa de padrão, intenção de compra
+- [ ] **projeto celeiro de madeira** (#193) · sinais da busca: casa de padrão, intenção de compra
+- [ ] **construtora de casa de madeira em santa catarina** (#101) · sinais da busca: intenção de compra, região que atendemos
+- [ ] **casa de campo de madeira e alvenaria** (#30) · sinais da busca: casa de padrão, dúvida de quem está decidindo
+<!-- PESQUISADOR:FIM -->
+
 ## Fila (o próximo é sempre o primeiro da lista)
 
 Temas repostos em 06/10/2026, porque a fila tinha ficado só com um item que depende do
