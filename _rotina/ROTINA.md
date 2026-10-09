@@ -46,7 +46,20 @@ com potencial, depois artigo novo.
 
 ## 5. Escrever
 
-- Tema: o primeiro da fila em `PLANO-EDITORIAL.md`, salvo se os números apontarem outro.
+- **Tema: primeiro a "Fila do Pesquisador"** do `PLANO-EDITORIAL.md`, que é o bloco entre
+  `<!-- PESQUISADOR:INICIO -->` e `<!-- PESQUISADOR:FIM -->`. Ele é escrito pela Central com
+  buscas reais do Google, já filtradas para o público da Wood House. Pegar o primeiro `- [ ]`.
+  Só quando esse bloco não existir, ou não tiver nenhum `- [ ]`, usar o primeiro da fila de baixo.
+- **Como tratar um tema do Pesquisador.** A linha traz uma busca crua (por exemplo "projeto
+  sobrado de madeira"). Transformar na pergunta que essa pessoa quer ver respondida e escrever
+  o artigo sobre ela. Antes, conferir na tabela "Publicados" se já existe artigo que responde:
+  se existir, não escrever outro, marcar a linha com `[-]` e o motivo "já respondido em
+  <arquivo>".
+- **Ao terminar, marcar a linha, nunca apagar.** Publicou: trocar `[ ]` por `[x]` e pôr o nome
+  do arquivo no fim da linha. Não deu para escrever sem ferir regra ou sem inventar número:
+  trocar por `[-]`, pôr o motivo no fim da linha e passar para o próximo `- [ ]` na mesma
+  rodada. Não reordenar o bloco, não apagar linha e não mexer nas duas marcas: a Central lê
+  essas marcações para saber o que virou artigo.
 - **Não existe template compartilhado.** Clonar `blog/quanto-custa-casa-madeira-nobre-sc.html`
   e trocar cabeçalho, `<header class="article-hero">` e `<main class="article-body">`.
   Trocar também: title, description, canonical, og:*, e no JSON-LD headline, description,

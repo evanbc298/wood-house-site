@@ -22,6 +22,12 @@ ou acrescentar tema a qualquer momento.
 5. **Todo artigo termina com CTA de WhatsApp**, com texto próprio daquele assunto.
 6. **Tom:** direto, sem palavra de marketing vazia. O leitor é alguém decidindo onde
    colocar 300 mil reais.
+7. **Para quem se escreve: médio e alto padrão.** Definido pelo Evan em 09/10/2026. O leitor
+   tem dinheiro e quer investir numa casa de madeira bonita e imponente. Nunca escrever para
+   quem procura a opção mais barata, casa pré-fabricada, kit ou "casa simples", nem comparar
+   a Wood House com esse tipo de produto como se fosse o mesmo mercado.
+8. **Nunca citar nome de cliente nem cidade de obra de cliente**, e nunca usar foto de obra
+   que não esteja já publicada no site.
 
 ## Fila (o próximo é sempre o primeiro da lista)
 
