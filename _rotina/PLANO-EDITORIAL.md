@@ -30,19 +30,18 @@ Evan. São perguntas que quem pesquisa casa de madeira faz. Vale a regra de ouro
 não estiver neste plano nem no site vira pergunta em "Dúvidas para o Evan", nunca número
 inventado.
 
-1. **Casa de madeira nobre dá cupim?** O que protege, o que é mito e o que o dono precisa olhar.
-2. **Casa de madeira é segura contra incêndio?** Como a madeira maciça se comporta no fogo e o
+1. **Casa de madeira é segura contra incêndio?** Como a madeira maciça se comporta no fogo e o
    que a instalação elétrica tem a ver com isso.
-3. **Casa de madeira no litoral: a maresia estraga?** Cuidados de projeto e de manutenção perto do mar.
-4. **Dá para fazer sobrado em madeira nobre?** O que muda na estrutura, no prazo e no uso. Linkar
+2. **Casa de madeira no litoral: a maresia estraga?** Cuidados de projeto e de manutenção perto do mar.
+3. **Dá para fazer sobrado em madeira nobre?** O que muda na estrutura, no prazo e no uso. Linkar
    para a página do Sobrado Maringá.
-5. **Precisa de alvará e projeto aprovado para construir casa de madeira?** O caminho na prefeitura,
+4. **Precisa de alvará e projeto aprovado para construir casa de madeira?** O caminho na prefeitura,
    em linhas gerais, sem citar regra de município específico.
-6. **Chalé de madeira para alugar por temporada vale a pena?** O que pensar antes, sem prometer
+5. **Chalé de madeira para alugar por temporada vale a pena?** O que pensar antes, sem prometer
    retorno nem citar valor de diária.
-7. **Casa de madeira nobre ou steel frame: qual a diferença?** Comparativo no mesmo tom do artigo
+6. **Casa de madeira nobre ou steel frame: qual a diferença?** Comparativo no mesmo tom do artigo
    de madeira e alvenaria.
-8. **Como é a obra de uma casa de madeira, etapa por etapa?** Da fundação à entrega, na ordem em
+7. **Como é a obra de uma casa de madeira, etapa por etapa?** Da fundação à entrega, na ordem em
    que acontece.
 
 Fica por último, e continua bloqueado:
@@ -66,6 +65,7 @@ Fica por último, e continua bloqueado:
 | 25/09/2026 | Casa de madeira é quente no verão e fria no inverno? | `casa-de-madeira-conforto-termico-acustico.html` |
 | 29/09/2026 | Como escolher o terreno para casa de madeira | `como-escolher-terreno-casa-madeira.html` |
 | 02/10/2026 | O que está incluso numa obra chave na mão | `o-que-esta-incluso-obra-chave-na-mao.html` |
+| 09/10/2026 | Casa de madeira nobre dá cupim? | `casa-de-madeira-nobre-da-cupim.html` |
 
 ## Dúvidas para o Evan
 
