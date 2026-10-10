@@ -22,6 +22,9 @@
   var FONE = '554730910877';
   var CHAVE = 'wh_qualificou';
   var FORA = /corretor|parceir|fornecedor|plano\+?direto|plano%20direto/i;
+  // Quem chega pelo botao da mensagem do Instagram (?atender=instagram) ja abre
+  // nas perguntas, e o lead entra na Central com a origem "Instagram".
+  var DO_INSTAGRAM = /[?&]atender=instagram(&|$)/.test(location.search);
 
   function jaRespondeu() { try { return sessionStorage.getItem(CHAVE) === '1'; } catch (e) { return false; } }
   function marcaRespondeu() { try { sessionStorage.setItem(CHAVE, '1'); } catch (e) { /* sem armazenamento, segue */ } }
@@ -158,7 +161,7 @@
   // O que a pessoa estava olhando: o texto que o botao ja mandaria no WhatsApp
   // e a pagina. Vai como nota na ficha do lead.
   function contexto() {
-    var partes = ['Veio pelo site'];
+    var partes = [DO_INSTAGRAM ? 'Veio pelo Instagram, depois de comentar num post' : 'Veio pelo site'];
     try {
       var m = /[?&]text=([^&]*)/.exec(linkOriginal);
       if (m) { var t = decodeURIComponent(m[1].replace(/\+/g, ' ')).replace(/\s+/g, ' ').trim().slice(0, 140); if (t) partes.push('botão: "' + t + '"'); }
@@ -180,7 +183,7 @@
     var d = {
       terreno: marcado('terreno'), prazo: marcado('prazo'), dormitorios: marcado('quartos'), faixa_investimento: marcado('faixa'),
       regiao: el('whqCidade').value.trim(), nome: el('whqNome').value.trim(), telefone: el('whqFone').value.replace(/\D/g, ''),
-      origem: 'Site', nota_extra: contexto()
+      origem: DO_INSTAGRAM ? 'Instagram' : 'Site', nota_extra: contexto()
     };
     var faltas = [[!d.terreno, 0], [!d.prazo, 1], [!d.dormitorios, 2], [!d.faixa_investimento, 3], [!d.regiao, 4]];
     for (var i = 0; i < faltas.length; i++) if (faltas[i][0]) { mostra(faltas[i][1]); erro('Falta responder esta.'); return; }
@@ -194,7 +197,7 @@
         marcaRespondeu();
         el('whqForm').style.display = 'none'; el('whqOk').style.display = 'block';
         try { window.fbq('track', 'Lead'); } catch (e) { /* sem pixel */ }
-        evento('lead_site');
+        evento(DO_INSTAGRAM ? 'lead_instagram' : 'lead_site');
       })
       .catch(function () {
         // Nao finge que enviou: o botao vira o WhatsApp de sempre.
@@ -215,4 +218,9 @@
     e.preventDefault();
     abre(a.href);
   }, true);
+
+  if (DO_INSTAGRAM && !jaRespondeu()) {
+    var chega = function () { abre('https://wa.me/' + FONE + '?text=' + encodeURIComponent('Olá! Vim pelo Instagram e quero saber mais sobre as casas da Wood House.')); };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', chega); else chega();
+  }
 })();
