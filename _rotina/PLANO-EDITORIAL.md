@@ -44,6 +44,8 @@ quem procura a opção mais barata.
 - [ ] **casa de madeira moderna valor** (#16) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **construtora de casa de madeira em santa catarina** (#101) · sinais da busca: intenção de compra, região que atendemos
 - [ ] **projeto casa de campo de madeira** (#31) · sinais da busca: casa de padrão, intenção de compra
+- [ ] **rancho de madeira eucalipto** (#174) · sinais da busca: casa de padrão, dúvida de quem está decidindo
+- [ ] **rancho de madeira tratada** (#175) · sinais da busca: casa de padrão, dúvida de quem está decidindo
 - [ ] **projeto celeiro de madeira** (#193) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **casa de campo de madeira e alvenaria** (#30) · sinais da busca: casa de padrão, dúvida de quem está decidindo
 <!-- PESQUISADOR:FIM -->
