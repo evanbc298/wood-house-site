@@ -40,9 +40,9 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [ ] **casa de madeira nobre valor** (#1) · sinais da busca: casa de padrão, intenção de compra
-- [ ] **casa de madeira moderna valor** (#16) · sinais da busca: casa de padrão, intenção de compra
-- [ ] **construtora de casa de madeira em santa catarina** (#101) · sinais da busca: intenção de compra, região que atendemos
+- [-] **casa de madeira nobre valor** (#1) · sinais da busca: casa de padrão, intenção de compra · já respondido em `quanto-custa-casa-madeira-nobre-sc.html` (mesma pergunta de valor/preço de casa de madeira nobre)
+- [-] **casa de madeira moderna valor** (#16) · sinais da busca: casa de padrão, intenção de compra · já respondido em `quanto-custa-casa-madeira-nobre-sc.html` (os fatores que definem o valor, tamanho, espécie, acabamento e terreno, não mudam por estilo moderno ou clássico, e o plano não tem dado de preço diferenciado por estilo arquitetônico)
+- [x] **construtora de casa de madeira em santa catarina** (#101) · sinais da busca: intenção de compra, região que atendemos · `como-escolher-construtora-casa-madeira-santa-catarina.html`
 - [ ] **projeto casa de campo de madeira** (#31) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **rancho de madeira eucalipto** (#174) · sinais da busca: casa de padrão, dúvida de quem está decidindo
 - [ ] **rancho de madeira tratada** (#175) · sinais da busca: casa de padrão, dúvida de quem está decidindo
@@ -93,6 +93,7 @@ Fica por último, e continua bloqueado:
 | 29/09/2026 | Como escolher o terreno para casa de madeira | `como-escolher-terreno-casa-madeira.html` |
 | 02/10/2026 | O que está incluso numa obra chave na mão | `o-que-esta-incluso-obra-chave-na-mao.html` |
 | 09/10/2026 | Casa de madeira nobre dá cupim? | `casa-de-madeira-nobre-da-cupim.html` |
+| 13/10/2026 | Como escolher uma construtora de casa de madeira nobre em SC | `como-escolher-construtora-casa-madeira-santa-catarina.html` |
 
 ## Dúvidas para o Evan
 
