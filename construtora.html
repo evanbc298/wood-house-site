@@ -734,7 +734,7 @@
       min-height: 580px;
     }
     #obra .obra-img {
-      background: url('assets/obra-equipe.jpg') center 30% / cover no-repeat;
+      background: center 30% / cover no-repeat;
     }
     #obra .obra-text {
       background: var(--bg);
@@ -950,7 +950,7 @@
     }
     #cta .bg {
       position: absolute; inset: 0;
-      background: url('assets/obra-interior.jpg') center / cover no-repeat;
+      background: center / cover no-repeat;
       filter: brightness(0.28) saturate(0.5);
     }
     #cta .content {
@@ -2221,7 +2221,7 @@
 
   <!-- ═══ OBRA REAL ═══ -->
   <section id="obra">
-    <div class="obra-img"></div>
+    <div class="obra-img" data-bg="assets/obra-equipe.jpg"></div>
     <div class="obra-text">
       <div class="section-tag">Obra real</div>
       <h2>Artesanato com<br><span class="gold">método e precisão.</span></h2>
@@ -2315,7 +2315,7 @@
 
     <!-- Painel: Corretores -->
     <a class="par-panel" href="https://wa.me/554730910877?text=Ol%C3%A1%2C+sou+corretor+e+quero+ser+parceiro+da+Wood+House." target="_blank" rel="noopener">
-      <img src="assets/corretor-parceiro.jpg.jpg" alt="Parceria Corretores">
+      <img src="assets/corretor-parceiro.jpg.jpg" alt="Parceria Corretores" loading="lazy" decoding="async">
       <div class="par-ov"></div>
       <div class="par-txt">
         <div class="par-tag">Programa de parceria</div>
@@ -2329,7 +2329,7 @@
 
     <!-- Painel: Plano Direto -->
     <div class="par-panel" style="cursor:pointer" onclick="window.open('https://wa.me/554730910877?text=Ol%C3%A1%2C+quero+conhecer+o+Plano+Direto+Wood+House+e+saber+como+funciona+o+parcelamento.','_blank')">
-      <img src="assets/plano-direto-bg.jpg" alt="Plano Direto WH">
+      <img src="assets/plano-direto-bg.jpg" alt="Plano Direto WH" loading="lazy" decoding="async">
       <div class="par-ov"></div>
       <div class="par-txt">
         <div class="par-tag">Financiamento próprio</div>
@@ -2351,7 +2351,7 @@
 
   <!-- ═══ CTA FINAL ═══ -->
   <section id="cta">
-    <div class="bg"></div>
+    <div class="bg" data-bg="assets/obra-interior.jpg"></div>
     <div class="content">
       <div class="section-tag" style="justify-content:center;">Fale conosco</div>
       <h2>Tem um terreno<br>em <em style="font-style:normal;color:var(--gold);">SC ou PR?</em></h2>
@@ -2629,7 +2629,7 @@
   <!-- ═══ FOOTER ═══ -->
   <footer>
     <div>
-      <img src="assets/logo-cream.png" alt="Wood House">
+      <img src="assets/logo-cream.png" alt="Wood House" loading="lazy" decoding="async">
       <p>Construção artesanal em madeira nobre no Sul do Brasil.<br>Projeto autoral, chave na mão, em SC e PR.</p>
     </div>
     <div>
