@@ -93,7 +93,7 @@
       '<label class="whq-sub" for="whqFone">WhatsApp com DDD</label><input class="whq-campo" id="whqFone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="(47) 99999-9999">' +
       '<div style="position:absolute;left:-9999px" aria-hidden="true"><label>Website<input type="text" id="whqHp" tabindex="-1" autocomplete="off"></label></div>' +
       '<button type="button" class="whq-btn" id="whqEnviar">Quero falar sobre a minha casa</button>' +
-      '<p class="whq-lgpd">Usamos esses dados só para falar com você sobre o seu projeto. <a href="politica-privacidade.html" target="_blank" rel="noopener">Política de privacidade</a>.</p></div>' +
+      '<p class="whq-lgpd">Usamos esses dados só para falar com você sobre o seu projeto. <a href="/politica-privacidade.html" target="_blank" rel="noopener">Política de privacidade</a>.</p></div>' +
       '<div class="whq-erro" id="whqErro" role="alert"></div>' +
       '<div class="whq-rodape"><button type="button" class="whq-volta" id="whqVolta">&lsaquo; Voltar</button>' +
       '<a class="whq-direto" id="whqDireto" target="_blank" rel="noopener">Prefiro ir direto ao WhatsApp</a></div></div>' +
