@@ -1362,6 +1362,17 @@
       #faq h2 { margin-bottom: 32px !important; }
       .faq-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
     }
+    /* Primeira tela no celular (14/10/2026): o anuncio do Facebook trazia gente que via so
+       texto e saia (13% de rolagem). Fica o titulo, os dois botoes e a linha de confianca; o
+       paragrafo repetia o titulo e "Fale com um Consultor" leva ao mesmo contato. A altura deixa
+       aparecer o comeco das casas, que agora vem logo abaixo. */
+    @media (max-width: 760px) {
+      #hero { min-height: 82vh !important; min-height: 82svh !important; padding-bottom: 8px; }
+      #hero p { display: none; }
+      #hero .hero-ctas a[href="#contato-form"] { display: none; }
+      #hero .hero-ctas { margin-bottom: 18px; }
+      #hero .content { padding-bottom: 36px !important; }
+    }
 </style>
   <script src="assets/wh-eventos.js" defer></script>
 </head>
@@ -1429,15 +1440,6 @@
         <span>Atuação em SC · PR</span>
       </div>
     </div>
-  </section>
-
-  <!-- ═══ MANIFESTO ═══ -->
-  <section id="manifesto">
-    <div class="manifesto-headline">
-      Tem gente que constrói para vender.<br>
-      <em>A gente constrói para viver.</em>
-    </div>
-    <p class="manifesto-body">Madeira nobre. Trabalho artesanal. Um projeto que é só seu.<br>Porque a casa que você imagina não existe pronta. Ela é construída.</p>
   </section>
 
   <!-- ═══ PROJETOS ═══ -->
@@ -2053,6 +2055,15 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ═══ MANIFESTO ═══ -->
+  <section id="manifesto">
+    <div class="manifesto-headline">
+      Tem gente que constrói para vender.<br>
+      <em>A gente constrói para viver.</em>
+    </div>
+    <p class="manifesto-body">Madeira nobre. Trabalho artesanal. Um projeto que é só seu.<br>Porque a casa que você imagina não existe pronta. Ela é construída.</p>
   </section>
 
   <!-- ═══ NOVIDADES ═══ -->
