@@ -118,13 +118,9 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   artigo ficou só no princípio físico geral (madeira isola mais que concreto/alvenaria), sem
   citar nenhum valor. Se existir laudo ou ensaio próprio com número real, avisar aqui para
   reforçar o artigo com dado concreto da empresa.
-- No artigo de terreno (`como-escolher-terreno-casa-madeira.html`), o CTA de WhatsApp usou o
-  número 5547997194337, que veio explícito no prompt da rotina em 29/09/2026. Todo o resto do
-  site (nav e CTA dos outros artigos) usa wa.me/554730910877, o telefone (47) 3091-0877
-  aprovado no plano. Ficaram dois números de WhatsApp diferentes no ar. Confirmar com o Evan
-  qual é o número correto para os CTAs de artigo (se 5547997194337 é um WhatsApp novo só para
-  o blog, ou se foi engano e o artigo novo deve ser corrigido para 554730910877 como os
-  outros) e, se for o caso, padronizar todos os artigos pelo número certo.
+- RESOLVIDO em 14/10/2026: o número que vinha no prompt da rotina (5547997194337, o celular antigo
+  que a TIM cancelou) estava em 4 artigos. Todos foram trocados para wa.me/554730910877, o (47) 3091-0877.
+  **O único número de WhatsApp da Wood House é 554730910877.** Se o prompt trouxer outro, ignorar e usar este.
 - Em 06/10/2026, rodada sem artigo novo: o único item da fila era "páginas de obra entregue,
   uma por obra". Fui ver o template existente (`projeto-camboriu.html`, na raiz do site) antes
   de clonar, e ele é uma página de venda, não um artigo de blog: tem `price-box` com
