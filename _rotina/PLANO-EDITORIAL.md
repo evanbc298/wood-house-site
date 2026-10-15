@@ -9,7 +9,7 @@ ou acrescentar tema a qualquer momento.
 1. **Nunca inventar número.** Só usar dados que o site já afirma. Os que valem hoje:
    - obra em madeira nobre: **60 a 90 dias úteis**;
    - alvenaria comparável: **8 a 18 meses**;
-   - faixa de projetos: **R$ 193 mil a R$ 450 mil ou mais**;
+   - **NENHUM valor em reais no site** (decisão do Evan em 14/10/2026): nem faixa de preço, nem preço de modelo, nem m². Preço só existe no catálogo interno da Central. Artigo sobre custo explica do que o valor depende e chama para a conversa;
    - espécies: Jatobá, Cedro, Grápia, Cambará, Angelim, Sucupira;
    - telefone **(47) 3091-0877**.
    Se um artigo precisar de um número que não existe aqui, **deixar a pergunta anotada na
