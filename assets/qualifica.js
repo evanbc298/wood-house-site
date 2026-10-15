@@ -158,6 +158,25 @@
   }
   function fecha() { if (fundo) fundo.classList.remove('on'); document.documentElement.style.overflow = ''; }
 
+  // DE ONDE ELA VEIO (15/10/2026, Google Ads). O anuncio traz o codigo do clique (gclid, ou gbraid/wbraid no
+  // iPhone) e a campanha (utm_*) so na PRIMEIRA pagina. Se a pessoa navega e responde em outra pagina, isso
+  // se perdia. Guarda no aparelho por 90 dias e manda junto com as respostas. Sem armazenamento, usa so a URL.
+  var CHAVE_ORIGEM = 'wh_origem_clique';
+  var origemClique = (function () {
+    var agora = Date.now(), q, salvo = null, novo = {};
+    try { q = new URLSearchParams(location.search); } catch (e) { return {}; }
+    ['gclid', 'gbraid', 'wbraid'].forEach(function (k) { var v = (q.get(k) || '').trim(); if (/^[\w-]{8,250}$/.test(v) && !novo.clique) { novo.clique = v; novo.tipo = k; } });
+    ['utm_source', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) { var v = (q.get(k) || '').replace(/[^\w\sÀ-ÿ.-]/g, ' ').trim().slice(0, 60); if (v) novo[k] = v; });
+    try { salvo = JSON.parse(localStorage.getItem(CHAVE_ORIGEM) || 'null'); } catch (e) { salvo = null; }
+    if (salvo && agora - (salvo.em || 0) > 90 * 864e5) salvo = null;
+    if (novo.clique || novo.utm_source) {
+      novo.em = agora;
+      try { localStorage.setItem(CHAVE_ORIGEM, JSON.stringify(novo)); } catch (e) { /* sem armazenamento, segue com a URL */ }
+      return novo;
+    }
+    return salvo || {};
+  })();
+
   // O que a pessoa estava olhando: o texto que o botao ja mandaria no WhatsApp
   // e a pagina. Vai como nota na ficha do lead.
   function contexto() {
@@ -168,13 +187,13 @@
     } catch (e) { /* texto estranho no link: fica sem */ }
     var pg = (location.pathname.split('/').pop() || 'inicio') + (location.search && /[?&]m=/.test(location.search) ? location.search.slice(0, 40) : '');
     partes.push('página: ' + pg.slice(0, 60));
-    try {
-      var q = new URLSearchParams(location.search), a = [];
-      [['utm_source', 'origem'], ['utm_campaign', 'campanha'], ['utm_content', 'anúncio']].forEach(function (p) {
-        var v = (q.get(p[0]) || '').replace(/[^\w\sÀ-ÿ.-]/g, ' ').trim().slice(0, 50); if (v) a.push(p[1] + ' ' + v);
-      });
-      if (a.length) partes.push(a.join(', '));
-    } catch (e) { /* navegador antigo */ }
+    // a campanha vem da primeira pagina da visita (guardada), nao so da atual
+    var a = [];
+    [['utm_source', 'origem'], ['utm_campaign', 'campanha'], ['utm_content', 'anúncio'], ['utm_term', 'busca']].forEach(function (p) {
+      if (origemClique[p[0]]) a.push(p[1] + ' ' + origemClique[p[0]]);
+    });
+    if (origemClique.clique) a.push('clique do Google Ads registrado');
+    if (a.length) partes.push(a.join(', '));
     return partes.join(' | ');
   }
 
@@ -183,7 +202,8 @@
     var d = {
       terreno: marcado('terreno'), prazo: marcado('prazo'), dormitorios: marcado('quartos'), faixa_investimento: marcado('faixa'),
       regiao: el('whqCidade').value.trim(), nome: el('whqNome').value.trim(), telefone: el('whqFone').value.replace(/\D/g, ''),
-      origem: DO_INSTAGRAM ? 'Instagram' : 'Site', nota_extra: contexto()
+      origem: DO_INSTAGRAM ? 'Instagram' : 'Site', nota_extra: contexto(),
+      clique: origemClique.clique || '', clique_tipo: origemClique.tipo || '', utm_source: origemClique.utm_source || ''
     };
     var faltas = [[!d.terreno, 0], [!d.prazo, 1], [!d.dormitorios, 2], [!d.faixa_investimento, 3], [!d.regiao, 4]];
     for (var i = 0; i < faltas.length; i++) if (faltas[i][0]) { mostra(faltas[i][1]); erro('Falta responder esta.'); return; }
