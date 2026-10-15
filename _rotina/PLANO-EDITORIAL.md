@@ -11,6 +11,8 @@ ou acrescentar tema a qualquer momento.
    - alvenaria comparável: **8 a 18 meses**;
    - **NENHUM valor em reais no site** (decisão do Evan em 14/10/2026): nem faixa de preço, nem preço de modelo, nem m². Preço só existe no catálogo interno da Central. Artigo sobre custo explica do que o valor depende e chama para a conversa;
    - espécies: Jatobá, Cedro, Grápia, Cambará, Angelim, Sucupira;
+   - garantia: **5 anos** (confirmado pelo Evan em 14/10/2026);
+   - custo: **pode chegar a até 40% mais econômico que alvenaria** (Evan, 14/10/2026); sem valor em reais;
    - telefone **(47) 3091-0877**.
    Se um artigo precisar de um número que não existe aqui, **deixar a pergunta anotada na
    seção "Dúvidas para o Evan"** e escrever o artigo sem ele.
