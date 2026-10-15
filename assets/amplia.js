@@ -12,7 +12,8 @@
  */
 (function () {
   'use strict';
-  var ALVOS = '.hero-img, .planta-box img, .gallery a, .gallery img';
+  // [data-amplia]: foto de fundo (data-bg) que tambem abre; as da mesma secao viram um grupo (15/10, pagina principal).
+  var ALVOS = '.hero-img, .planta-box img, .gallery a, .gallery img, [data-amplia]';
   var css = '' +
     '.amp{position:fixed;inset:0;z-index:99998;background:rgba(12,6,2,.94);display:none;}' +
     '.amp.on{display:block;}' +
@@ -25,7 +26,7 @@
     '.amp-seta{top:50%;transform:translateY(-50%);width:44px;height:44px;font-size:24px;line-height:44px;}' +
     '.amp-ant{left:10px;}.amp-prox{right:10px;}' +
     '.amp-dica{position:absolute;left:0;right:0;bottom:calc(14px + env(safe-area-inset-bottom));text-align:center;color:rgba(255,253,248,.7);font:500 12.5px Poppins,system-ui,sans-serif;pointer-events:none;}' +
-    '.hero-img,.planta-box img{cursor:zoom-in;}';
+    '.hero-img,.planta-box img,[data-amplia]{cursor:zoom-in;}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
   var caixa, rolo, img, dica, lista = [], pos = 0;
@@ -90,6 +91,13 @@
     var el = e.target && e.target.closest ? e.target.closest(ALVOS) : null;
     if (!el) return;
     var a = el.closest('.gallery a');
+    var fundo = function (x) { return x.getAttribute('data-amplia') || x.getAttribute('data-bg'); };
+    if (el.hasAttribute('data-amplia')) {
+      var sec = el.closest('section') || document;
+      var grupo = [].map.call(sec.querySelectorAll('[data-amplia]'), fundo).filter(Boolean);
+      if (fundo(el)) { e.preventDefault(); abre(fundo(el), grupo); }
+      return;
+    }
     var src = a ? a.getAttribute('href') : (el.currentSrc || el.src);
     if (!src) return;
     e.preventDefault();
