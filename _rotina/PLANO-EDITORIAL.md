@@ -42,7 +42,7 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [ ] **projeto casa de campo de madeira** (#31) · sinais da busca: casa de padrão, intenção de compra
+- [x] **projeto casa de campo de madeira** (#31) · sinais da busca: casa de padrão, intenção de compra · `projeto-casa-de-campo-madeira-nobre.html`
 - [ ] **rancho de madeira eucalipto** (#174) · sinais da busca: casa de padrão, dúvida de quem está decidindo
 - [ ] **rancho de madeira tratada** (#175) · sinais da busca: casa de padrão, dúvida de quem está decidindo
 - [ ] **projeto celeiro de madeira** (#193) · sinais da busca: casa de padrão, intenção de compra
@@ -93,6 +93,7 @@ Fica por último, e continua bloqueado:
 | 02/10/2026 | O que está incluso numa obra chave na mão | `o-que-esta-incluso-obra-chave-na-mao.html` |
 | 09/10/2026 | Casa de madeira nobre dá cupim? | `casa-de-madeira-nobre-da-cupim.html` |
 | 13/10/2026 | Como escolher uma construtora de casa de madeira nobre em SC | `como-escolher-construtora-casa-madeira-santa-catarina.html` |
+| 16/10/2026 | Como é um projeto de casa de campo em madeira nobre? | `projeto-casa-de-campo-madeira-nobre.html` |
 
 ## Dúvidas para o Evan
 
