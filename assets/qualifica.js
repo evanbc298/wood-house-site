@@ -26,6 +26,28 @@
   // nas perguntas, e o lead entra na Central com a origem "Instagram".
   var DO_INSTAGRAM = /[?&]atender=instagram(&|$)/.test(location.search);
 
+  // TAG DO GOOGLE ADS (15/10/2026). Carrega aqui porque este arquivo ja roda em toda pagina com botao
+  // de WhatsApp, inclusive a do anuncio. A conversao "Enviar formulario de lead" so dispara quando o
+  // lead chega na Central (fim das 6 perguntas). Sem o rotulo do evento, a tag carrega e nao conta nada.
+  var GADS_ID = 'AW-18449319881';
+  var GADS_ROTULO = '';
+  (function () {
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      if (!document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
+        var t = document.createElement('script'); t.async = true; t.src = 'https://www.googletagmanager.com/gtag/js?id=' + GADS_ID;
+        document.head.appendChild(t);
+      }
+      window.gtag('js', new Date());
+      window.gtag('config', GADS_ID);
+    } catch (e) { /* sem a tag, o site segue igual */ }
+  })();
+  function conversaoGoogle() {
+    if (!GADS_ROTULO) return;
+    try { window.gtag('event', 'conversion', { send_to: GADS_ID + '/' + GADS_ROTULO }); } catch (e) { /* sem tag */ }
+  }
+
   function jaRespondeu() { try { return sessionStorage.getItem(CHAVE) === '1'; } catch (e) { return false; } }
   function marcaRespondeu() { try { sessionStorage.setItem(CHAVE, '1'); } catch (e) { /* sem armazenamento, segue */ } }
 
@@ -217,6 +239,7 @@
         marcaRespondeu();
         el('whqForm').style.display = 'none'; el('whqOk').style.display = 'block';
         try { window.fbq('track', 'Lead'); } catch (e) { /* sem pixel */ }
+        conversaoGoogle();
         evento(DO_INSTAGRAM ? 'lead_instagram' : 'lead_site');
       })
       .catch(function () {
