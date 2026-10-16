@@ -42,7 +42,6 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [x] **projeto casa de campo de madeira** (#31) · sinais da busca: casa de padrão, intenção de compra · `projeto-casa-de-campo-madeira-nobre.html`
 - [ ] **rancho de madeira eucalipto** (#174) · sinais da busca: casa de padrão, dúvida de quem está decidindo
 - [ ] **rancho de madeira tratada** (#175) · sinais da busca: casa de padrão, dúvida de quem está decidindo
 - [ ] **projeto celeiro de madeira** (#193) · sinais da busca: casa de padrão, intenção de compra
