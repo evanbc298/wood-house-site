@@ -871,14 +871,14 @@
     /* ─── PARCEIROS ─── */
     #parceiros {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;   /* um painel so desde que o Plano Direto saiu (16/10/2026); eram 1fr 1fr */
       gap: 24px;
       padding: 80px 60px;
       background: var(--bg);
     }
     .par-panel {
       position: relative;
-      height: 340px;
+      height: 420px;   /* painel na largura toda desde 16/10/2026: mais alto para o rosto do corretor caber */
       overflow: hidden;
       display: flex;
       align-items: flex-end;
@@ -890,6 +890,7 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
+      object-position: center 18%;
       transition: transform .7s cubic-bezier(.4,0,.2,1);
     }
     .par-panel:hover img { transform: scale(1.05); }
@@ -2345,21 +2346,8 @@
       </div>
     </a>
 
-    <!-- Painel: Plano Direto -->
-    <div class="par-panel" style="cursor:pointer" onclick="window.open('https://wa.me/554730910877?text=Ol%C3%A1%2C+quero+conhecer+o+Plano+Direto+Wood+House+e+saber+como+funciona+o+parcelamento.','_blank')">
-      <img src="assets/plano-direto-bg.jpg" alt="Plano Direto WH" loading="lazy" decoding="async">
-      <div class="par-ov"></div>
-      <div class="par-txt">
-        <div class="par-tag">Financiamento próprio</div>
-        <div class="par-h">Parcelar sua casa<br>direto com a gente.</div>
-        <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <div class="par-btn">
-            Conhecer o Plano Direto
-            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Painel do Plano Direto RETIRADO em 16/10/2026 a pedido do fundador: o plano vai ser reformulado.
+         A foto (assets/plano-direto-bg.jpg) e o estilo ficaram guardados para quando ele voltar. -->
 
   </div>
 
