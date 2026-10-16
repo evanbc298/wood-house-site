@@ -28,9 +28,9 @@
 
   // TAG DO GOOGLE ADS (15/10/2026). Carrega aqui porque este arquivo ja roda em toda pagina com botao
   // de WhatsApp, inclusive a do anuncio. A conversao "Enviar formulario de lead" so dispara quando o
-  // lead chega na Central (fim das 6 perguntas). Sem o rotulo do evento, a tag carrega e nao conta nada.
+  // lead chega na Central (fim das 6 perguntas). O rotulo abaixo e o da acao de conversao criada na conta.
   var GADS_ID = 'AW-18449319881';
-  var GADS_ROTULO = '';
+  var GADS_ROTULO = '90VoCJSxs54dEMmPqd1E';   // snippet de evento "Enviar formulário de lead", mandado por ele em 15/10
   (function () {
     try {
       window.dataLayer = window.dataLayer || [];
@@ -45,7 +45,7 @@
   })();
   function conversaoGoogle() {
     if (!GADS_ROTULO) return;
-    try { window.gtag('event', 'conversion', { send_to: GADS_ID + '/' + GADS_ROTULO }); } catch (e) { /* sem tag */ }
+    try { window.gtag('event', 'conversion', { send_to: GADS_ID + '/' + GADS_ROTULO, value: 1.0, currency: 'USD' }); } catch (e) { /* sem tag */ }
   }
 
   function jaRespondeu() { try { return sessionStorage.getItem(CHAVE) === '1'; } catch (e) { return false; } }
