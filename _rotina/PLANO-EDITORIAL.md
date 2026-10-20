@@ -42,10 +42,10 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [x] **rancho de madeira eucalipto** (#174) · sinais da busca: casa de padrão, dúvida de quem está decidindo · `rancho-de-madeira-nobre-eucalipto-tratada.html`
-- [x] **rancho de madeira tratada** (#175) · sinais da busca: casa de padrão, dúvida de quem está decidindo · mesma dúvida de #174, respondida no mesmo artigo: `rancho-de-madeira-nobre-eucalipto-tratada.html`
 - [ ] **projeto celeiro de madeira** (#193) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **casa de campo de madeira e alvenaria** (#30) · sinais da busca: casa de padrão, dúvida de quem está decidindo
+- [ ] **casa de madeira alvenaria e vidro** (#88) · sinais da busca: casa de padrão, dúvida de quem está decidindo
+- [ ] **chalé de madeira 2 quartos preço** (#42) · sinais da busca: casa de padrão, intenção de compra
 <!-- PESQUISADOR:FIM -->
 
 ## Fila (o próximo é sempre o primeiro da lista)
