@@ -42,8 +42,8 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [ ] **rancho de madeira eucalipto** (#174) · sinais da busca: casa de padrão, dúvida de quem está decidindo
-- [ ] **rancho de madeira tratada** (#175) · sinais da busca: casa de padrão, dúvida de quem está decidindo
+- [x] **rancho de madeira eucalipto** (#174) · sinais da busca: casa de padrão, dúvida de quem está decidindo · `rancho-de-madeira-nobre-eucalipto-tratada.html`
+- [x] **rancho de madeira tratada** (#175) · sinais da busca: casa de padrão, dúvida de quem está decidindo · mesma dúvida de #174, respondida no mesmo artigo: `rancho-de-madeira-nobre-eucalipto-tratada.html`
 - [ ] **projeto celeiro de madeira** (#193) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **casa de campo de madeira e alvenaria** (#30) · sinais da busca: casa de padrão, dúvida de quem está decidindo
 <!-- PESQUISADOR:FIM -->
@@ -93,6 +93,7 @@ Fica por último, e continua bloqueado:
 | 09/10/2026 | Casa de madeira nobre dá cupim? | `casa-de-madeira-nobre-da-cupim.html` |
 | 13/10/2026 | Como escolher uma construtora de casa de madeira nobre em SC | `como-escolher-construtora-casa-madeira-santa-catarina.html` |
 | 16/10/2026 | Como é um projeto de casa de campo em madeira nobre? | `projeto-casa-de-campo-madeira-nobre.html` |
+| 20/10/2026 | Rancho de madeira: eucalipto, tratada ou madeira nobre, qual dura mais? | `rancho-de-madeira-nobre-eucalipto-tratada.html` |
 
 ## Dúvidas para o Evan
 
@@ -136,3 +137,10 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   decidir (a) se quer uma versão da página de obra entregue sem preço nem forma de pagamento,
   que a rotina poderia clonar com segurança, ou (b) se prefere continuar fazendo essas páginas
   de venda manualmente e dar à rotina um novo tema de blog para a fila.
+- Em 20/10/2026, nesta rodada, não consegui confirmar com `curl` que a URL nova responde 200
+  nem que ela aparece em whconstrutora.com.br, porque o ambiente desta sessão na nuvem bloqueia
+  acesso de saída para o domínio (`curl` e `WebFetch` para whconstrutora.com.br falharam por
+  política de rede do ambiente, não por erro no site). O código e o registro (card, sitemap,
+  llms.txt) foram feitos e revisados manualmente. Fica pendente conferir visualmente, numa
+  sessão com acesso ao domínio ou direto no navegador, que
+  `blog/rancho-de-madeira-nobre-eucalipto-tratada.html` publicou corretamente depois do push.
