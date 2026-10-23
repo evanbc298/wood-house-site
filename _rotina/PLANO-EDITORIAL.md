@@ -145,3 +145,9 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   llms.txt) foram feitos e revisados manualmente. Fica pendente conferir visualmente, numa
   sessão com acesso ao domínio ou direto no navegador, que
   `blog/rancho-de-madeira-nobre-eucalipto-tratada.html` publicou corretamente depois do push.
+- Em 23/10/2026, o mesmo bloqueio de rede do item acima se repetiu: `curl` para
+  `whconstrutora.com.br` deu erro de política de rede (CONNECT tunnel 403), não erro do site.
+  Parece ser uma restrição permanente deste ambiente de nuvem, não algo pontual. O código e o
+  registro de `blog/projeto-celeiro-madeira-nobre.html` (card, sitemap, FAQPage, llms.txt) foram
+  feitos e revisados manualmente, só falta a confirmação visual de que a página está no ar,
+  numa sessão com acesso ao domínio ou direto no navegador.
