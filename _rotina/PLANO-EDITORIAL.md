@@ -42,7 +42,7 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [ ] **casa de campo de madeira e alvenaria** (#30) · sinais da busca: casa de padrão, dúvida de quem está decidindo
+- [x] **casa de campo de madeira e alvenaria** (#30) · sinais da busca: casa de padrão, dúvida de quem está decidindo · `casa-de-campo-madeira-alvenaria.html`
 - [ ] **casa de madeira alvenaria e vidro** (#88) · sinais da busca: casa de padrão, dúvida de quem está decidindo
 - [ ] **chalé de madeira 2 quartos preço** (#42) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **chale de madeira parana** (#68) · sinais da busca: casa de padrão, região que atendemos
@@ -95,6 +95,7 @@ Fica por último, e continua bloqueado:
 | 16/10/2026 | Como é um projeto de casa de campo em madeira nobre? | `projeto-casa-de-campo-madeira-nobre.html` |
 | 20/10/2026 | Rancho de madeira: eucalipto, tratada ou madeira nobre, qual dura mais? | `rancho-de-madeira-nobre-eucalipto-tratada.html` |
 | 23/10/2026 | Como é um projeto de celeiro de madeira nobre? | `projeto-celeiro-madeira-nobre.html` |
+| 27/10/2026 | Dá para construir uma casa de campo combinando madeira nobre e alvenaria? | `casa-de-campo-madeira-alvenaria.html` |
 
 ## Dúvidas para o Evan
 
