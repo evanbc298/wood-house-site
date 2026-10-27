@@ -152,3 +152,12 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   registro de `blog/projeto-celeiro-madeira-nobre.html` (card, sitemap, FAQPage, llms.txt) foram
   feitos e revisados manualmente, só falta a confirmação visual de que a página está no ar,
   numa sessão com acesso ao domínio ou direto no navegador.
+- Em 27/10/2026, o mesmo bloqueio se repetiu de novo: `curl` para `whconstrutora.com.br`
+  (artigo novo, `/blog/` e `/sitemap.xml`) deu `CONNECT tunnel failed, response 403` do proxy
+  do ambiente, não erro do site. Já são três rodadas seguidas com o mesmo bloqueio (20/10,
+  23/10 e esta), então parece confirmado que é uma restrição permanente deste ambiente de
+  nuvem, não algo pontual. Talvez valha a pena liberar `whconstrutora.com.br` na política de
+  rede do ambiente, se o Evan quiser que a rotina confirme publicação sozinha. O código e o
+  registro de `blog/casa-de-campo-madeira-alvenaria.html` (card, sitemap, FAQPage, llms.txt)
+  foram feitos e revisados manualmente, só falta a confirmação visual de que a página está no
+  ar.
