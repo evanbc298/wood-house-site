@@ -42,7 +42,7 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [ ] **casa de madeira alvenaria e vidro** (#88) · sinais da busca: casa de padrão, dúvida de quem está decidindo
+- [x] **casa de madeira alvenaria e vidro** (#88) · sinais da busca: casa de padrão, dúvida de quem está decidindo · `casa-madeira-alvenaria-vidro.html`
 - [ ] **chalé de madeira 2 quartos preço** (#42) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **chale de madeira parana** (#68) · sinais da busca: casa de padrão, região que atendemos
 - [ ] **chalé de madeira preço** (#35) · sinais da busca: casa de padrão, intenção de compra
@@ -96,6 +96,7 @@ Fica por último, e continua bloqueado:
 | 20/10/2026 | Rancho de madeira: eucalipto, tratada ou madeira nobre, qual dura mais? | `rancho-de-madeira-nobre-eucalipto-tratada.html` |
 | 23/10/2026 | Como é um projeto de celeiro de madeira nobre? | `projeto-celeiro-madeira-nobre.html` |
 | 27/10/2026 | Dá para construir uma casa de campo combinando madeira nobre e alvenaria? | `casa-de-campo-madeira-alvenaria.html` |
+| 30/10/2026 | Dá para construir uma casa combinando madeira nobre, alvenaria e vidro? | `casa-madeira-alvenaria-vidro.html` |
 
 ## Dúvidas para o Evan
 
@@ -161,3 +162,12 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   registro de `blog/casa-de-campo-madeira-alvenaria.html` (card, sitemap, FAQPage, llms.txt)
   foram feitos e revisados manualmente, só falta a confirmação visual de que a página está no
   ar.
+- Em 30/10/2026, o mesmo bloqueio se repetiu de novo: `curl` para `whconstrutora.com.br` deu
+  `CONNECT tunnel failed, response 403` do proxy do ambiente, não erro do site. Já são quatro
+  rodadas seguidas (20/10, 23/10, 27/10 e esta) com o mesmo bloqueio, então é mesmo uma
+  restrição permanente deste ambiente de nuvem, não algo pontual. Vale liberar
+  `whconstrutora.com.br` na política de rede do ambiente, se o Evan quiser que a rotina
+  confirme publicação sozinha (ver `environment.network` nas configurações do ambiente). O
+  código e o registro de `blog/casa-madeira-alvenaria-vidro.html` (card, sitemap, FAQPage,
+  llms.txt) foram feitos e revisados manualmente, só falta a confirmação visual de que a
+  página está no ar.
