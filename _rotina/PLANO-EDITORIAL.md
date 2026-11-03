@@ -42,7 +42,7 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [ ] **projeto casa de madeira moderna** (#23) · sinais da busca: casa de padrão, intenção de compra
+- [x] **projeto casa de madeira moderna** (#23) · sinais da busca: casa de padrão, intenção de compra · `projeto-casa-de-madeira-moderna.html`
 - [ ] **quanto custa um chale de madeira pronto** (#46) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **chalé de madeira 2 quartos preço** (#42) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **chale de madeira parana** (#68) · sinais da busca: casa de padrão, região que atendemos
@@ -99,6 +99,7 @@ Fica por último, e continua bloqueado:
 | 23/10/2026 | Como é um projeto de celeiro de madeira nobre? | `projeto-celeiro-madeira-nobre.html` |
 | 27/10/2026 | Dá para construir uma casa de campo combinando madeira nobre e alvenaria? | `casa-de-campo-madeira-alvenaria.html` |
 | 30/10/2026 | Dá para construir uma casa combinando madeira nobre, alvenaria e vidro? | `casa-madeira-alvenaria-vidro.html` |
+| 03/11/2026 | Como é um projeto de casa de madeira moderna? | `projeto-casa-de-madeira-moderna.html` |
 
 ## Dúvidas para o Evan
 
@@ -173,3 +174,11 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   código e o registro de `blog/casa-madeira-alvenaria-vidro.html` (card, sitemap, FAQPage,
   llms.txt) foram feitos e revisados manualmente, só falta a confirmação visual de que a
   página está no ar.
+- Em 03/11/2026, o mesmo bloqueio se repetiu de novo: `curl` para `whconstrutora.com.br` deu
+  `CONNECT tunnel failed, response 403` do proxy do ambiente, não erro do site. Já são cinco
+  rodadas seguidas (20/10, 23/10, 27/10, 30/10 e esta) com o mesmo bloqueio, confirmando que é
+  uma restrição permanente deste ambiente de nuvem. Repito a sugestão: liberar
+  `whconstrutora.com.br` na política de rede do ambiente (`environment.network`), se o Evan
+  quiser que a rotina confirme publicação sozinha. O código e o registro de
+  `blog/projeto-casa-de-madeira-moderna.html` (card, sitemap, FAQPage, llms.txt) foram feitos e
+  revisados manualmente, só falta a confirmação visual de que a página está no ar.
