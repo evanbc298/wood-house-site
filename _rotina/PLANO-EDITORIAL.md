@@ -182,3 +182,11 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   quiser que a rotina confirme publicação sozinha. O código e o registro de
   `blog/projeto-casa-de-madeira-moderna.html` (card, sitemap, FAQPage, llms.txt) foram feitos e
   revisados manualmente, só falta a confirmação visual de que a página está no ar.
+- Em 06/11/2026, o mesmo bloqueio se repetiu de novo: `curl` para `whconstrutora.com.br` deu
+  `CONNECT tunnel failed, response 403` do proxy do ambiente, não erro do site. Já são seis
+  rodadas seguidas (20/10, 23/10, 27/10, 30/10, 03/11 e esta) com o mesmo bloqueio, confirmando
+  que é uma restrição permanente deste ambiente de nuvem. Repito a sugestão: liberar
+  `whconstrutora.com.br` na política de rede do ambiente (`environment.network`), se o Evan
+  quiser que a rotina confirme publicação sozinha. O código e o registro de
+  `blog/quanto-custa-chale-de-madeira-pronto.html` (card, sitemap, FAQPage, llms.txt) foram
+  feitos e revisados manualmente, só falta a confirmação visual de que a página está no ar.
