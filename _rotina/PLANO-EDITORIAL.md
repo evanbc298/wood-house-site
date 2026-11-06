@@ -42,7 +42,7 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [ ] **quanto custa um chale de madeira pronto** (#46) · sinais da busca: casa de padrão, intenção de compra
+- [x] **quanto custa um chale de madeira pronto** (#46) · sinais da busca: casa de padrão, intenção de compra · `quanto-custa-chale-de-madeira-pronto.html`
 - [ ] **chalé de madeira 2 quartos preço** (#42) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **chale de madeira parana** (#68) · sinais da busca: casa de padrão, região que atendemos
 - [ ] **chalé de madeira preço** (#35) · sinais da busca: casa de padrão, intenção de compra
@@ -99,6 +99,7 @@ Fica por último, e continua bloqueado:
 | 27/10/2026 | Dá para construir uma casa de campo combinando madeira nobre e alvenaria? | `casa-de-campo-madeira-alvenaria.html` |
 | 30/10/2026 | Dá para construir uma casa combinando madeira nobre, alvenaria e vidro? | `casa-madeira-alvenaria-vidro.html` |
 | 03/11/2026 | Como é um projeto de casa de madeira moderna? | `projeto-casa-de-madeira-moderna.html` |
+| 06/11/2026 | Quanto custa um chalé de madeira pronto? | `quanto-custa-chale-de-madeira-pronto.html` |
 
 ## Dúvidas para o Evan
 
