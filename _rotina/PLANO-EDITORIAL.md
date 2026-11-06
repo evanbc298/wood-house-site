@@ -42,7 +42,6 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [x] **quanto custa um chale de madeira pronto** (#46) · sinais da busca: casa de padrão, intenção de compra · `quanto-custa-chale-de-madeira-pronto.html`
 - [ ] **chalé de madeira 2 quartos preço** (#42) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **chale de madeira parana** (#68) · sinais da busca: casa de padrão, região que atendemos
 - [ ] **chalé de madeira preço** (#35) · sinais da busca: casa de padrão, intenção de compra
