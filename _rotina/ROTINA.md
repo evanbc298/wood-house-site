@@ -64,6 +64,11 @@ com potencial, depois artigo novo.
   e trocar cabeçalho, `<header class="article-hero">` e `<main class="article-body">`.
   Trocar também: title, description, canonical, og:*, e no JSON-LD headline, description,
   datePublished e mainEntityOfPage.
+- **Nunca tirar a linha `<script src="../assets/qualifica.js?v=...">` antes do `</body>`.** É o
+  filtro de 6 perguntas que abre antes do WhatsApp (pedido do Evan em 07/11/2026: os artigos
+  passaram a trazer leads, e o comercial precisa saber terreno, prazo e investimento). Todo
+  botão de WhatsApp do artigo continua `https://wa.me/554730910877?text=...` com uma frase
+  começando por "Olá, li o artigo sobre ...": é ela que faz o contato virar lead na Central.
 - **Para quem escrever.** O leitor é profissional ou empresário de médio e alto padrão, cansado
   da correria da cidade, que já conquistou o dinheiro e agora busca tempo de qualidade com a
   família. Ele não está comparando preço: está decidindo se a casa de madeira nobre entrega a
