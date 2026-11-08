@@ -199,6 +199,48 @@
     return salvo || {};
   })();
 
+  // CANAL DE CHEGADA (07/11/2026, medir o GEO). Sem utm, o anuncio nao diz nada, e os leads dos artigos chegavam
+  // sem saber se vieram do Google, de uma IA (ChatGPT, Gemini, Perplexity...) ou do Instagram. Na PRIMEIRA pagina
+  // da visita le o document.referrer (e o utm_source que o ChatGPT poe nos links), classifica e guarda por 90 dias
+  // com a pagina de entrada. Primeiro toque vale: so troca se chegar de novo por um canal externo diferente.
+  var CHAVE_CANAL = 'wh_canal';
+  function canalDe(host, utm) {
+    var s = ((utm || '') + ' ' + (host || '')).toLowerCase();
+    if (/chatgpt|openai/.test(s)) return 'IA: ChatGPT';
+    if (/perplexity/.test(s)) return 'IA: Perplexity';
+    if (/gemini|bard\./.test(s)) return 'IA: Gemini';
+    if (/copilot/.test(s)) return 'IA: Copilot';
+    if (/claude\.ai|anthropic/.test(s)) return 'IA: Claude';
+    if (/meta\.ai|deepseek|grok|you\.com|phind/.test(s)) return 'IA: outra';
+    if (/instagram|^ig\b|\big\b/.test(s)) return 'Instagram';
+    if (/facebook|^fb\b|\bfb\b|fb\.com|m\.me/.test(s)) return 'Facebook';
+    if (/youtube|youtu\.be/.test(s)) return 'YouTube';
+    if (/google|bing|duckduckgo|yahoo|ecosia|brave/.test(s)) return 'Busca';
+    if (/whatsapp|wa\.me/.test(s)) return 'WhatsApp';
+    if (utm) return 'Campanha';
+    return host ? 'Outro site: ' + host.slice(0, 40) : '';
+  }
+  var canal = (function () {
+    var salvo = null, host = '', utm = '';
+    try { salvo = JSON.parse(localStorage.getItem(CHAVE_CANAL) || 'null'); } catch (e) { salvo = null; }
+    if (salvo && Date.now() - (salvo.em || 0) > 90 * 864e5) salvo = null;
+    try { host = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, '') : ''; } catch (e) { host = ''; }
+    if (host && host === location.hostname.replace(/^www\./, '')) host = '';   // navegacao dentro do site
+    try { utm = new URLSearchParams(location.search).get('utm_source') || ''; } catch (e) { utm = ''; }
+    var c = canalDe(host, utm);
+    var pg = (location.pathname.replace(/^\/+/, '') || 'inicio').slice(0, 70);
+    if (c && (!salvo || salvo.canal !== c)) {
+      var novo = { canal: c, entrada: pg, em: Date.now() };
+      try { localStorage.setItem(CHAVE_CANAL, JSON.stringify(novo)); } catch (e) { /* sem armazenamento */ }
+      return novo;
+    }
+    if (salvo) return salvo;
+    // sem referrer e sem nada guardado: digitou o endereco, favorito ou app que esconde a origem
+    var dir = { canal: 'Direto', entrada: pg, em: Date.now() };
+    try { localStorage.setItem(CHAVE_CANAL, JSON.stringify(dir)); } catch (e) { /* sem armazenamento */ }
+    return dir;
+  })();
+
   // O que a pessoa estava olhando: o texto que o botao ja mandaria no WhatsApp
   // e a pagina. Vai como nota na ficha do lead.
   function contexto() {
@@ -216,6 +258,7 @@
     });
     if (origemClique.clique) a.push('clique do Google Ads registrado');
     if (a.length) partes.push(a.join(', '));
+    if (canal.canal) partes.push('canal: ' + canal.canal + ' · entrou por: ' + canal.entrada);
     return partes.join(' | ');
   }
 
@@ -225,7 +268,8 @@
       terreno: marcado('terreno'), prazo: marcado('prazo'), dormitorios: marcado('quartos'), faixa_investimento: marcado('faixa'),
       regiao: el('whqCidade').value.trim(), nome: el('whqNome').value.trim(), telefone: el('whqFone').value.replace(/\D/g, ''),
       origem: DO_INSTAGRAM ? 'Instagram' : 'Site', nota_extra: contexto(),
-      clique: origemClique.clique || '', clique_tipo: origemClique.tipo || '', utm_source: origemClique.utm_source || ''
+      clique: origemClique.clique || '', clique_tipo: origemClique.tipo || '', utm_source: origemClique.utm_source || '',
+      canal: canal.canal || '', entrada: canal.entrada || ''
     };
     var faltas = [[!d.terreno, 0], [!d.prazo, 1], [!d.dormitorios, 2], [!d.faixa_investimento, 3], [!d.regiao, 4]];
     for (var i = 0; i < faltas.length; i++) if (faltas[i][0]) { mostra(faltas[i][1]); erro('Falta responder esta.'); return; }
@@ -251,8 +295,22 @@
 
   // O clique em qualquer botao de WhatsApp do site. Vale tambem para os botoes
   // que a pagina cria depois (os dos modelos), porque escuta o documento.
+  // Todo clique num WhatsApp da empresa avisa a Central do canal (sem dado pessoal). Quem vai direto e manda a
+  // frase do botao ganha o canal na ficha; quem responde as perguntas ja leva o canal na nota.
+  function avisaClique(href) {
+    try {
+      var m = /[?&]text=([^&]*)/.exec(href || ''); if (!m) return;
+      var t = decodeURIComponent(m[1].replace(/\+/g, ' ')).replace(/\s+/g, ' ').trim().slice(0, 300); if (!t) return;
+      var corpo = JSON.stringify({ canal: canal.canal || '', entrada: canal.entrada || '', pagina: (location.pathname.replace(/^\/+/, '') || 'inicio').slice(0, 80), texto: t });
+      var url = DESTINO.replace(/\/lead$/, '/clique');
+      if (navigator.sendBeacon) navigator.sendBeacon(url, corpo);
+      else fetch(url, { method: 'POST', body: corpo, keepalive: true, mode: 'no-cors' });
+    } catch (e) { /* medir nunca atrapalha o clique */ }
+  }
+
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me/' + FONE + '"]') : null;
+    if (a) avisaClique(a.getAttribute('href'));
     if (!a || a.hasAttribute('data-direto')) return;
     if (fundo && fundo.contains(a)) return;                 // os links de dentro da propria janela
     if (a.closest('footer') || FORA.test(a.getAttribute('href') || '')) return;
