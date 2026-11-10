@@ -42,7 +42,7 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [ ] **chalé de madeira 2 quartos preço** (#42) · sinais da busca: casa de padrão, intenção de compra
+- [x] **chalé de madeira 2 quartos preço** (#42) · sinais da busca: casa de padrão, intenção de compra · `chale-de-madeira-nobre-2-quartos.html`
 - [ ] **chale de madeira parana** (#68) · sinais da busca: casa de padrão, região que atendemos
 - [ ] **chalé de madeira preço** (#35) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **chalé de madeira projeto** (#58) · sinais da busca: casa de padrão, intenção de compra
@@ -99,6 +99,7 @@ Fica por último, e continua bloqueado:
 | 30/10/2026 | Dá para construir uma casa combinando madeira nobre, alvenaria e vidro? | `casa-madeira-alvenaria-vidro.html` |
 | 03/11/2026 | Como é um projeto de casa de madeira moderna? | `projeto-casa-de-madeira-moderna.html` |
 | 06/11/2026 | Quanto custa um chalé de madeira pronto? | `quanto-custa-chale-de-madeira-pronto.html` |
+| 10/11/2026 | Como é um chalé de madeira nobre de 2 quartos? | `chale-de-madeira-nobre-2-quartos.html` |
 
 ## Dúvidas para o Evan
 
@@ -189,3 +190,10 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   quiser que a rotina confirme publicação sozinha. O código e o registro de
   `blog/quanto-custa-chale-de-madeira-pronto.html` (card, sitemap, FAQPage, llms.txt) foram
   feitos e revisados manualmente, só falta a confirmação visual de que a página está no ar.
+- Em 10/11/2026, sétima rodada seguida com o mesmo bloqueio de rede (`curl` para
+  `whconstrutora.com.br` deu `000`/falha de conexão, não erro do site). Deixo de repetir o
+  histórico completo a cada rodada: segue valendo a sugestão de liberar
+  `whconstrutora.com.br` em `environment.network` se o Evan quiser confirmação automática. O
+  código e o registro de `blog/chale-de-madeira-nobre-2-quartos.html` (card, sitemap, FAQPage,
+  llms.txt) foram feitos e revisados manualmente, só falta a confirmação visual de que a
+  página está no ar.
