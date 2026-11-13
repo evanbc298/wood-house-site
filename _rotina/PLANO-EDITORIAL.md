@@ -42,7 +42,7 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [ ] **chale de madeira parana** (#68) · sinais da busca: casa de padrão, região que atendemos
+- [x] **chale de madeira parana** (#68) · sinais da busca: casa de padrão, região que atendemos → `chale-de-madeira-nobre-parana.html`
 - [ ] **chalé de madeira preço** (#35) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **chalé de madeira projeto** (#58) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **chalé de madeira qual o valor** (#57) · sinais da busca: casa de padrão, intenção de compra
@@ -100,6 +100,7 @@ Fica por último, e continua bloqueado:
 | 03/11/2026 | Como é um projeto de casa de madeira moderna? | `projeto-casa-de-madeira-moderna.html` |
 | 06/11/2026 | Quanto custa um chalé de madeira pronto? | `quanto-custa-chale-de-madeira-pronto.html` |
 | 10/11/2026 | Como é um chalé de madeira nobre de 2 quartos? | `chale-de-madeira-nobre-2-quartos.html` |
+| 13/11/2026 | Dá para construir um chalé de madeira nobre no Paraná? | `chale-de-madeira-nobre-parana.html` |
 
 ## Dúvidas para o Evan
 
