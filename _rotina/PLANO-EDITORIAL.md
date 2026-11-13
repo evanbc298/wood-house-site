@@ -198,3 +198,8 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   código e o registro de `blog/chale-de-madeira-nobre-2-quartos.html` (card, sitemap, FAQPage,
   llms.txt) foram feitos e revisados manualmente, só falta a confirmação visual de que a
   página está no ar.
+- Em 13/11/2026, oitava rodada seguida com o mesmo bloqueio (`curl` para
+  `whconstrutora.com.br` deu `CONNECT tunnel failed, response 403`, do proxy do ambiente, não
+  do site). O código e o registro de `blog/chale-de-madeira-nobre-parana.html` (card, sitemap,
+  FAQPage, llms.txt) foram feitos e revisados manualmente, só falta a confirmação visual de
+  que a página está no ar.
