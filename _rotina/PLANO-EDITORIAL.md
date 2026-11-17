@@ -42,8 +42,8 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [ ] **chalé de madeira preço** (#35) · sinais da busca: casa de padrão, intenção de compra
-- [ ] **chalé de madeira projeto** (#58) · sinais da busca: casa de padrão, intenção de compra
+- [-] **chalé de madeira preço** (#35) · sinais da busca: casa de padrão, intenção de compra · já respondido em `quanto-custa-chale-de-madeira-pronto.html`
+- [x] **chalé de madeira projeto** (#58) · sinais da busca: casa de padrão, intenção de compra · `projeto-chale-de-madeira-nobre.html`
 - [ ] **chalé de madeira qual o valor** (#57) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **projeto casa de madeira 2 andares** (#719) · sinais da busca: casa de padrão, intenção de compra
 <!-- PESQUISADOR:FIM -->
@@ -101,6 +101,7 @@ Fica por último, e continua bloqueado:
 | 06/11/2026 | Quanto custa um chalé de madeira pronto? | `quanto-custa-chale-de-madeira-pronto.html` |
 | 10/11/2026 | Como é um chalé de madeira nobre de 2 quartos? | `chale-de-madeira-nobre-2-quartos.html` |
 | 13/11/2026 | Dá para construir um chalé de madeira nobre no Paraná? | `chale-de-madeira-nobre-parana.html` |
+| 17/11/2026 | Como é um projeto de chalé de madeira nobre? | `projeto-chale-de-madeira-nobre.html` |
 
 ## Dúvidas para o Evan
 
@@ -201,5 +202,9 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
 - Em 13/11/2026, oitava rodada seguida com o mesmo bloqueio (`curl` para
   `whconstrutora.com.br` deu `CONNECT tunnel failed, response 403`, do proxy do ambiente, não
   do site). O código e o registro de `blog/chale-de-madeira-nobre-parana.html` (card, sitemap,
+  FAQPage, llms.txt) foram feitos e revisados manualmente, só falta a confirmação visual de
+  que a página está no ar.
+- Em 17/11/2026, nona rodada seguida com o mesmo bloqueio (`CONNECT tunnel failed, response
+  403`). O código e o registro de `blog/projeto-chale-de-madeira-nobre.html` (card, sitemap,
   FAQPage, llms.txt) foram feitos e revisados manualmente, só falta a confirmação visual de
   que a página está no ar.
