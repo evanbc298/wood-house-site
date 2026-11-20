@@ -209,3 +209,10 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   403`). O código e o registro de `blog/projeto-chale-de-madeira-nobre.html` (card, sitemap,
   FAQPage, llms.txt) foram feitos e revisados manualmente, só falta a confirmação visual de
   que a página está no ar.
+- Em 20/11/2026, décima rodada seguida com o mesmo bloqueio de rede (`curl` para
+  `whconstrutora.com.br` deu `000`, falha de conexão, não erro do site). O código e o
+  registro de `blog/projeto-casa-de-madeira-2-andares.html` (card, sitemap, FAQPage, llms.txt)
+  foram feitos e revisados manualmente, só falta a confirmação visual de que a página está no
+  ar. Marquei também o item #57 da Fila do Pesquisador ("chalé de madeira qual o valor") como
+  já respondido em `quanto-custa-chale-de-madeira-pronto.html`, sem escrever artigo novo para
+  ele.
