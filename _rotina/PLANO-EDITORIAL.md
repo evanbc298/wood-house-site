@@ -42,10 +42,10 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [-] **chalé de madeira qual o valor** (#57) · sinais da busca: casa de padrão, intenção de compra · já respondido em `quanto-custa-chale-de-madeira-pronto.html`
-- [x] **projeto casa de madeira 2 andares** (#719) · sinais da busca: casa de padrão, intenção de compra · `projeto-casa-de-madeira-2-andares.html`
 - [ ] **projeto chalé de madeira pdf** (#59) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **projeto chalé de madeira pdf grátis** (#60) · sinais da busca: casa de padrão, intenção de compra
+- [ ] **projeto rancho de madeira** (#183) · sinais da busca: casa de padrão, intenção de compra
+- [ ] **projetos de chalé de madeira gratis** (#66) · sinais da busca: casa de padrão, intenção de compra
 <!-- PESQUISADOR:FIM -->
 
 ## Fila (o próximo é sempre o primeiro da lista)
