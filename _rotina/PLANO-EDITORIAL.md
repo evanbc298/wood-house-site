@@ -42,7 +42,7 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [ ] **projeto chalé de madeira pdf grátis** (#60) · sinais da busca: casa de padrão, intenção de compra
+- [x] **projeto chalé de madeira pdf grátis** (#60) · sinais da busca: casa de padrão, intenção de compra · `projeto-chale-de-madeira-pdf-gratis.html`
 - [ ] **projeto rancho de madeira** (#183) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **projeto sobrado de madeira** (#81) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **rancho de madeira com churrasqueira** (#180) · sinais da busca: casa de padrão, tempo com a família
@@ -103,6 +103,7 @@ Fica por último, e continua bloqueado:
 | 13/11/2026 | Dá para construir um chalé de madeira nobre no Paraná? | `chale-de-madeira-nobre-parana.html` |
 | 17/11/2026 | Como é um projeto de chalé de madeira nobre? | `projeto-chale-de-madeira-nobre.html` |
 | 20/11/2026 | Como é um projeto de casa de madeira nobre de 2 andares? | `projeto-casa-de-madeira-2-andares.html` |
+| 24/11/2026 | Dá para baixar um projeto de chalé de madeira em PDF grátis? | `projeto-chale-de-madeira-pdf-gratis.html` |
 
 ## Dúvidas para o Evan
 
