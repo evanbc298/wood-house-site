@@ -42,7 +42,7 @@ ferir alguma regra, trocar por `[-]`, escrever o motivo no fim da linha e seguir
 O leitor é quem quer investir numa casa de madeira bonita e imponente: nunca escrever para
 quem procura a opção mais barata.
 
-- [ ] **projeto rancho de madeira** (#183) · sinais da busca: casa de padrão, intenção de compra
+- [x] **projeto rancho de madeira** (#183) · sinais da busca: casa de padrão, intenção de compra · `projeto-rancho-madeira-nobre.html`
 - [ ] **projeto sobrado de madeira** (#81) · sinais da busca: casa de padrão, intenção de compra
 - [ ] **rancho de madeira com churrasqueira** (#180) · sinais da busca: casa de padrão, tempo com a família
 - [ ] **sobrado de madeira e alvenaria** (#1080) · sinais da busca: casa de padrão, dúvida de quem está decidindo
@@ -104,6 +104,7 @@ Fica por último, e continua bloqueado:
 | 17/11/2026 | Como é um projeto de chalé de madeira nobre? | `projeto-chale-de-madeira-nobre.html` |
 | 20/11/2026 | Como é um projeto de casa de madeira nobre de 2 andares? | `projeto-casa-de-madeira-2-andares.html` |
 | 24/11/2026 | Dá para baixar um projeto de chalé de madeira em PDF grátis? | `projeto-chale-de-madeira-pdf-gratis.html` |
+| 27/11/2026 | Como é um projeto de rancho de madeira nobre? | `projeto-rancho-madeira-nobre.html` |
 
 ## Dúvidas para o Evan
 
@@ -221,3 +222,13 @@ Perguntas que apareceram escrevendo e que ninguém deve responder por conta pró
   "no rule or network setting allows this host", do proxy do ambiente). O código e o registro
   de `blog/projeto-chale-de-madeira-pdf-gratis.html` (card, sitemap, FAQPage, llms.txt) foram
   feitos e revisados manualmente, só falta a confirmação visual de que a página está no ar.
+- Em 27/11/2026, décima segunda rodada seguida com o mesmo bloqueio (`curl` para
+  `whconstrutora.com.br` deu `000`, falha de conexão, não erro do site). Tentei desta vez pedir
+  para liberar `whconstrutora.com.br` via `update_environment`, mas a ferramenta recusou porque
+  esta rodada é automática e não há ninguém para aprovar a mudança (ela exige aprovação humana
+  em tempo real, mesmo em modo autônomo). Para resolver de vez: o Evan precisa abrir esta
+  rotina com "Run now" (ou equivalente) e, nessa execução, aprovar o pedido de liberar o host
+  `whconstrutora.com.br` nas configurações de rede do ambiente, ou fazer essa liberação ele
+  mesmo direto nas configurações do ambiente. O código e o registro de
+  `blog/projeto-rancho-madeira-nobre.html` (card, sitemap, FAQPage, llms.txt) foram feitos e
+  revisados manualmente, só falta a confirmação visual de que a página está no ar.
